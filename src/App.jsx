@@ -1,10 +1,13 @@
 import React from 'react';
+import NavBar from './components/Navbar/NavBar';
+import SecondPart from './components/MainSection/SecondPart';
 
 const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div className="fixed top-0 left-0 right-0 w-screen h-screen overflow-y-auto ">
+      <NavBar />
+      <SecondPart />
+    </div>
   );
 };
 
