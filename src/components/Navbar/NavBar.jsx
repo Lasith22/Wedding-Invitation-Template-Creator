@@ -1,7 +1,6 @@
 import React from 'react';
 
 import MainLogo from '../../assets/MainLogo.svg';
-import BirdLogo from '../../assets/bird_2.jpg';
 
 const NavBar = () => {
   const navigation = [
