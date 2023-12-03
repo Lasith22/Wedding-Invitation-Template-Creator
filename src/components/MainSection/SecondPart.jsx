@@ -30,7 +30,7 @@ const SecondPart = () => {
                 reprehenderit laudantium, a rerum ad aut velit sit?
               </p>
               <div className="mt-10  ">
-                <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full">
+                <button class=" bg-pink-500 cursor-pointer hover:bg-pink-300 text-white font-bold py-3 px-8 rounded-full">
                   Explore designs
                 </button>
               </div>

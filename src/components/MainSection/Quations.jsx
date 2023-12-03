@@ -5,7 +5,7 @@ const Quations = () => {
   return (
     <>
       <section>
-        <div className="flex flex-col lg:flex-row   mx-20">
+        <div className="flex flex-col lg:flex-row   mx-20 mt-10">
           {/* Any quiations sections */}
           <div className="flex flex-col">
             <h1 className="text-[50px] font-bold font-manrope  ">
@@ -48,7 +48,7 @@ const Quations = () => {
 
             <div className="flex items-stretch justify-between  gap-20  ">
               <h1 className="text-[20px] font-semibold font-manrope">
-                How Can I get the course?
+                How Can I Purchase?
               </h1>
 
               <img src={Plus} alt="" />
