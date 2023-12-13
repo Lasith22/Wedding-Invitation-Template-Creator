@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Designs from './MainScreen/Designs';
 import SignUp from './HomePage/SignUp';
+import ResetPassword from './ResetPassword/ResetPassword';
 const App = () => {
   return (
     <BrowserRouter>
@@ -10,6 +11,11 @@ const App = () => {
         <Routes>
           <Route path="/dashboard" element={<Designs />} />
           <Route path="/" element={<SignUp />} />
+
+          <Route
+            path="/account/forgot-password/provide-email"
+            element={<ResetPassword />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
