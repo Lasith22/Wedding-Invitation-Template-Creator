@@ -6,12 +6,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Modal, Input, Form, message, Alert } from 'antd';
 const NavBar = () => {
   const [isSignUpModalOpen, setSignUpIsModalOpen] = useState(false);
   const [logInModalOpen, setLogInMoalOpen] = useState(false);
-
+  const state = useLocation();
   const navigate = useNavigate();
 
   const showLogInModal = () => {
@@ -65,7 +65,12 @@ const NavBar = () => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((data) => {
         console.log('authData', data);
-        navigate('dashboard');
+        navigate('dashboard', {
+          state: {
+            email: values.email,
+            password: values.password,
+          },
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -132,7 +137,7 @@ const NavBar = () => {
                   onFinishFailed={onFinishFailed}
                 >
                   {/* input */}
-                  <div className=" mt-3 flex items-center justify-center flex-col gap-0 ">
+                  <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
                     <Form.Item
                       label="Email"
                       name="email"
@@ -168,7 +173,7 @@ const NavBar = () => {
                     </Form.Item>
                   </div>
 
-                  <h1 className="mt-10 mx-10 text-[15px]   font-bold font-manrope flex justify-center items-center ">
+                  <h1 className="mt-2 mx-10 text-[15px]   font-bold font-manrope flex justify-center items-center ">
                     Secure your account with a strong password for creating
                     beautiful wedding invitations
                   </h1>
