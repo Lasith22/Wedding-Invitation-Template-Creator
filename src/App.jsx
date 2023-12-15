@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Designs from './MainScreen/Designs';
 import SignUp from './HomePage/SignUp';
 import ResetPassword from './ResetPassword/ResetPassword';
+import CoupleDetailsPage from './MainScreen/CoupleDetailsPage';
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,6 +21,10 @@ const App = () => {
           <Route
             path="/account/forgot-password/provide-email"
             element={<ResetPassword />}
+          />
+          <Route
+            path="/account/coupleDetails"
+            element={<CoupleDetailsPage />}
           />
         </Routes>
       </div>
