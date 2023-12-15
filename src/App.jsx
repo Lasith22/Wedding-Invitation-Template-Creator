@@ -16,6 +16,11 @@ const App = () => {
             path="/account/forgot-password/provide-email"
             element={<ResetPassword />}
           />
+
+          <Route
+            path="/account/forgot-password/provide-email"
+            element={<ResetPassword />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
