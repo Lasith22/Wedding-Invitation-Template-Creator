@@ -132,7 +132,7 @@ const NavBar = () => {
                   onFinishFailed={onFinishFailed}
                 >
                   {/* input */}
-                  <div className=" mt-10 flex items-center justify-center flex-col gap-4 ">
+                  <div className=" mt-3 flex items-center justify-center flex-col gap-0 ">
                     <Form.Item
                       label="Email"
                       name="email"
