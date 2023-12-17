@@ -60,12 +60,12 @@ const NavBar = () => {
       });
   };
 
-  const onFinishSignIN = (values) => {
+  const onFinishSignUp = (values) => {
     console.log('Success:', values.email);
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((data) => {
         console.log('authData', data);
-        navigate('dashboard', {
+        navigate('/account/coupleDetails', {
           state: {
             email: values.email,
             password: values.password,
@@ -133,7 +133,7 @@ const NavBar = () => {
 
                 <Form
                   layout="vertical"
-                  onFinish={onFinishSignIN}
+                  onFinish={onFinishSignUp}
                   onFinishFailed={onFinishFailed}
                 >
                   {/* input */}

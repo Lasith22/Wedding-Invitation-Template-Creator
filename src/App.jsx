@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Designs from './MainScreen/Designs';
+import Dashboard from './MainScreen/Designs';
 import SignUp from './HomePage/SignUp';
 import ResetPassword from './ResetPassword/ResetPassword';
 import CoupleDetailsPage from './MainScreen/CoupleDetailsPage';
@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <div className="fixed top-0 left-0 right-0 w-screen h-screen overflow-y-auto ">
         <Routes>
-          <Route path="/dashboard" element={<Designs />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<SignUp />} />
 
           <Route

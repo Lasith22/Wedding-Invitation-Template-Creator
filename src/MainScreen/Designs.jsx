@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const Designs = () => {
+const Dashboard = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const logOut = () => {
@@ -21,4 +21,4 @@ const Designs = () => {
   );
 };
 
-export default Designs;
+export default Dashboard;

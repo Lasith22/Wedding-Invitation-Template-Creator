@@ -1,6 +1,9 @@
 import React from 'react';
-import { Card, Avatar } from 'antd';
+import { Card, Avatar, Image } from 'antd';
 import comma from '../../assets/comma.svg';
+import smallMan1 from '../../assets/smallMan1.svg';
+import smallMan2 from '../../assets/Ellipse 19062.svg';
+import smallMan3 from '../../assets/Ellipse 19063.svg';
 const CustomerStories = () => {
   return (
     <>
@@ -23,7 +26,7 @@ const CustomerStories = () => {
                     width: 400,
                   }}
                 >
-                  <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
+                  <Avatar src={smallMan1} size={40} />
                   <img className="mt-2" src={comma} alt="" />
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
                     <p>
@@ -46,6 +49,7 @@ const CustomerStories = () => {
                     width: 400,
                   }}
                 >
+                  <Avatar src={smallMan2} size={40} />
                   <img className="mt-2" src={comma} alt="" />
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
                     <p>
@@ -65,7 +69,11 @@ const CustomerStories = () => {
                     width: 400,
                   }}
                 >
-                  <img className="mt-2" src={comma} alt="" />
+                  <div className="flex flex-col justify-start items-start">
+                    <Avatar src={smallMan3} size={40} />
+                    <img className="mt-2" src={comma} alt="" />
+                  </div>
+
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
                     <p>
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
