@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal, Input, Form, message, Alert, Image, Typography } from 'antd';
 import Invitation from '../assets/be9139e4-0427-4ffc-953a-4b6b05a468cb.jpg';
+import { collection, doc, setDoc } from 'firebase/firestore';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,15 +13,33 @@ const CoupleDetailsPage = () => {
   const state = useLocation();
   const navigate = useNavigate();
 
-  const onFinishSignIN = (values) => {
+  const addDataToFirestore = async (values) => {
     console.log('Val', values);
+
+    try {
+      await setDoc(doc(db, 'USERS', state.state.email), {
+        yourFirstName: values.yourFirstName,
+        partnerFirstName: values.partnerFirstName,
+      });
+    } catch (error) {
+      console.log('adding data firestore error', error);
+    } finally {
+      navigate('/dashboard', {
+        state: {
+          email: state.state.email,
+        },
+      });
+    }
   };
   console.log('ALll VAle', state.state.email);
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
   return (
     <>
       <div className="flex h-screen">
         {/* left part */}
-        <div className="w-1/2 h-full  bg-[#FFFDD0]">
+        <div className="w-1/2 h-full  bg-[#FFFDD0] hidden lg:block">
           <div className="flex flex-col justify-center items-center mx-60">
             <div className="lg:mt-20  mt-40">
               <h1 className="text-[30px] ">
@@ -55,50 +74,56 @@ const CoupleDetailsPage = () => {
             <div>
               <Form
                 layout="vertical"
-                // onFinish={onFinishSignUp}
-                // onFinishFailed={onFinishFailed}
+                onFinish={addDataToFirestore}
+                onFinishFailed={onFinishFailed}
               >
                 {/* input */}
                 <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
                   <Form.Item
-                    label="Email"
-                    name="email"
+                    label="Your First Name"
+                    name="yourFirstName"
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your email!',
+                        message: 'Please input your  First Name!',
                       },
                     ]}
                   >
                     <Input
                       size="large"
-                      placeholder="Please Enter Your Email"
+                      placeholder="Alexandar"
                       style={{ width: 400 }}
                     />
                   </Form.Item>
 
                   <Form.Item
-                    label="Passowrd"
-                    name="password"
+                    label="Your Partner's First Name"
+                    name="partnerFirstName"
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your password!',
+                        message: 'Please input your  Your Partner First Name',
                       },
                     ]}
                   >
                     <Input
                       size="large"
-                      placeholder="Enter Strong Password"
+                      placeholder="Jessica"
                       style={{ width: 400 }}
                     />
                   </Form.Item>
                 </div>
 
                 <div className="mt-10 mb-10 items-center justify-center flex">
-                  <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[400px]">
-                    Sign up
+                  <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-lg w-[400px]">
+                    Next
                   </button>
+                  {/* <button
+                    type="button"
+                    class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-[400px]"
+                  >
+                    Next
+                  </button> */}
                 </div>
               </Form>
             </div>
