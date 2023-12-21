@@ -38,7 +38,11 @@ const NavBar = () => {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then((data) => {
         console.log('logData', data);
-        navigate('dashboard');
+        navigate('dashboard', {
+          state: {
+            email: values.email,
+          },
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
