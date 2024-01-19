@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { HeartTwoTone } from '@ant-design/icons';
+import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
 import { Dropdown } from 'antd';
 const Dashboard = () => {
@@ -61,23 +63,31 @@ const Dashboard = () => {
           <h1>{coupleNames.yourFirstName}</h1>
         </div>
 
+        <div className="flex items-center   ">
+          <img src={MainLogo} alt="" className="h-8" />
+        </div>
+
         {/* log out Part */}
         <div className="mr-6">
-          <Dropdown
-            menu={{
-              items,
-            }}
-            trigger={['click']}
-          >
-            <button> Your Account</button>
-          </Dropdown>
+          <div className="flex justify-between  gap-6">
+            <Dropdown
+              menu={{
+                items,
+              }}
+              trigger={['hover']}
+            >
+              <button className="border px-4 py-2">Your Account</button>
+            </Dropdown>
+          </div>
         </div>
+
+
       </div>
 
-      {/* {console.log(state)} */}
-      {/* <h1>{coupleNames.partnerFirstName}</h1>
-      <h1>{coupleNames.yourFirstName}</h1> */}
-      {/* <button onClick={logOut}> Sign Out</button> */}
+      {/* second part */}
+      <div className=''>
+
+      </div>
     </div>
   );
 };
