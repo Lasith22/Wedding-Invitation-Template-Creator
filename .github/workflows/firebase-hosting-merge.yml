@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEDDING_INVITATION_CREATOR }}'
+          firebaseServiceAccount: '${{ secrets.CREDENTIAL_FILE_CONTENT }}'
           channelId: live
           projectId: wedding-invitation-creator
