@@ -17,7 +17,7 @@ const DesignView = () => {
       <div className="flex flex-col bg-white justify-center items-center mt-20 mb-10 ">
         <h1 className=" text-[50px] font-bold  ">
           {' '}
-          Start Strong with These Inspiring Designs!
+          Start Strong with These Inspiring Designs!!!!
         </h1>
         <p className="mx-80">
           Amidst the delicate dance of design elements, our invitations weave a
