@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { HeartTwoTone } from '@ant-design/icons';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
 import { Dropdown } from 'antd';
@@ -31,7 +30,7 @@ const Dashboard = () => {
       }
     };
     getCoupleNames();
-  }, []);
+  }, [state.email]);
 
   const items = [
     {
@@ -80,14 +79,10 @@ const Dashboard = () => {
             </Dropdown>
           </div>
         </div>
-
-
       </div>
 
       {/* second part */}
-      <div className=''>
-
-      </div>
+      <div className=""></div>
     </div>
   );
 };

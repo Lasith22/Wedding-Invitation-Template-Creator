@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { UserOutlined } from '@ant-design/icons';
+
 import MainLogo from '../../assets/MainLogo.svg';
 import { auth } from '../../firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Modal, Input, Form, message, Alert } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { Modal, Input, Form, message } from 'antd';
 const NavBar = () => {
   const [isSignUpModalOpen, setSignUpIsModalOpen] = useState(false);
   const [logInModalOpen, setLogInMoalOpen] = useState(false);
-  const state = useLocation();
+
   const navigate = useNavigate();
 
   const showLogInModal = () => {

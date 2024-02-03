@@ -1,13 +1,10 @@
 import React from 'react';
-import { Modal, Input, Form, message, Alert, Image, Typography } from 'antd';
+import { Input, Form, Image, Typography } from 'antd';
 import Invitation from '../assets/be9139e4-0427-4ffc-953a-4b6b05a468cb.jpg';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { auth, db } from '../firebase';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+import { db } from '../firebase';
+
 const CoupleDetailsPage = () => {
   const { Title } = Typography;
   const state = useLocation();
