@@ -4,7 +4,8 @@ import { auth, db } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
-import { Dropdown } from 'antd';
+import { Dropdown, Image } from 'antd';
+import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
   const { state } = useLocation();
@@ -82,7 +83,52 @@ const Dashboard = () => {
       </div>
 
       {/* second part */}
-      <div className=""></div>
+      <div className="flex  justify-center items-center gap-12">
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Engagement Party
+        </h1>
+
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Greetings
+        </h1>
+
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  border-b-2 ">
+          Wedding
+        </h1>
+
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Home Comming
+        </h1>
+      </div>
+      <hr className="border-t border-gray-300 my-3" />
+
+      {/* actual templates section */}
+      <div className="flex justify-center items-center gap-10">
+        <Image
+          onClick={() => {
+            navigate('preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
+        <Image
+          onClick={() => {
+            navigate('preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
+        <Image
+          onClick={() => {
+            navigate('preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
+      </div>
     </div>
   );
 };
