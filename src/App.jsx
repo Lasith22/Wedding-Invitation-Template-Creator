@@ -6,6 +6,7 @@ import SignUp from './HomePage/SignUp';
 import ResetPassword from './ResetPassword/ResetPassword';
 import CoupleDetailsPage from './MainScreen/CoupleDetailsPage';
 import PreviewInvitation from './MainScreen/PreviewInvitation';
+import EditTemplate from './EditTemplate/EditTemplate';
 const App = () => {
   return (
     <BrowserRouter>
@@ -27,7 +28,9 @@ const App = () => {
             path="/account/coupleDetails"
             element={<CoupleDetailsPage />}
           />
-          <Route path="/dashboard/preview" element={<PreviewInvitation />} />
+          <Route path="dashboard/preview" element={<PreviewInvitation />} />
+
+          <Route path="dashboard/editTemplate" element={<EditTemplate />} />
         </Routes>
       </div>
     </BrowserRouter>

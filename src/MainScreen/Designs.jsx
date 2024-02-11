@@ -122,7 +122,7 @@ const Dashboard = () => {
         />
         <Image
           onClick={() => {
-            navigate('preview');
+            navigate('/dashboard/preview');
           }}
           preview={false}
           src={DummyDecoration}
