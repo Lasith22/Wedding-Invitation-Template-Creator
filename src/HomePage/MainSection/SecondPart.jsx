@@ -19,7 +19,7 @@ const SecondPart = () => {
             <div className="flex flex-col       ">
               <h1 className="mt-0 sm:mt-20 text-[40px]  lg:text-[50px] font-bold font-manrope">
                 {' '}
-                Wedding Website
+                Wedding Website!!
               </h1>
               {/* <img src={BigIcon} /> */}
 

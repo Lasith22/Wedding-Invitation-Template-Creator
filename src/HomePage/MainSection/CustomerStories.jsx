@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Avatar, Image } from 'antd';
+import { Card, Avatar } from 'antd';
 import comma from '../../assets/comma.svg';
 import smallMan1 from '../../assets/smallMan1.svg';
 import smallMan2 from '../../assets/Ellipse 19062.svg';

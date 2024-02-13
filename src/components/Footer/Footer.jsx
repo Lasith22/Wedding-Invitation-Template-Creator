@@ -3,7 +3,7 @@ import React from 'react';
 import PurplePhone from '../../assets/Group purplePhone.svg';
 import GreenPhone from '../../assets/Group  greenWhatapp.svg';
 import MainLogo from '../../assets/MainLogo.svg';
-import { Card, Avatar } from 'antd';
+import { Avatar } from 'antd';
 const Footer = () => {
   return (
     <>

@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { HeartTwoTone } from '@ant-design/icons';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
-import { Dropdown } from 'antd';
+import { Dropdown, Image } from 'antd';
+import Card2 from '../assets/Card 23.jpeg';
+import Card3 from '../assets/I wil .jpg';
+import videoBg from '../assets/vedio.mp4';
+
+import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
   const { state } = useLocation();
@@ -31,7 +35,7 @@ const Dashboard = () => {
       }
     };
     getCoupleNames();
-  }, []);
+  }, [state.email]);
 
   const items = [
     {
@@ -80,13 +84,93 @@ const Dashboard = () => {
             </Dropdown>
           </div>
         </div>
-
-
       </div>
 
       {/* second part */}
-      <div className=''>
+      <div className="flex  justify-center items-center gap-12">
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Engagement Party
+        </h1>
 
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Greetings
+        </h1>
+
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  border-b-2 ">
+          Wedding
+        </h1>
+
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+          Home Comming
+        </h1>
+      </div>
+      <hr className="border-t border-gray-300  " />
+
+      {/* second layer */}
+      <div className="bg-[#f5f1e6] h-80 mx-20 mb-10  ">
+        <div className="flex justify-between items-center">
+          {/* text */}
+          <div className="flex flex-col mx-10">
+            <h1 className="mt-0   text-[40px]  lg:text-[50px] text-[#BC8C05] font-bold font-manrope">
+              {' '}
+              Wedding Website!!
+            </h1>
+            <p className="text-18 font-inter text-darkdray mt-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              asperiores modi beatae
+              <br /> facere eum! Deleniti, consectetur, molestias reprehenderit
+              laudantium, a rerum ad aut velit sit?
+            </p>
+          </div>
+          <div className=" mr-10  ">
+            <img
+              src={Card2}
+              width="250"
+              height="50"
+              // style={{ transform: 'rotate(-8deg)' }}
+              alt=""
+            />
+          </div>
+
+          <div className="  mb-5    ">
+            <video
+              src={videoBg}
+              muted
+              width={170}
+              controls={false}
+              autoPlay={true}
+              loop={true}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* actual templates section */}
+      <div className="flex justify-center items-center gap-10">
+        <Image
+          onClick={() => {
+            navigate('preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
+        <Image
+          onClick={() => {
+            navigate('preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
+        <Image
+          onClick={() => {
+            navigate('/dashboard/preview');
+          }}
+          preview={false}
+          src={DummyDecoration}
+          width={400}
+        />
       </div>
     </div>
   );

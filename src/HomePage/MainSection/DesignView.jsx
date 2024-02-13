@@ -1,9 +1,9 @@
 import React from 'react';
-import Card2 from '../../assets/Card 23.jpeg';
+
 import Invitation1 from '../../assets/16922390_5774757.jpg';
 import Invitation2 from '../../assets/16695637_5771538.jpg';
 import Invitation3 from '../../assets/Invitation3.png';
-import { Modal, Input, Form, message, Alert, Image, Tag } from 'antd';
+import { Image } from 'antd';
 const DesignView = () => {
   return (
     <>
