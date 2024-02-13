@@ -5,6 +5,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
 import { Dropdown, Image } from 'antd';
+import Card2 from '../assets/Card 23.jpeg';
+import Card3 from '../assets/I wil .jpg';
+import videoBg from '../assets/vedio.mp4';
+
 import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
@@ -100,7 +104,46 @@ const Dashboard = () => {
           Home Comming
         </h1>
       </div>
-      <hr className="border-t border-gray-300 my-3" />
+      <hr className="border-t border-gray-300  " />
+
+      {/* second layer */}
+      <div className="bg-[#f5f1e6] h-80 mx-20 mb-10  ">
+        <div className="flex justify-between items-center">
+          {/* text */}
+          <div className="flex flex-col mx-10">
+            <h1 className="mt-0   text-[40px]  lg:text-[50px] text-[#BC8C05] font-bold font-manrope">
+              {' '}
+              Wedding Website!!
+            </h1>
+            <p className="text-18 font-inter text-darkdray mt-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+              asperiores modi beatae
+              <br /> facere eum! Deleniti, consectetur, molestias reprehenderit
+              laudantium, a rerum ad aut velit sit?
+            </p>
+          </div>
+          <div className=" mr-10  ">
+            <img
+              src={Card2}
+              width="250"
+              height="50"
+              // style={{ transform: 'rotate(-8deg)' }}
+              alt=""
+            />
+          </div>
+
+          <div className="  mb-5    ">
+            <video
+              src={videoBg}
+              muted
+              width={170}
+              controls={false}
+              autoPlay={true}
+              loop={true}
+            />
+          </div>
+        </div>
+      </div>
 
       {/* actual templates section */}
       <div className="flex justify-center items-center gap-10">
