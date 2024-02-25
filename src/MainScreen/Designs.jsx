@@ -54,7 +54,7 @@ const Dashboard = () => {
       key: '3',
     },
   ];
-  console.log('email', state.email);
+  console.log('email', state.email, coupleNames);
   return (
     <div>
       {/* top nav bar section with log out part */}
@@ -80,7 +80,7 @@ const Dashboard = () => {
               }}
               trigger={['hover']}
             >
-              <button className="border px-4 py-2">Your Account</button>
+              <button className="border px-4 py-2 ">Your Account</button>
             </Dropdown>
           </div>
         </div>
@@ -131,17 +131,6 @@ const Dashboard = () => {
               alt=""
             />
           </div>
-
-          <div className="  mb-5    ">
-            <video
-              src={videoBg}
-              muted
-              width={170}
-              controls={false}
-              autoPlay={true}
-              loop={true}
-            />
-          </div>
         </div>
       </div>
 
@@ -149,7 +138,11 @@ const Dashboard = () => {
       <div className="flex justify-center items-center gap-10">
         <Image
           onClick={() => {
-            navigate('preview');
+            navigate('preview', {
+              state: {
+                coupleNames: coupleNames,
+              },
+            });
           }}
           preview={false}
           src={DummyDecoration}
@@ -157,7 +150,11 @@ const Dashboard = () => {
         />
         <Image
           onClick={() => {
-            navigate('preview');
+            navigate('preview', {
+              state: {
+                coupleNames: coupleNames,
+              },
+            });
           }}
           preview={false}
           src={DummyDecoration}
@@ -165,7 +162,11 @@ const Dashboard = () => {
         />
         <Image
           onClick={() => {
-            navigate('/dashboard/preview');
+            navigate('/dashboard/preview', {
+              state: {
+                coupleNames: coupleNames,
+              },
+            });
           }}
           preview={false}
           src={DummyDecoration}

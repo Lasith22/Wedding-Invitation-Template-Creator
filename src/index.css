@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'KDROSE Regular';
+  src: url('/src/fonts/sepalikaplain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
