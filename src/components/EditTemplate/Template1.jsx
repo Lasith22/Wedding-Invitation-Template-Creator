@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import invitationImage from '../assets/Template.jpg';
+import invitationImage from '../../assets/Template.jpg';
 
 const Template1 = (props) => {
   const [position, setPosition] = useState({ x: 50, y: 50 }); // Initial position
@@ -9,6 +9,12 @@ const Template1 = (props) => {
       y: e.clientY,
     });
   };
+  const handleClick = () => {
+    if (props.onClickCoupleName) {
+      props.onClickCoupleName();
+    }
+  };
+  console.log('jiiii', props.selectFonts);
   return (
     <>
       <div className="relative max-w-lg mx-auto">
@@ -19,14 +25,15 @@ const Template1 = (props) => {
         />
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
           <div
-            className="text-4xl text-center font-sinhala  text-black"
-            style={{
-              left: `${position.x}px`,
-              top: `${position.y}px`,
-              cursor: 'move',
-            }}
-            draggable="true"
-            onDragEnd={handleDrag}
+            className={`text-4xl text-center font-${props.selectFonts} text-black`}
+            // style={{
+            //   left: `${position.x}px`,
+            //   top: `${position.y}px`,
+            //   cursor: 'move',
+            // }}
+            // draggable="true"
+            // onDragEnd={handleDrag}
+            // onClick={handleClick}
           >
             {props.coupleName}
           </div>

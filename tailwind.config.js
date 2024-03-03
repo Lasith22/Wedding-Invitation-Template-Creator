@@ -10,8 +10,10 @@ module.exports = {
         inter: ['Inter'],
         poppins: ['Poppins'],
         manrope: ['Manrope'],
-        sinhala: ['KDROSE Regular', 'sans-serif'],
-        sinhalaGoogleFont: ['Noto+Serif+Sinhala'],
+        sinhala1: ['KDROSE Regular', 'sans-serif'],
+        sinhala2: ['font2'],
+        sinhala3: ['font3'],
+
         // Add more font families as needed
       },
     },
