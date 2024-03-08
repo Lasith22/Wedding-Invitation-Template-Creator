@@ -7,12 +7,17 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Input, Form, message } from 'antd';
+import { Modal, Input, Form, message, Select } from 'antd';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
+
 const NavBar = () => {
   const [isSignUpModalOpen, setSignUpIsModalOpen] = useState(false);
   const [logInModalOpen, setLogInMoalOpen] = useState(false);
-
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const showLogInModal = () => {
     setLogInMoalOpen(true);
@@ -28,10 +33,10 @@ const NavBar = () => {
     setSignUpIsModalOpen(false);
   };
   const navigation = [
-    { name: 'Templates', href: '#', current: true },
-    { name: 'Wedding Website', href: '#', current: false },
-    { name: 'Ideas & Advice', href: '#', current: false },
-    { name: 'Vendors', href: '#', current: false },
+    { name: t('TEMPLATES'), href: '#', current: true },
+    { name: t('WEDDING_WEBSITE'), href: '#', current: false },
+    { name: t('IDEAS'), href: '#', current: false },
+    { name: t('VENDORS'), href: '#', current: false },
   ];
 
   const onFinishLogIn = (values) => {
@@ -53,7 +58,7 @@ const NavBar = () => {
           errorCode === 'auth/user-not-found' ||
           errorCode === 'auth/wrong-password'
         ) {
-          message.error('Invalid email or password. Please try again.');
+          message.error(t('INVALID_EMAIL'));
         } else {
           // Handle other errors or display a generic error message
           message.error(errorMessage);
@@ -83,9 +88,7 @@ const NavBar = () => {
         // Handle specific errors
         if (errorCode === 'auth/email-already-in-use') {
           // Display an error message using Ant Design message component
-          message.error(
-            'Email address is already in use. Please use a different email.',
-          );
+          message.error(t('EMAIL_ALREADY'));
         } else {
           // Handle other errors or display a generic error message
           message.error(errorMessage);
@@ -95,8 +98,13 @@ const NavBar = () => {
         console.error('Firebase authentication error:', error);
       });
   };
+
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
+  };
+
+  const handleLanguageChange = (value) => {
+    i18next.changeLanguage(value);
   };
   return (
     <>
@@ -129,10 +137,10 @@ const NavBar = () => {
             >
               <div className="flex flex-col justify-center items-center">
                 <h1 className="text-[10px]  lg:text-[30px] font-bold font-manrope">
-                  Welcome!
+                  {t('WELCOME')}
                 </h1>
                 <h1 className="text-[20px]   font-bold font-manrope">
-                  Sign Up for Mad Labs
+                  {t('SIGN_UP_FOR')}
                 </h1>
 
                 <Form
@@ -143,48 +151,47 @@ const NavBar = () => {
                   {/* input */}
                   <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
                     <Form.Item
-                      label="Email"
+                      label={t('PASSWORD')}
                       name="email"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your email!',
+                          message: t('PLEASE_INPUT'),
                         },
                       ]}
                     >
                       <Input
                         size="large"
-                        placeholder="Please Enter Your Email"
+                        placeholder={t('PLEASE_ENTER')}
                         style={{ width: 400 }}
                       />
                     </Form.Item>
 
                     <Form.Item
-                      label="Passowrd"
+                      label={t('PASSWORD')}
                       name="password"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your password!',
+                          message: t('PLEASE_INPUT_PASSOWRD'),
                         },
                       ]}
                     >
                       <Input.Password
                         size="large"
-                        placeholder="Enter Strong Password"
+                        placeholder={t('ENTER_STRONG')}
                         style={{ width: 400 }}
                       />
                     </Form.Item>
                   </div>
 
                   <h1 className="mt-2 mx-10 text-[15px]   font-bold font-manrope flex justify-center items-center ">
-                    Secure your account with a strong password for creating
-                    beautiful wedding invitations
+                    {t('SECURE_YOUR_ACCOUNT')}
                   </h1>
 
                   <div className="mt-10 mb-10 items-center justify-center flex">
                     <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[400px]">
-                      Sign up
+                      {t('SIGN_UP')}
                     </button>
                   </div>
                 </Form>
@@ -200,7 +207,7 @@ const NavBar = () => {
             >
               <div className="flex flex-col justify-center items-center">
                 <h1 className="text-[10px]  lg:text-[30px] font-bold font-manrope">
-                  Log in to Mad Labs
+                  {t('LOG_IN_TO')}
                 </h1>
                 {/* <h1 className="text-[20px]   font-bold font-manrope">
                   Sign Up for Mad Labs
@@ -214,35 +221,35 @@ const NavBar = () => {
                   {/* input */}
                   <div className=" mt-10 flex items-center justify-center flex-col gap-4 ">
                     <Form.Item
-                      label="Email"
+                      label={t('EMAIL')}
                       name="email"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your email!',
+                          message: t('PLEASE_INPUT'),
                         },
                       ]}
                     >
                       <Input
                         size="large"
-                        placeholder="Please Enter Your Email"
+                        placeholder={t('PLEASE_ENTER')}
                         style={{ width: 400 }}
                       />
                     </Form.Item>
 
                     <Form.Item
-                      label="Passowrd"
+                      label={t('PASSWORD')}
                       name="password"
                       rules={[
                         {
                           required: true,
-                          message: 'Please input your password!',
+                          message: t('PLEASE_INPUT_PASSOWRD'),
                         },
                       ]}
                     >
                       <Input.Password
                         size="large"
-                        placeholder="Enter Strong Password"
+                        placeholder={t('ENTER_STRONG')}
                         style={{ width: 400 }}
                       />
                     </Form.Item>
@@ -250,17 +257,17 @@ const NavBar = () => {
 
                   <div className="mt-10 mb-10 items-center justify-center flex">
                     <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-3 px-4 rounded-full w-[400px]">
-                      Log In
+                      {t('LOG_IN')}
                     </button>
                   </div>
                   <div
                     onClick={() => {
                       navigate('/account/forgot-password/provide-email');
                     }}
-                    className="   cursor-pointer mt-10 mx-10 text-[15px]   font-bold font-manrope flex justify-center items-center "
+                    className="cursor-pointer mt-10 mx-10 text-[15px]   font-bold font-manrope flex justify-center items-center "
                   >
                     <h1 className="border-black border-b ">
-                      Don't remember your password?
+                      {t('DONT_REMEMBER')}
                     </h1>
                   </div>
                 </Form>
@@ -272,15 +279,32 @@ const NavBar = () => {
                 onClick={showSignInModal}
                 class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full"
               >
-                Sign up
+                {t('SIGN_UP')}
               </button>
 
               <button
                 onClick={showLogInModal}
                 class=" bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full"
               >
-                Log in
+                {t('LOG_IN')}
               </button>
+            </div>
+
+            <div>
+              <Select
+                onChange={handleLanguageChange}
+                options={[
+                  {
+                    value: 'si',
+                    label: t('SINHALA'),
+                  },
+                  {
+                    value: 'en',
+                    label: t('ENGLISH'),
+                  },
+                ]}
+                style={{ width: 100 }}
+              />
             </div>
           </div>
         </div>

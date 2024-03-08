@@ -1,10 +1,13 @@
 import React from 'react';
-
 import Invitation1 from '../../assets/16922390_5774757.jpg';
 import Invitation2 from '../../assets/16695637_5771538.jpg';
 import Invitation3 from '../../assets/Invitation3.png';
 import { Image } from 'antd';
+import { useTranslation } from 'react-i18next';
+
 const DesignView = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* <div className=" h-[500px] bg-white">
@@ -15,10 +18,7 @@ const DesignView = () => {
         </div>
       </div> */}
       <div className="flex flex-col bg-white justify-center items-center mt-20 mb-10 ">
-        <h1 className=" text-[50px] font-bold  ">
-          {' '}
-          Start Strong with These Inspiring Designs!!!!
-        </h1>
+        <h1 className=" text-[50px] font-bold  "> {t('START_STRONG')}</h1>
         <p className="mx-80">
           Amidst the delicate dance of design elements, our invitations weave a
           tapestry of timeless sophistication, offering a glimpse into a world
@@ -33,13 +33,14 @@ const DesignView = () => {
             <div className="flex flex-col gap-3 ">
               <div className=" bg-yellow-400 bg-opacity-40  p-1 flex w-1/3 rounded-lg justify-center items-center   ">
                 <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
-                  CELEBRATE
+                  {t('CELEBRATE')}
                 </h1>
               </div>
 
               <h1 className="text-2xl font-bold font-inter  ">
-                Graceful invitations for <br />
-                unforgettable moments.
+                {t('GRACEFULL')}
+                <br />
+                {t('UNFORGETABLE')}
               </h1>
 
               <div className="flex border-b"></div>
@@ -52,13 +53,13 @@ const DesignView = () => {
             <div className="flex flex-col   gap-3 ">
               <div className="bg-[#B4A1DC]  p-1 flex w-1/3 rounded-lg justify-center items-center   ">
                 <h1 className="text-[#350B8C] font-semibold text-xl font-custom  ">
-                  ROMANCE
+                  {t('ROMANCE')}
                 </h1>
               </div>
 
               <h1 className="text-2xl font-bold font-inter  ">
-                Timeless designs for your <br />
-                special day.
+                {t('TIMLESS')} <br />
+                {t('SPECIAL_DAY')}
               </h1>
 
               <div className="flex border-b"></div>
@@ -71,13 +72,13 @@ const DesignView = () => {
             <div className="flex flex-col   gap-3 ">
               <div className="bg-[#F7C29B]  p-1 flex w-1/3 rounded-lg justify-center items-center   ">
                 <h1 className="text-[#964306] font-semibold text-xl font-custom  ">
-                  DREAMY
+                  {t('DREAMY')}
                 </h1>
               </div>
 
               <h1 className="text-2xl font-bold font-inter  ">
-                A touch of tradition, a world <br />
-                of elegance.
+                {t('A_TOUCH')} <br />
+                {t('OF_ELEGANCE')}
               </h1>
 
               <div className="flex border-b"></div>

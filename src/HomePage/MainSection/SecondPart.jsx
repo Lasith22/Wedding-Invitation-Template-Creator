@@ -5,8 +5,9 @@ import { ReactComponent as SecondStar } from '../../assets/SecondStar.svg';
 import { ReactComponent as Hat } from '../../assets/Hat.svg';
 import { ReactComponent as HalfMoon } from '../../assets/HalfMoon.svg';
 import Card2 from '../../assets/Card 23.jpeg';
-
+import { useTranslation } from 'react-i18next';
 const SecondPart = () => {
+  const { t } = useTranslation();
   return (
     <>
       <section>
@@ -18,8 +19,7 @@ const SecondPart = () => {
             </div>
             <div className="flex flex-col       ">
               <h1 className="mt-0 sm:mt-20 text-[40px]  lg:text-[50px] font-bold font-manrope">
-                {' '}
-                Wedding Website!!
+                {t('WEDDING_WEBSITE')}
               </h1>
               {/* <img src={BigIcon} /> */}
 
@@ -31,7 +31,7 @@ const SecondPart = () => {
               </p>
               <div className="mt-10  ">
                 <button class=" bg-pink-500 cursor-pointer hover:bg-pink-300 text-white font-bold py-3 px-8 rounded-full">
-                  Explore designs
+                  {t('EXPLORE')}
                 </button>
               </div>
             </div>

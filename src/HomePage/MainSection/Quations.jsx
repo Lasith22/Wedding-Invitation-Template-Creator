@@ -1,7 +1,10 @@
 import React from 'react';
 import Minus from '../../assets/Minus.svg';
 import Plus from '../../assets/plus.svg';
+import { useTranslation } from 'react-i18next';
 const Quations = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <section>
@@ -9,7 +12,7 @@ const Quations = () => {
           {/* Any quiations sections */}
           <div className="flex flex-col">
             <h1 className="text-[50px] font-bold font-manrope  ">
-              Any quations? <br /> We got you.
+              {t('ANY_QUATION')} <br /> {t('WE_GOT')}
             </h1>
             <p className="text-[18px] font-inter text-darkdray mt-10">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
@@ -22,7 +25,7 @@ const Quations = () => {
           <div className="flex flex-col ml-0 lg:ml-20 mt-10 lg:mt-0">
             <div className="flex items-stretch justify-between  gap-20  ">
               <h1 className="text-[20px] font-semibold font-manrope">
-                How this work?
+                {t('HOW_THIS')}
               </h1>
 
               <img src={Minus} alt="" />
@@ -38,7 +41,7 @@ const Quations = () => {
 
             <div className="flex items-stretch justify-between  gap-20  ">
               <h1 className="text-[20px] font-semibold font-manrope">
-                Are there any additional Fee?
+                {t('ARE_THERE')}
               </h1>
 
               <img src={Plus} alt="" />
@@ -48,7 +51,7 @@ const Quations = () => {
 
             <div className="flex items-stretch justify-between  gap-20  ">
               <h1 className="text-[20px] font-semibold font-manrope">
-                How Can I Purchase?
+                {t('HOW_CAN_I')}
               </h1>
 
               <img src={Plus} alt="" />
@@ -58,7 +61,7 @@ const Quations = () => {
 
             <div className="flex items-stretch justify-between  gap-20  ">
               <h1 className=" text-[20px] font-semibold font-manrope">
-                What materials do you offer and other not?
+                {t('WHAT_MATERIAL')}
               </h1>
 
               <img src={Plus} alt="" />

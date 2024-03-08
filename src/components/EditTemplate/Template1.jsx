@@ -14,7 +14,7 @@ const Template1 = (props) => {
       props.onClickCoupleName();
     }
   };
-  console.log('jiiii', props.selectFonts);
+
   return (
     <>
       <div className="relative max-w-lg mx-auto">

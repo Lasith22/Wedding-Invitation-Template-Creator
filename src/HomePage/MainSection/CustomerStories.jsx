@@ -4,7 +4,10 @@ import comma from '../../assets/comma.svg';
 import smallMan1 from '../../assets/smallMan1.svg';
 import smallMan2 from '../../assets/Ellipse 19062.svg';
 import smallMan3 from '../../assets/Ellipse 19063.svg';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 const CustomerStories = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div>
@@ -14,10 +17,10 @@ const CustomerStories = () => {
               <div className="flex flex-col mr-20">
                 <div className=" items-center justify-center lg:items-start   xl:mt-0">
                   <h1 className="mt-20  text-[50px] font-bold  ">
-                    Real Stories from <br />{' '}
-                    <span className="flex "> Real Customers </span>
+                    {t('REAL_STORIES')} <br />{' '}
+                    <span className="flex "> {t('REAL_CUSTOMERS')}</span>
                   </h1>
-                  <h1>Get nspired by these stories.</h1>
+                  <h1>{t('GET_INSPIRED')} </h1>
                 </div>
                 {/* 1st crd */}
 
