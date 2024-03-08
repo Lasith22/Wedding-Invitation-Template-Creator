@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Dashboard from './MainScreen/Designs';
-import SignUp from './HomePage/SignUp';
-import ResetPassword from './ResetPassword/ResetPassword';
+import Dashboard from 'MainScreen/Designs';
+import SignUp from 'HomePage/SignUp';
+import ResetPassword from 'ResetPassword/ResetPassword';
 import CoupleDetailsPage from './MainScreen/CoupleDetailsPage';
 import PreviewInvitation from './MainScreen/PreviewInvitation';
-import EditTemplate from './EditTemplate/EditTemplate';
+import EditTemplate from './components/EditTemplate/EditTemplate';
 const App = () => {
   return (
     <BrowserRouter>

@@ -4,8 +4,10 @@ import Invitation from '../assets/be9139e4-0427-4ffc-953a-4b6b05a468cb.jpg';
 import { doc, setDoc } from 'firebase/firestore';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
+import { useTranslation } from 'react-i18next';
 
 const CoupleDetailsPage = () => {
+  const { t } = useTranslation();
   const { Title } = Typography;
   const state = useLocation();
   const navigate = useNavigate();
@@ -39,10 +41,7 @@ const CoupleDetailsPage = () => {
         <div className="w-1/2 h-full  bg-[#FFFDD0] hidden lg:block">
           <div className="flex flex-col justify-center items-center mx-60">
             <div className="lg:mt-20  mt-40">
-              <h1 className="text-[30px] ">
-                Join over one million happy couples who planned their wedding
-                with Mad labs.
-              </h1>
+              <h1 className="text-[30px] ">{t('JOIN_OVER')}</h1>
             </div>
 
             <div className=" mt-10  ">
@@ -61,12 +60,10 @@ const CoupleDetailsPage = () => {
             </div>
 
             <h1 className="text-[30px] font-bold font-manrope">
-              Let’s get ready to get planning
+              {t('LETS_GET')}
             </h1>
 
-            <h1 className=" text-gray-500 font-manrope">
-              We'll need a few details first.
-            </h1>
+            <h1 className=" text-gray-500 font-manrope">{t('WE_WILL_NEED')}</h1>
 
             <div>
               <Form
@@ -77,12 +74,12 @@ const CoupleDetailsPage = () => {
                 {/* input */}
                 <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
                   <Form.Item
-                    label="Your First Name"
+                    label={t('YOUR_FIRST')}
                     name="yourFirstName"
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your  First Name!',
+                        message: t('PLEASE_INPUT_YOUR_FIRST'),
                       },
                     ]}
                   >
@@ -94,12 +91,12 @@ const CoupleDetailsPage = () => {
                   </Form.Item>
 
                   <Form.Item
-                    label="Your Partner's First Name"
+                    label={t('YOUR_PARTNERS')}
                     name="partnerFirstName"
                     rules={[
                       {
                         required: true,
-                        message: 'Please input your  Your Partner First Name',
+                        message: t('PLEASE_INPUT_YOUR_PARTNER'),
                       },
                     ]}
                   >
@@ -113,7 +110,7 @@ const CoupleDetailsPage = () => {
 
                 <div className="mt-10 mb-10 items-center justify-center flex">
                   <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-lg w-[400px]">
-                    Next
+                    {t('NEXT')}
                   </button>
                   {/* <button
                     type="button"

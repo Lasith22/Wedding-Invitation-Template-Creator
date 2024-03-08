@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'KDROSE Regular';
+  src: url('/src/fonts/24\ FM_Abaya_Bold\ sinhala\ font\ by\ Aluth.com.TTF')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'font2';
+  src: url('/src/fonts/apex01\ \(Fontsguru.US\).ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'font3';
+  src: url('/src/fonts/TharuDigitalSiyapatha.ttf') format('truetype');
+}
