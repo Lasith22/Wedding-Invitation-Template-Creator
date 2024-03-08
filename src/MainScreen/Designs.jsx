@@ -8,12 +8,16 @@ import { Dropdown, Image } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
 import Card3 from '../assets/I wil .jpg';
 import videoBg from '../assets/vedio.mp4';
+import { useTranslation } from 'react-i18next';
 
 import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
+
   const { state } = useLocation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
+
   const logOut = () => {
     signOut(auth).then((value) => {
       navigate('/');
@@ -21,7 +25,6 @@ const Dashboard = () => {
   };
 
   // get names of couples from firestore
-
   useEffect(() => {
     const getCoupleNames = async () => {
       const docRef = doc(db, 'USERS', state.email);
@@ -39,18 +42,18 @@ const Dashboard = () => {
 
   const items = [
     {
-      label: <h1 onClick={logOut}> Log out</h1>,
+      label: <h1 onClick={logOut}>{t('LOG_OUT')} </h1>,
       key: '0',
     },
     {
-      label: <a href="https://www.aliyun.com">Account Details</a>,
+      label: <a href="https://www.aliyun.com">{t('ACCOUNT_DETAILS')} </a>,
       key: '1',
     },
     {
       type: 'divider',
     },
     {
-      label: 'Help',
+      label: t('HELP'),
       key: '3',
     },
   ];
@@ -80,7 +83,9 @@ const Dashboard = () => {
               }}
               trigger={['hover']}
             >
-              <button className="border px-4 py-2 ">Your Account</button>
+              <button className="border px-4 py-2 ">
+                {t('YOUR_ACCOUNT')}{' '}
+              </button>
             </Dropdown>
           </div>
         </div>
@@ -89,19 +94,19 @@ const Dashboard = () => {
       {/* second part */}
       <div className="flex  justify-center items-center gap-12">
         <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
-          Engagement Party
+          {t('ENGAGEMENT_PARTY')}
         </h1>
 
         <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
-          Greetings
+          {t('GREETINGS')}
         </h1>
 
         <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  border-b-2 ">
-          Wedding
+          {t('WEDDING')}
         </h1>
 
         <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
-          Home Comming
+          {t('HOME_COMING')}
         </h1>
       </div>
       <hr className="border-t border-gray-300  " />
@@ -113,7 +118,7 @@ const Dashboard = () => {
           <div className="flex flex-col mx-10">
             <h1 className="mt-0   text-[40px]  lg:text-[50px] text-[#BC8C05] font-bold font-manrope">
               {' '}
-              Wedding Website!!
+              {t('WEDDING_WEBSITE!!')}
             </h1>
             <p className="text-18 font-inter text-darkdray mt-5">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
