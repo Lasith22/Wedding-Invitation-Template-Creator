@@ -25,7 +25,7 @@ const Template1 = (props) => {
         />
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
           <div
-            className={`text-4xl text-center font-${props.selectFonts} text-black`}
+            className={`text-4xl text-center  ${props.selectFonts} text-black`}
             // style={{
             //   left: `${position.x}px`,
             //   top: `${position.y}px`,

@@ -23,7 +23,7 @@ const EditTemplate = () => {
   const [venue, setvnue] = useState('Colmbo');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [selectFonts, setSelectFonts] = useState('sinhala1');
+  const [selectFonts, setSelectFonts] = useState('font-sinhala1');
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -148,7 +148,6 @@ const EditTemplate = () => {
               <div className=" flex justify-between items-center gap-3">
                 <Form.Item label="Enter Couple Names">
                   <Input.TextArea
-                    className="font-sinhala1"
                     defaultValue={coupleName}
                     onChange={onCoupleNameChange}
                     style={{ width: 400 }}
@@ -158,19 +157,101 @@ const EditTemplate = () => {
                 <Select
                   style={{ width: 200 }}
                   onChange={handleSelectFonts}
-                  defaultValue={'sinhala1'}
+                  defaultValue={'font-sinhala1'}
                   options={[
                     {
-                      value: 'sinhala1',
-                      label: 'sinhala1',
+                      value: 'font-sinhala1',
+                      label: (
+                        <span className=" font-sinhala1">Sachini & Lasith</span>
+                      ),
                     },
                     {
-                      value: 'sinhala2',
-                      label: 'sinhala2',
+                      value: 'font-sinhala2',
+                      label: (
+                        <span className=" font-sinhala2">Sachini & Lasith</span>
+                      ),
                     },
                     {
-                      value: 'sinhala3',
-                      label: 'sinhala3',
+                      value: 'font-sinhala3',
+                      label: (
+                        <span className=" font-sinhala3">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala4',
+                      label: (
+                        <span className=" font-sinhala4">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala5',
+                      label: (
+                        <span className=" font-sinhala5">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala6',
+                      label: (
+                        <span className=" font-sinhala6">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala7',
+                      label: (
+                        <span className=" font-sinhala7">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala8',
+                      label: (
+                        <span className=" font-sinhala8">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala9',
+                      label: (
+                        <span className=" font-sinhala9">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala10',
+                      label: (
+                        <span className=" font-sinhala10">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala11',
+                      label: (
+                        <span className=" font-sinhala11">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala12',
+                      label: (
+                        <span className=" font-sinhala12">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala13',
+                      label: (
+                        <span className=" font-sinhala13">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala14',
+                      label: (
+                        <span className=" font-sinhala14">
+                          Sachini & Lasith
+                        </span>
+                      ),
                     },
                   ]}
                 />

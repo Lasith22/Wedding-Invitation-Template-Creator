@@ -19,3 +19,58 @@
   font-family: 'font3';
   src: url('/src/fonts/TharuDigitalSiyapatha.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'font4';
+  src: url('/src/fonts/sepalikaplain.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font5';
+  src: url('/src/fonts/0KDBOLIDDA\ bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font6';
+  src: url('/src/fonts/Mihiravi.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font7';
+  src: url('/src/fonts/AH-COW-sinhala-font-by-sinhalafonts.me_.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'font8';
+  src: url('/src/fonts/AHHiru-sinhala-font-by-sinhalafonts.me_.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'font9';
+  src: url('/src/fonts/cpw_arana.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'font10';
+  src: url('/src/fonts//Mi_Harsha_Hollow-sinhala-font-by-sinhalafonts.me_.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'font11';
+  src: url('/src/fonts/Tharu-DC-Susum.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font12';
+  src: url('/src/fonts/keko-niruthi-Copy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'font13';
+  src: url('/src/fonts/GS-Minu-sinhala-font-by-sinhalafonts.me_.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'font14';
+  src: url('/src/fonts/AMS-Mindada-sinhala-font-by-sinhalafonts.me_.ttf')
+    format('truetype');
+}
