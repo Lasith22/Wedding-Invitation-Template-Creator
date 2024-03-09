@@ -6,8 +6,19 @@ import { ShareAltOutlined, FilePdfOutlined } from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
 import MainLogo from '../../assets/MainLogo.svg';
 import dayjs from 'dayjs';
-import { Form, Input, Dropdown, DatePicker, Modal, Drawer, Select } from 'antd';
+import {
+  Form,
+  Input,
+  Dropdown,
+  DatePicker,
+  Modal,
+  Drawer,
+  Select,
+  ColorPicker,
+} from 'antd';
 import { useTranslation } from 'react-i18next';
+
+import { HexColorPicker } from 'react-colorful';
 
 const EditTemplate = () => {
   const { t } = useTranslation();
@@ -23,7 +34,9 @@ const EditTemplate = () => {
   const [venue, setvnue] = useState('Colmbo');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [selectFonts, setSelectFonts] = useState('sinhala1');
+  const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala1');
+  const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala');
+  const [color, setColor] = useState('  ');
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -36,8 +49,8 @@ const EditTemplate = () => {
   const onClose = () => {
     setOpenDrawer(false);
   };
-  const onCustomeMessage = (value, date) => {
-    setCustomeMessage(value);
+  const onCustomeMessage = (e, date) => {
+    setCustomeMessage(e.target.value);
   };
 
   const onDateChange = (date, dateString) => {
@@ -56,10 +69,13 @@ const EditTemplate = () => {
     setIsModalOpen(false);
   };
   const handleSelectFonts = (value) => {
-    setSelectFonts(value);
-    console.log('fonts', value);
+    setCoupleNameFont(value);
   };
 
+  const handleColorPick = (value, hex) => {
+    setColor(hex);
+  };
+  console.log('Color', color);
   const handleDownloadPDF = () => {
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
@@ -96,7 +112,6 @@ const EditTemplate = () => {
     },
   ];
 
-  console.log('vale', selectFonts);
   return (
     <>
       <div className="bg-white border-b-2 border-gray-300">
@@ -124,31 +139,121 @@ const EditTemplate = () => {
           </div>
         </div>
       </div>
-      <div>
+
+      <div className=" bg-[#f1f1f5] h-screen flex justify-evenly items-center relative overflow-hidden">
         <Drawer
           width={100}
-          height={100}
+          height={80}
           placement="top"
-          closable={false}
+          closeIcon={false}
           onClose={onClose}
           open={openDrawer}
-          size="2"
-          mask={true}
-          push={10}
-          zIndex={20}
+          getContainer={false}
+          style={{
+            position: 'absolute',
+          }}
         >
-          <p>Some contents...</p>
+          <div className="flex justify-center items-center gap-10">
+            <Select
+              style={{ width: 200 }}
+              onChange={handleSelectFonts}
+              defaultValue={'font-sinhala1'}
+              options={[
+                {
+                  value: 'font-sinhala1',
+                  label: (
+                    <span className=" font-sinhala1">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala2',
+                  label: (
+                    <span className=" font-sinhala2">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala3',
+                  label: (
+                    <span className=" font-sinhala3">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala4',
+                  label: (
+                    <span className=" font-sinhala4">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala5',
+                  label: (
+                    <span className=" font-sinhala5">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala6',
+                  label: (
+                    <span className=" font-sinhala6">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala7',
+                  label: (
+                    <span className=" font-sinhala7">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala8',
+                  label: (
+                    <span className=" font-sinhala8">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala9',
+                  label: (
+                    <span className=" font-sinhala9">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala10',
+                  label: (
+                    <span className=" font-sinhala10">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala11',
+                  label: (
+                    <span className=" font-sinhala11">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala12',
+                  label: (
+                    <span className=" font-sinhala12">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala13',
+                  label: (
+                    <span className=" font-sinhala13">Sachini & Lasith</span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala14',
+                  label: (
+                    <span className=" font-sinhala14">Sachini & Lasith</span>
+                  ),
+                },
+              ]}
+            />
+            <ColorPicker onChange={handleColorPick} />
+          </div>
         </Drawer>
-      </div>
-
-      <div className=" bg-[#f1f1f5] h-screen flex justify-evenly items-center">
         <div className="  ">
           <Form layout="vertical">
             <div className=" mt-3 flex items-center justify-center flex-col gap-1">
               <div className=" flex justify-between items-center gap-3">
                 <Form.Item label="Enter Couple Names">
                   <Input.TextArea
-                    className="font-sinhala1"
                     defaultValue={coupleName}
                     onChange={onCoupleNameChange}
                     style={{ width: 400 }}
@@ -158,19 +263,101 @@ const EditTemplate = () => {
                 <Select
                   style={{ width: 200 }}
                   onChange={handleSelectFonts}
-                  defaultValue={'sinhala1'}
+                  defaultValue={'font-sinhala1'}
                   options={[
                     {
-                      value: 'sinhala1',
-                      label: 'sinhala1',
+                      value: 'font-sinhala1',
+                      label: (
+                        <span className=" font-sinhala1">Sachini & Lasith</span>
+                      ),
                     },
                     {
-                      value: 'sinhala2',
-                      label: 'sinhala2',
+                      value: 'font-sinhala2',
+                      label: (
+                        <span className=" font-sinhala2">Sachini & Lasith</span>
+                      ),
                     },
                     {
-                      value: 'sinhala3',
-                      label: 'sinhala3',
+                      value: 'font-sinhala3',
+                      label: (
+                        <span className=" font-sinhala3">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala4',
+                      label: (
+                        <span className=" font-sinhala4">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala5',
+                      label: (
+                        <span className=" font-sinhala5">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala6',
+                      label: (
+                        <span className=" font-sinhala6">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala7',
+                      label: (
+                        <span className=" font-sinhala7">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala8',
+                      label: (
+                        <span className=" font-sinhala8">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala9',
+                      label: (
+                        <span className=" font-sinhala9">Sachini & Lasith</span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala10',
+                      label: (
+                        <span className=" font-sinhala10">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala11',
+                      label: (
+                        <span className=" font-sinhala11">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala12',
+                      label: (
+                        <span className=" font-sinhala12">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala13',
+                      label: (
+                        <span className=" font-sinhala13">
+                          Sachini & Lasith
+                        </span>
+                      ),
+                    },
+                    {
+                      value: 'font-sinhala14',
+                      label: (
+                        <span className=" font-sinhala14">
+                          Sachini & Lasith
+                        </span>
+                      ),
                     },
                   ]}
                 />
@@ -220,7 +407,8 @@ const EditTemplate = () => {
             date={date}
             venue={venue}
             onClickCoupleName={showDrawer}
-            selectFonts={selectFonts}
+            selectFonts={coupleNameFonts}
+            color={color}
           />
         </div>
         <Modal
@@ -242,7 +430,7 @@ const EditTemplate = () => {
                 coupleName={coupleName}
                 date={date}
                 venue={venue}
-                selectFonts={selectFonts}
+                selectFonts={coupleNameFonts}
               />
             </div>
             <div className=" flex flex-1 items-center justify-center ">
