@@ -2,7 +2,12 @@ import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
-import { ShareAltOutlined, FilePdfOutlined } from '@ant-design/icons';
+import {
+  ShareAltOutlined,
+  FilePdfOutlined,
+  PlusOutlined,
+  MinusOutlined,
+} from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
 import MainLogo from '../../assets/MainLogo.svg';
 import dayjs from 'dayjs';
@@ -36,7 +41,8 @@ const EditTemplate = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala1');
   const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala');
-  const [color, setColor] = useState('  ');
+  const [color, setColor] = useState('#000000');
+  const [fontSize, setFontSize] = useState(30);
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -75,7 +81,7 @@ const EditTemplate = () => {
   const handleColorPick = (value, hex) => {
     setColor(hex);
   };
-  console.log('Color', color);
+
   const handleDownloadPDF = () => {
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
@@ -245,7 +251,31 @@ const EditTemplate = () => {
                 },
               ]}
             />
-            <ColorPicker onChange={handleColorPick} />
+            <ColorPicker onChange={handleColorPick} defaultValue={'#000000'} />
+            {/* font size change */}
+            <div className="flex justify-center items-center">
+              <button
+                onClick={() => {
+                  setFontSize(fontSize - 3);
+                }}
+                type="button"
+                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 font-medium rounded-l-full text-sm px-3 py-2.5  mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              >
+                <MinusOutlined />
+              </button>
+              <div className="px-3 py-2.5 mb-2 bg-white border border-gray-300 text-sm">
+                {fontSize}
+              </div>
+              <button
+                onClick={() => {
+                  setFontSize(fontSize + 3);
+                }}
+                type="button"
+                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-r-full text-sm px-3 py-2.5   mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              >
+                <PlusOutlined />
+              </button>
+            </div>
           </div>
         </Drawer>
         <div className="  ">
@@ -409,6 +439,7 @@ const EditTemplate = () => {
             onClickCoupleName={showDrawer}
             selectFonts={coupleNameFonts}
             color={color}
+            fontSize={fontSize}
           />
         </div>
         <Modal
