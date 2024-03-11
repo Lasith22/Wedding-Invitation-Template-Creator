@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import invitationImage from '../../assets/Template.jpg';
-
+import Draggable from 'react-draggable';
 const Template1 = (props) => {
   const [position, setPosition] = useState({ x: 50, y: 50 }); // Initial position
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
@@ -17,7 +17,7 @@ const Template1 = (props) => {
       props.onClickCoupleName();
     }
   };
-  console.log('hell', props.color);
+  console.log('font size', props.fontSize);
   return (
     <>
       <div className="relative max-w-lg mx-auto">
@@ -27,28 +27,26 @@ const Template1 = (props) => {
           className="w-full"
         />
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
-          <div
-            className={`text-4xl text-center     ${
-              props.selectFonts
-            }   border-2 p-3 ${
-              isHoveredCoupleName
-                ? ' border-dashed  bg-gray-100'
-                : 'border-none'
-            }   `}
-            style={{
-              left: `${position.x}px`,
-              top: `${position.y}px`,
-              cursor: 'move',
-              color: `${props.color}`,
-            }}
-            draggable="true"
-            onDragEnd={handleDrag}
-            onClick={handleClick}
-            onMouseEnter={() => setIsHoveredCoupleName(true)}
-            onMouseLeave={() => setIsHoveredCoupleName(false)}
-          >
-            {props.coupleName}
-          </div>
+          <Draggable>
+            <div
+              className={` text-center ${props.selectFonts} border-2 p-3 ${
+                isHoveredCoupleName
+                  ? ' border-dashed  bg-gray-100'
+                  : 'border-none'
+              }   `}
+              style={{
+                color: `${props.color}`,
+                fontSize: props.fontSize,
+                cursor: 'move',
+              }}
+              onClick={handleClick}
+              onMouseEnter={() => setIsHoveredCoupleName(true)}
+              onMouseLeave={() => setIsHoveredCoupleName(false)}
+            >
+              {props.coupleName}
+            </div>
+          </Draggable>
+
           <p
             onClick={handleClick}
             onMouseEnter={() => setIsHoveredCustomMessage(true)}
