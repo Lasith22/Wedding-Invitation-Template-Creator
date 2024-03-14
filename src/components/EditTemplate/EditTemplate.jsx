@@ -28,6 +28,21 @@ import { ReactComponent as Svg2 } from '../../svg/wedding1.svg';
 import { ReactComponent as Svg3 } from '../../svg/wedding3.svg';
 import { ReactComponent as Svg4 } from '../../svg/wedding4.svg';
 
+import { ReactComponent as Svg5 } from '../../svg/daisy-bouquet-svgrepo-com.svg';
+import { ReactComponent as Svg6 } from '../../svg/empty-wine-glass-svgrepo-com.svg';
+import { ReactComponent as Svg7 } from '../../svg/wedding-cake-sweet-svgrepo-com.svg';
+import { ReactComponent as Svg8 } from '../../svg/wedding-car-svgrepo-com.svg';
+import { ReactComponent as Svg9 } from '../../svg/wedding-couple-svgrepo-com (1).svg';
+
+import { ReactComponent as Svg10 } from '../../svg/wedding-couple-svgrepo-com (2).svg';
+import { ReactComponent as Svg11 } from '../../svg/wedding-couple-svgrepo-com.svg';
+import { ReactComponent as Svg12 } from '../../svg/wedding-invitation-svgrepo-com (1).svg';
+import { ReactComponent as Svg13 } from '../../svg/wedding-rings-svgrepo-com.svg';
+
+import { ReactComponent as Svg14 } from '../../svg/wedding-rings-wedding-svgrepo-com (1).svg';
+import { ReactComponent as Svg15 } from '../../svg/wedding-rings-wedding-svgrepo-com.svg';
+import { ReactComponent as Svg16 } from '../../svg/wedding-rings-wedding-svgrepo-com.svg';
+
 import { HexColorPicker } from 'react-colorful';
 
 const EditTemplate = () => {
@@ -50,6 +65,7 @@ const EditTemplate = () => {
   const [fontSize, setFontSize] = useState(30);
   const [isIconDrawerVisible, setIsIconDrawerVisible] = useState(false);
   const [selectedSvg, setSelectedSvg] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('svg');
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -96,11 +112,30 @@ const EditTemplate = () => {
     setSelectedSvg(<SvgComponent />);
   };
 
-  const svgs = [
-    { id: 'svg1', component: Svg1 },
+  const handleSelectSVGcatogory = (value) => {
+    setSelectedCategory(value);
+  };
+
+  const culturalSvg = [
     { id: 'svg2', component: Svg2 },
     { id: 'svg3', component: Svg3 },
     { id: 'svg4', component: Svg4 },
+  ];
+
+  const svgs = [
+    { id: 'svg1', component: Svg1 },
+    { id: 'svg5', component: Svg5 },
+    { id: 'svg6', component: Svg6 },
+    { id: 'svg7', component: Svg7 },
+    { id: 'svg8', component: Svg8 },
+    { id: 'svg9', component: Svg9 },
+    { id: 'svg10', component: Svg10 },
+    { id: 'svg11', component: Svg11 },
+    { id: 'svg12', component: Svg12 },
+    { id: 'svg13', component: Svg13 },
+    { id: 'svg14', component: Svg14 },
+    { id: 'svg15', component: Svg15 },
+    { id: 'svg16', component: Svg16 },
 
     // Add more SVGs as needed
   ];
@@ -392,8 +427,29 @@ const EditTemplate = () => {
           onClose={toggleIconDrawer} // Use the same function to close the drawer
           visible={isIconDrawerVisible}
         >
-          <div className="svg-container">
-            {svgs.map((svg) => (
+          <Select
+            className="my-5"
+            style={{ width: 300 }}
+            onChange={handleSelectSVGcatogory}
+            defaultValue="svg"
+            options={[
+              {
+                value: 'culturalSvg',
+                label: 'Cultural',
+              },
+              {
+                value: 'svg',
+                label: 'wedding',
+              },
+            ]}
+          />
+          <div className=" flex flex-wrap justify-around items-center gap-4  ">
+            {(selectedCategory === 'svg'
+              ? svgs
+              : selectedCategory === 'culturalSvg'
+              ? culturalSvg
+              : []
+            ).map((svg) => (
               <button
                 key={svg.id}
                 onClick={() => handleSelectSvg(svg.component)}
