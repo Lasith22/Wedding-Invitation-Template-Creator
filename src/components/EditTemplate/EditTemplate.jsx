@@ -20,8 +20,13 @@ import {
   Drawer,
   Select,
   ColorPicker,
+  Button,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as Svg1 } from '../../svg/wedding-photography-svgrepo-com.svg';
+import { ReactComponent as Svg2 } from '../../svg/wedding1.svg';
+import { ReactComponent as Svg3 } from '../../svg/wedding3.svg';
+import { ReactComponent as Svg4 } from '../../svg/wedding4.svg';
 
 import { HexColorPicker } from 'react-colorful';
 
@@ -43,6 +48,8 @@ const EditTemplate = () => {
   const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala');
   const [color, setColor] = useState('#000000');
   const [fontSize, setFontSize] = useState(30);
+  const [isIconDrawerVisible, setIsIconDrawerVisible] = useState(false);
+  const [selectedSvg, setSelectedSvg] = useState(null);
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -81,7 +88,22 @@ const EditTemplate = () => {
   const handleColorPick = (value, hex) => {
     setColor(hex);
   };
+  const toggleIconDrawer = () => {
+    setIsIconDrawerVisible(!isIconDrawerVisible);
+  };
+  // Function to handle SVG selection
+  const handleSelectSvg = (SvgComponent) => {
+    setSelectedSvg(<SvgComponent />);
+  };
 
+  const svgs = [
+    { id: 'svg1', component: Svg1 },
+    { id: 'svg2', component: Svg2 },
+    { id: 'svg3', component: Svg3 },
+    { id: 'svg4', component: Svg4 },
+
+    // Add more SVGs as needed
+  ];
   const handleDownloadPDF = () => {
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
@@ -127,7 +149,9 @@ const EditTemplate = () => {
             <div className="flex items-start   ">
               <img src={MainLogo} alt="" className="h-8" />
             </div>
-
+            <Button type="primary" onClick={toggleIconDrawer}>
+              Add Cultural Icon
+            </Button>
             <Dropdown
               menu={{
                 items,
@@ -161,92 +185,176 @@ const EditTemplate = () => {
         >
           <div className="flex justify-center items-center gap-10">
             <Select
-              style={{ width: 200 }}
+              style={{ width: 300 }}
               onChange={handleSelectFonts}
               defaultValue={'font-sinhala1'}
               options={[
                 {
                   value: 'font-sinhala1',
                   label: (
-                    <span className=" font-sinhala1">Sachini & Lasith</span>
+                    <span className=" font-sinhala1 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala2',
                   label: (
-                    <span className=" font-sinhala2">Sachini & Lasith</span>
+                    <span className=" font-sinhala2 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala3',
                   label: (
-                    <span className=" font-sinhala3">Sachini & Lasith</span>
+                    <span className=" font-sinhala3 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala4',
                   label: (
-                    <span className=" font-sinhala4">Sachini & Lasith</span>
+                    <span className=" font-sinhala4 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala5',
                   label: (
-                    <span className=" font-sinhala5">Sachini & Lasith</span>
+                    <span className=" font-sinhala5 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala6',
                   label: (
-                    <span className=" font-sinhala6">Sachini & Lasith</span>
+                    <span className=" font-sinhala6 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala7',
                   label: (
-                    <span className=" font-sinhala7">Sachini & Lasith</span>
+                    <span className=" font-sinhala7 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala8',
                   label: (
-                    <span className=" font-sinhala8">Sachini & Lasith</span>
+                    <span className=" font-sinhala8 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala9',
                   label: (
-                    <span className=" font-sinhala9">Sachini & Lasith</span>
+                    <span className=" font-sinhala9 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala10',
                   label: (
-                    <span className=" font-sinhala10">Sachini & Lasith</span>
+                    <span className=" font-sinhala10 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala11',
                   label: (
-                    <span className=" font-sinhala11">Sachini & Lasith</span>
+                    <span className=" font-sinhala11 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala12',
                   label: (
-                    <span className=" font-sinhala12">Sachini & Lasith</span>
+                    <span className=" font-sinhala12 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala13',
                   label: (
-                    <span className=" font-sinhala13">Sachini & Lasith</span>
+                    <span className=" font-sinhala13 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
                 {
                   value: 'font-sinhala14',
                   label: (
-                    <span className=" font-sinhala14">Sachini & Lasith</span>
+                    <span className=" font-sinhala14 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala15',
+                  label: (
+                    <span className=" font-sinhala15 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala16',
+                  label: (
+                    <span className=" font-sinhala16 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala17',
+                  label: (
+                    <span className=" font-sinhala17 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala18',
+                  label: (
+                    <span className=" font-sinhala18 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala19',
+                  label: (
+                    <span className=" font-sinhala19 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala20',
+                  label: (
+                    <span className=" font-sinhala20 text-2xl">
+                      Sachini & Lasith
+                    </span>
+                  ),
+                },
+                {
+                  value: 'font-sinhala21',
+                  label: (
+                    <span className=" font-sinhala21 text-2xl">
+                      Sachini & Lasith
+                    </span>
                   ),
                 },
               ]}
@@ -276,6 +384,24 @@ const EditTemplate = () => {
                 <PlusOutlined />
               </button>
             </div>
+          </div>
+        </Drawer>
+        <Drawer
+          title="Choose a Cultural Icon"
+          placement="left"
+          onClose={toggleIconDrawer} // Use the same function to close the drawer
+          visible={isIconDrawerVisible}
+        >
+          <div className="svg-container">
+            {svgs.map((svg) => (
+              <button
+                key={svg.id}
+                onClick={() => handleSelectSvg(svg.component)}
+                className="svg-button"
+              >
+                <svg.component width="100" height="100" />
+              </button>
+            ))}
           </div>
         </Drawer>
         <div className="  ">
@@ -440,6 +566,7 @@ const EditTemplate = () => {
             selectFonts={coupleNameFonts}
             color={color}
             fontSize={fontSize}
+            selectedSvg={selectedSvg}
           />
         </div>
         <Modal
