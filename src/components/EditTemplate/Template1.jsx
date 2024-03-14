@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Resizable } from 're-resizable';
 import invitationImage from '../../assets/Template.jpg';
 import Draggable from 'react-draggable';
+import { Image } from 'antd';
 const Template1 = (props) => {
   const [position, setPosition] = useState({ x: 50, y: 50 }); // Initial position
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
@@ -46,23 +48,41 @@ const Template1 = (props) => {
               {props.coupleName}
             </div>
           </Draggable>
-
-          <p
-            onClick={handleClick}
-            onMouseEnter={() => setIsHoveredCustomMessage(true)}
-            onMouseLeave={() => setIsHoveredCustomMessage(false)}
-            draggable="true"
-            className={`text-md text-center  ${
-              props.selectFonts
-            } border-2 p-3 ${
-              isHoveredCustomMessage
-                ? ' border-dashed bg-gray-100'
-                : 'border-none'
-            }  text-black my-4`}
-          >
-            {props.customMessage}
-          </p>
+          <Draggable>
+            <p
+              style={{
+                cursor: 'move',
+              }}
+              onClick={handleClick}
+              onMouseEnter={() => setIsHoveredCustomMessage(true)}
+              onMouseLeave={() => setIsHoveredCustomMessage(false)}
+              className={`text-md text-center  ${
+                props.selectFonts
+              } border-2 p-3 ${
+                isHoveredCustomMessage
+                  ? ' border-dashed bg-gray-100'
+                  : 'border-none'
+              }  text-black my-4`}
+            >
+              {props.customMessage}
+            </p>
+          </Draggable>
+          <Draggable>
+            <div
+              style={{
+                cursor: 'move',
+                position: 'absolute',
+              }}
+            >
+              {props.selectedSvg
+                ? React.cloneElement(props.selectedSvg, {
+                    style: { width: '100px', height: '100px' },
+                  })
+                : null}
+            </div>
+          </Draggable>
           <p className="text-xl text-center  text-black my-2">{props.date}</p>
+
           <p className="text-md text-center  text-black my-2">{props.venue}</p>
         </div>
       </div>

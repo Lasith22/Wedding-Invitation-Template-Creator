@@ -74,3 +74,81 @@
   src: url('/src/fonts/AMS-Mindada-sinhala-font-by-sinhalafonts.me_.ttf')
     format('truetype');
 }
+
+@font-face {
+  font-family: 'font15';
+  src: url('/src/fonts/keko-niruthi.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font16';
+  src: url('/src/fonts/HSomananda.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font17';
+  src: url('/src/fonts/wije5squarethinletters.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font18';
+  src: url('/src/fonts/um6s.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font19';
+  src: url('/src/fonts/0kd-rose.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font20';
+  src: url('/src/fonts/4u-madu.cactus.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font21';
+  src: url('/src/fonts/ahtharanga.ttf') format('truetype');
+}
+/* newest */
+@font-face {
+  font-family: 'font22';
+  src: url('/src/fonts/apex019.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font23';
+  src: url('/src/fonts/apex04.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font24';
+  src: url('/src/fonts/apex035.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font25';
+  src: url('/src/fonts/apex019.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font26';
+  src: url('/src/fonts/bu_nisha.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font27';
+  src: url('/src/fonts/ccsellipi.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font28';
+  src: url('/src/fonts/dl-araliya.warp.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font29';
+  src: url('/src/fonts/dl-manel-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font30';
+  src: url('/src/fonts/dl-mano.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font31';
+  src: url('/src/fonts/dl-ridhma-8.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font32';
+  src: url('/src/fonts/ds-daya-dstripe.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font33';
+  src: url('/src/fonts/dsds-nilantha.ttf') format('truetype');
+}

@@ -25,6 +25,15 @@ module.exports = {
         sinhala13: ['font13', 'sans-serif'],
         sinhala14: ['font14', 'sans-serif'],
 
+        sinhala15: ['font15', 'sans-serif'],
+        sinhala16: ['font16', 'sans-serif'],
+        sinhala17: ['font17', 'sans-serif'],
+
+        sinhala18: ['font18', 'sans-serif'],
+        sinhala19: ['font19', 'sans-serif'],
+        sinhala20: ['font20', 'sans-serif'],
+        sinhala21: ['font21', 'sans-serif'],
+
         // Add more font families as needed
       },
     },
