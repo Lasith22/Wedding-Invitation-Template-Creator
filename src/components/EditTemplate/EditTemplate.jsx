@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
+import { BiSolidSticker } from 'react-icons/bi';
 import {
   ShareAltOutlined,
   FilePdfOutlined,
@@ -27,8 +28,22 @@ import { ReactComponent as Svg1 } from '../../svg/wedding-photography-svgrepo-co
 import { ReactComponent as Svg2 } from '../../svg/wedding1.svg';
 import { ReactComponent as Svg3 } from '../../svg/wedding3.svg';
 import { ReactComponent as Svg4 } from '../../svg/wedding4.svg';
-
-import { HexColorPicker } from 'react-colorful';
+import { ReactComponent as Svg5 } from '../../svg/daisy-bouquet-svgrepo-com.svg';
+import { ReactComponent as Svg6 } from '../../svg/empty-wine-glass-svgrepo-com.svg';
+import { ReactComponent as Svg7 } from '../../svg/wedding-cake-sweet-svgrepo-com.svg';
+import { ReactComponent as Svg8 } from '../../svg/wedding-car-svgrepo-com.svg';
+import { ReactComponent as Svg9 } from '../../svg/wedding-couple-svgrepo-com (1).svg';
+import { ReactComponent as Svg10 } from '../../svg/wedding-couple-svgrepo-com (2).svg';
+import { ReactComponent as Svg11 } from '../../svg/wedding-couple-svgrepo-com.svg';
+import { ReactComponent as Svg12 } from '../../svg/wedding-invitation-svgrepo-com (1).svg';
+import { ReactComponent as Svg13 } from '../../svg/wedding-rings-svgrepo-com.svg';
+import { ReactComponent as Svg14 } from '../../svg/wedding-rings-wedding-svgrepo-com (1).svg';
+import { ReactComponent as Svg15 } from '../../svg/wedding-rings-wedding-svgrepo-com.svg';
+import { ReactComponent as Svg16 } from '../../svg/wedding-rings-wedding-svgrepo-com.svg';
+import { ReactComponent as Svg17 } from '../../svg/Macy’s Flower Show 2023 - Thanks for Joining Us.svg';
+import { ReactComponent as Svg18 } from '../../svg/6f99edce-aa1f-43c7-8e66-58e8b21f8002.svg';
+import { ReactComponent as Svg19 } from '../../svg/Gold Indian Elephant PNG Clip Art Image.svg';
+import { ReactComponent as Svg20 } from '../../svg/820d3bfe-8451-4043-879d-cf9d583ab252.svg';
 
 const EditTemplate = () => {
   const { t } = useTranslation();
@@ -50,6 +65,7 @@ const EditTemplate = () => {
   const [fontSize, setFontSize] = useState(30);
   const [isIconDrawerVisible, setIsIconDrawerVisible] = useState(false);
   const [selectedSvg, setSelectedSvg] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('svg');
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
@@ -96,11 +112,34 @@ const EditTemplate = () => {
     setSelectedSvg(<SvgComponent />);
   };
 
-  const svgs = [
-    { id: 'svg1', component: Svg1 },
+  const handleSelectSVGcatogory = (value) => {
+    setSelectedCategory(value);
+  };
+
+  const culturalSvg = [
     { id: 'svg2', component: Svg2 },
     { id: 'svg3', component: Svg3 },
     { id: 'svg4', component: Svg4 },
+    { id: 'svg17', component: Svg17 },
+    { id: 'svg18', component: Svg18 },
+    { id: 'svg19', component: Svg19 },
+    { id: 'svg20', component: Svg20 },
+  ];
+
+  const svgs = [
+    { id: 'svg1', component: Svg1 },
+    { id: 'svg5', component: Svg5 },
+    { id: 'svg6', component: Svg6 },
+    { id: 'svg7', component: Svg7 },
+    { id: 'svg8', component: Svg8 },
+    { id: 'svg9', component: Svg9 },
+    { id: 'svg10', component: Svg10 },
+    { id: 'svg11', component: Svg11 },
+    { id: 'svg12', component: Svg12 },
+    { id: 'svg13', component: Svg13 },
+    { id: 'svg14', component: Svg14 },
+    { id: 'svg15', component: Svg15 },
+    { id: 'svg16', component: Svg16 },
 
     // Add more SVGs as needed
   ];
@@ -149,9 +188,14 @@ const EditTemplate = () => {
             <div className="flex items-start   ">
               <img src={MainLogo} alt="" className="h-8" />
             </div>
-            <Button type="primary" onClick={toggleIconDrawer}>
-              Add Cultural Icon
-            </Button>
+            <div
+              onClick={toggleIconDrawer}
+              className="flex justify-center   items-center gap-1 cursor-pointer hover:bg-slate-100 hover:p-2 hover:rounded-lg"
+            >
+              <BiSolidSticker size={30} color="pink" />
+              <h1>Add stickers</h1>
+            </div>
+
             <Dropdown
               menu={{
                 items,
@@ -391,9 +435,33 @@ const EditTemplate = () => {
           placement="left"
           onClose={toggleIconDrawer} // Use the same function to close the drawer
           visible={isIconDrawerVisible}
+          maskClosable={true}
+          mask={true}
+          maskClassName=" bg-black"
         >
-          <div className="svg-container">
-            {svgs.map((svg) => (
+          <Select
+            className="my-5"
+            style={{ width: 300 }}
+            onChange={handleSelectSVGcatogory}
+            defaultValue="svg"
+            options={[
+              {
+                value: 'culturalSvg',
+                label: 'Cultural',
+              },
+              {
+                value: 'svg',
+                label: 'wedding',
+              },
+            ]}
+          />
+          <div className=" flex flex-wrap justify-around items-center gap-4  ">
+            {(selectedCategory === 'svg'
+              ? svgs
+              : selectedCategory === 'culturalSvg'
+              ? culturalSvg
+              : []
+            ).map((svg) => (
               <button
                 key={svg.id}
                 onClick={() => handleSelectSvg(svg.component)}
