@@ -9,8 +9,11 @@ import Card2 from '../assets/Card 23.jpeg';
 import Card3 from '../assets/I wil .jpg';
 import videoBg from '../assets/vedio.mp4';
 import { useTranslation } from 'react-i18next';
-
+import Template1 from 'components/EditTemplate/Template1';
+import Template2 from 'components/EditTemplate/Template2';
 import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
+import invitationImage from '../assets/weddingCard3.jpeg';
+import invitationImage2 from '../assets/weddingCard1.jpeg';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
 
@@ -150,9 +153,10 @@ const Dashboard = () => {
             });
           }}
           preview={false}
-          src={DummyDecoration}
+          src={invitationImage}
           width={400}
         />
+
         <Image
           onClick={() => {
             navigate('preview', {
@@ -162,7 +166,7 @@ const Dashboard = () => {
             });
           }}
           preview={false}
-          src={DummyDecoration}
+          src={invitationImage2}
           width={400}
         />
         <Image

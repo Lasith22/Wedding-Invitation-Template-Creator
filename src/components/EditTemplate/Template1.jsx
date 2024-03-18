@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Resizable } from 're-resizable';
-import invitationImage from '../../assets/Template.jpg';
+import invitationImage from '../../assets/weddingCard1.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
+
 const Template1 = (props) => {
   const [position, setPosition] = useState({ x: 50, y: 50 }); // Initial position
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
@@ -19,19 +19,21 @@ const Template1 = (props) => {
       props.onClickCoupleName();
     }
   };
-  console.log('font size', props.fontSize);
+
   return (
     <>
       <div className="relative max-w-lg mx-auto">
-        <img
+        <Image
           src={invitationImage}
           alt="Wedding Invitation Background"
-          className="w-full"
+          width={450}
+          height={700}
         />
+
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
           <Draggable>
             <div
-              className={` text-center ${props.selectFonts} border-2 p-3 ${
+              className={` text-center   ${props.selectFonts} border-2 p-3 ${
                 isHoveredCoupleName
                   ? ' border-dashed  bg-gray-100'
                   : 'border-none'
@@ -67,20 +69,21 @@ const Template1 = (props) => {
               {props.customMessage}
             </p>
           </Draggable>
-          <Draggable>
-            <div
-              style={{
-                cursor: 'move',
-                position: 'absolute',
-              }}
-            >
-              {props.selectedSvg
-                ? React.cloneElement(props.selectedSvg, {
-                    style: { width: '100px', height: '100px' },
-                  })
-                : null}
-            </div>
-          </Draggable>
+          {props.selectedSvg &&
+            props.selectedSvg.map((SvgComponent, index) => (
+              <Draggable key={index}>
+                <div
+                  // className="  hover:resize overflow-hidden"
+                  style={{
+                    cursor: 'move',
+                    position: 'absolute',
+                  }}
+                >
+                  <SvgComponent style={{ width: '100px', height: '100px' }} />
+                </div>
+              </Draggable>
+            ))}
+
           <p className="text-xl text-center  text-black my-2">{props.date}</p>
 
           <p className="text-md text-center  text-black my-2">{props.venue}</p>
