@@ -10,6 +10,7 @@ import {
   MinusOutlined,
 } from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
+import Template2 from './Template2';
 import MainLogo from '../../assets/MainLogo.svg';
 import dayjs from 'dayjs';
 import {
@@ -29,7 +30,7 @@ import SVGs from '../../svgComponents';
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
-  const [coupleName, SetCoupleName] = useState(
+  const [coupleName, setCoupleName] = useState(
     `${state.coupleNames.partnerFirstName} & ${state.coupleNames.yourFirstName}`,
   );
 
@@ -51,7 +52,7 @@ const EditTemplate = () => {
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
-    SetCoupleName(e.target.value);
+    setCoupleName(e.target.value);
   };
 
   const showDrawer = () => {

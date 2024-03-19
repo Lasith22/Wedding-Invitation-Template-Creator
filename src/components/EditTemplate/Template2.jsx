@@ -69,7 +69,7 @@ const Template2 = (props) => {
               {props.customMessage}
             </p>
           </Draggable>
-          {/* {props.selectedSvg.map((SvgComponent, index) => (
+          {props.selectedSvg.map((SvgComponent, index) => (
             <Draggable key={index}>
               <div
                 // className="  hover:resize overflow-hidden"
@@ -81,7 +81,7 @@ const Template2 = (props) => {
                 <SvgComponent style={{ width: '100px', height: '100px' }} />
               </div>
             </Draggable>
-          ))} */}
+          ))}
 
           <p className="text-xl text-center  text-black my-2">{props.date}</p>
 
