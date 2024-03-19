@@ -4,16 +4,16 @@ import { auth, db } from '../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
-import { Dropdown, Image } from 'antd';
+import { Dropdown } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
-import Card3 from '../assets/I wil .jpg';
-import videoBg from '../assets/vedio.mp4';
+
 import { useTranslation } from 'react-i18next';
-import Template1 from 'components/EditTemplate/Template1';
-import Template2 from 'components/EditTemplate/Template2';
-import DummyDecoration from '../../src/assets/Dreamcards Wedding Invitation Dream-Create-Celebrate.jpg';
+
 import invitationImage from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
+import invitationImage3 from '../assets/weddingCard2.jpeg';
+import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
+import { FaHeart } from 'react-icons/fa6';
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
 
@@ -108,7 +108,7 @@ const Dashboard = () => {
           {t('WEDDING')}
         </h1>
 
-        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom  ">
+        <h1 className="text-[#BC8C05] font-semibold text-xl font-custom">
           {t('HOME_COMING')}
         </h1>
       </div>
@@ -143,44 +143,84 @@ const Dashboard = () => {
       </div>
 
       {/* actual templates section */}
-      <div className="flex justify-center items-center gap-10">
-        <Image
-          onClick={() => {
-            navigate('preview', {
-              state: {
-                coupleNames: coupleNames,
-              },
-            });
-          }}
-          preview={false}
-          src={invitationImage}
-          width={400}
-        />
+      <div className="flex justify-center items-center gap-20 ">
+        <div>
+          <div className=" relative group">
+            <img
+              onClick={() => {
+                navigate('preview', {
+                  state: {
+                    coupleNames: coupleNames,
+                    ref: 'template1',
+                  },
+                });
+              }}
+              src={invitationImage}
+              class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+            />
 
-        <Image
-          onClick={() => {
-            navigate('preview', {
-              state: {
-                coupleNames: coupleNames,
-              },
-            });
-          }}
-          preview={false}
-          src={invitationImage2}
-          width={400}
-        />
-        <Image
-          onClick={() => {
-            navigate('/dashboard/preview', {
-              state: {
-                coupleNames: coupleNames,
-              },
-            });
-          }}
-          preview={false}
-          src={DummyDecoration}
-          width={400}
-        />
+            <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h1>Template Name</h1>
+              <FaHeart />
+            </div>
+          </div>
+        </div>
+
+        <div className=" relative group">
+          <img
+            onClick={() => {
+              navigate('preview', {
+                state: {
+                  coupleNames: coupleNames,
+                  ref: 'template2',
+                },
+              });
+            }}
+            src={invitationImage2}
+            class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+          />
+          <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h1>Template Name</h1>
+            <FaHeart />
+          </div>
+        </div>
+
+        <div className=" relative group">
+          <img
+            onClick={() => {
+              navigate('preview', {
+                state: {
+                  coupleNames: coupleNames,
+                  ref: 'template3',
+                },
+              });
+            }}
+            src={invitationImage3}
+            class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+          />
+          <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h1>Template Name</h1>
+            <FaHeart />
+          </div>
+        </div>
+        <div className=" relative group">
+          <img
+            onClick={() => {
+              navigate('preview', {
+                state: {
+                  coupleNames: coupleNames,
+                  ref: 'template4',
+                },
+              });
+            }}
+            src={invitationImage4}
+            class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+          />
+          <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h1>Template Name</h1>
+            <FaHeart />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import invitationImage from '../../assets/weddingCard1.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
 
 const Template1 = (props) => {
-  const [position, setPosition] = useState({ x: 50, y: 50 }); // Initial position
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
 
-  const handleDrag = (e) => {
-    setPosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
+  const dragRef1 = useRef(null); // Create a ref for the first draggable element
+  const dragRef2 = useRef(null);
+  const dragRef3 = useRef(null);
+
   const handleClick = () => {
     if (props.onClickCoupleName) {
       props.onClickCoupleName();
@@ -31,11 +28,12 @@ const Template1 = (props) => {
         />
 
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
-          <Draggable>
+          <Draggable nodeRef={dragRef1} bounds="parent">
             <div
+              ref={dragRef1}
               className={` text-center   ${props.selectFonts} border-2 p-3 ${
                 isHoveredCoupleName
-                  ? ' border-dashed  bg-gray-100'
+                  ? ' border-dashed border-black bg-gray-50'
                   : 'border-none'
               }   `}
               style={{
@@ -50,8 +48,9 @@ const Template1 = (props) => {
               {props.coupleName}
             </div>
           </Draggable>
-          <Draggable>
+          <Draggable nodeRef={dragRef2} bounds="parent">
             <p
+              ref={dragRef2}
               style={{
                 cursor: 'move',
               }}
@@ -71,8 +70,9 @@ const Template1 = (props) => {
           </Draggable>
           {props.selectedSvg &&
             props.selectedSvg.map((SvgComponent, index) => (
-              <Draggable key={index}>
+              <Draggable nodeRef={dragRef3} key={index} bounds="parent">
                 <div
+                  ref={dragRef3}
                   // className="  hover:resize overflow-hidden"
                   style={{
                     cursor: 'move',
