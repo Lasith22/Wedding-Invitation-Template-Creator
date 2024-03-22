@@ -2,14 +2,10 @@ import React, { useState, useRef } from 'react';
 import invitationImage from '../../assets/weddingCard1.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
-
+import { singlishToUnicode } from 'sinhala-unicode-coverter';
 const Template1 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
-
-  const dragRef1 = useRef(null); // Create a ref for the first draggable element
-  const dragRef2 = useRef(null);
-  const dragRef3 = useRef(null);
 
   const handleClick = () => {
     if (props.onClickCoupleName) {
@@ -28,9 +24,8 @@ const Template1 = (props) => {
         />
 
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
-          <Draggable nodeRef={dragRef1} bounds="parent">
+          <Draggable bounds="parent">
             <div
-              ref={dragRef1}
               className={` text-center   ${props.selectFonts} border-2 p-3 ${
                 isHoveredCoupleName
                   ? ' border-dashed border-black bg-gray-50'
@@ -48,9 +43,8 @@ const Template1 = (props) => {
               {props.coupleName}
             </div>
           </Draggable>
-          <Draggable nodeRef={dragRef2} bounds="parent">
+          <Draggable bounds="parent">
             <p
-              ref={dragRef2}
               style={{
                 cursor: 'move',
               }}
@@ -70,9 +64,8 @@ const Template1 = (props) => {
           </Draggable>
           {props.selectedSvg &&
             props.selectedSvg.map((SvgComponent, index) => (
-              <Draggable nodeRef={dragRef3} key={index} bounds="parent">
+              <Draggable key={index} bounds="parent">
                 <div
-                  ref={dragRef3}
                   // className="  hover:resize overflow-hidden"
                   style={{
                     cursor: 'move',

@@ -1,12 +1,16 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import invitationImage from '../assets/weddingCard3.jpeg';
+import invitationImage from '../assets/16695637_5771538.jpg';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
 import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
 import { useTranslation } from 'react-i18next';
+import { IoIosColorPalette } from 'react-icons/io';
+import { MdPictureAsPdf } from 'react-icons/md';
+import { FaPencilAlt } from 'react-icons/fa';
+import { LuSticker } from 'react-icons/lu';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { Dropdown, Image } from 'antd';
 const PreviewInvitation = () => {
@@ -70,7 +74,7 @@ const PreviewInvitation = () => {
       {/* 
 for template and coustomize button */}
       <div className="grid grid-cols-3 mt-20">
-        <div className="col-span-2 bg-[#F0E8E8] flex items-center justify-center relative ">
+        <div className=" bg-[url('/testImage5.jpeg')]  object-contain w-full h-full   bg-opacity-50  col-span-2   flex items-center justify-center relative ">
           <div className="p-10 ">
             <Image
               onClick={() => {
@@ -99,18 +103,84 @@ for template and coustomize button */}
 
             <div class="h-0.5 bg-slate-100 w-full my-3"></div>
 
-            <button
-              onClick={() => {
-                navigate('/dashboard/editTemplate', {
-                  state: {
-                    coupleNames: state.coupleNames,
-                  },
-                });
-              }}
-              class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[400px]"
-            >
-              Customize
-            </button>
+            <div className=" my-3">
+              <button
+                onClick={() => {
+                  navigate('/dashboard/editTemplate', {
+                    state: {
+                      coupleNames: state.coupleNames,
+                    },
+                  });
+                }}
+                class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[400px]"
+              >
+                Customize
+              </button>
+            </div>
+            <div class="h-0.5 bg-slate-100 w-full my-3"></div>
+
+            {/* template content */}
+            <div>
+              <h1 className="text-gray-400 text-sm">
+                Get ready to host and toast to the happy couple with this
+                greenery-inspired online wedding invitation. A watercolor
+                garland border gives a nod to nature and can be customized in
+                either green or blue with an option also for colorful florals.
+                Simple, classic, elegant, and perfect for any style wedding
+                celebration.
+              </h1>
+
+              <div className="grid grid-cols-12 gap-4 my-8 items-center">
+                <div className="col-span-1">
+                  <IoIosColorPalette size={30} />
+                </div>
+                <div className="col-span-11">
+                  <h1 className="text-gray-400 text-sm">
+                    Change your Card’s text, style, envelope, stamp, backdrop,
+                    and more. Add additional text boxes where you want them.
+                  </h1>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-4 my-8 items-center">
+                <div className="col-span-1">
+                  <FaPencilAlt size={30} />
+                </div>
+                <div className="col-span-11">
+                  <h1 className="text-gray-400 text-sm">
+                    Customize to your heart's content: Drag and edit text, add
+                    new text fields, and adjust the size to make your invitation
+                    uniquely yours.
+                  </h1>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-4 my-8 items-center">
+                <div className="col-span-1">
+                  <MdPictureAsPdf size={30} />
+                </div>
+                <div className="col-span-11">
+                  <h1 className="text-gray-400 text-sm">
+                    Seal your memories in style: Easily convert your
+                    personalized invitation into a PDF format, allowing for
+                    effortless printing or sharing with loved ones.
+                  </h1>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-4 my-8 items-center">
+                <div className="col-span-1">
+                  <LuSticker size={30} />
+                </div>
+                <div className="col-span-11">
+                  <h1 className="text-gray-400 text-sm">
+                    Enrich your invitation with cultural elegance: Add
+                    traditional stickers to showcase the unique beauty and
+                    traditions of Sri Lanka.
+                  </h1>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

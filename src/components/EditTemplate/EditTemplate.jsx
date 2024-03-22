@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { singlishToUnicode } from 'sinhala-unicode-coverter';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
@@ -392,6 +393,14 @@ const EditTemplate = () => {
                     value: 'font-sinhala21',
                     label: (
                       <span className=" font-sinhala21 text-2xl">
+                        Sachini & Lasith
+                      </span>
+                    ),
+                  },
+                  {
+                    value: 'font-sinhala34',
+                    label: (
+                      <span className=" font-sinhala34 text-2xl">
                         Sachini & Lasith
                       </span>
                     ),

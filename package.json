@@ -24,6 +24,7 @@
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
+    "sinhala-unicode-coverter": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
