@@ -17,11 +17,11 @@
 
 @font-face {
   font-family: 'font3';
-  src: url('/src/fonts/TharuDigitalSiyapatha.ttf') format('truetype');
+  src: url('/src/fonts/FM_DERAN.TTF') format('truetype');
 }
 @font-face {
   font-family: 'font4';
-  src: url('/src/fonts/sepalikaplain.ttf') format('truetype');
+  src: url('/src/fonts/FM_DERAN.TTF') format('truetype');
 }
 @font-face {
   font-family: 'font5';
@@ -151,4 +151,8 @@
 @font-face {
   font-family: 'font33';
   src: url('/src/fonts/dsds-nilantha.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'font34';
+  src: url('/src/fonts/FM_DERAN.TTF') format('truetype');
 }

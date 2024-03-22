@@ -33,6 +33,7 @@ module.exports = {
         sinhala19: ['font19', 'sans-serif'],
         sinhala20: ['font20', 'sans-serif'],
         sinhala21: ['font21', 'sans-serif'],
+        sinhala34: ['font34', 'sans-serif'],
 
         // Add more font families as needed
       },
