@@ -6,14 +6,13 @@ import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc } from 'firebase/firestore';
 import { Dropdown } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
-
 import { useTranslation } from 'react-i18next';
-
 import invitationImage from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
 import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
 import { FaHeart } from 'react-icons/fa6';
+
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
 
