@@ -7,6 +7,7 @@ import ResetPassword from 'ResetPassword/ResetPassword';
 import CoupleDetailsPage from './MainScreen/CoupleDetailsPage';
 import PreviewInvitation from './MainScreen/PreviewInvitation';
 import EditTemplate from './components/EditTemplate/EditTemplate';
+import Favorits from 'MainScreen/Favorits';
 const App = () => {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ const App = () => {
             path="/account/coupleDetails"
             element={<CoupleDetailsPage />}
           />
+          <Route path="/dashboard/favorits" element={<Favorits />} />
           <Route path="dashboard/preview" element={<PreviewInvitation />} />
 
           <Route path="dashboard/editTemplate" element={<EditTemplate />} />
