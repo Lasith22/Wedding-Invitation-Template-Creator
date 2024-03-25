@@ -59,19 +59,24 @@ const Dashboard = () => {
     }
   };
 
-  const uploadLinksToFirestore = async (templates) => {
+  const uploadLinksToFirestore = async (template) => {
     setLoading(true);
-    const imageURL = await uploadTemplate(templates);
-    if (imageURL) {
-      try {
-        await setDoc(doc(db, 'TEMPLATES', `${state.email}`), {
-          links: imageLinks,
+    try {
+      const imageURL = await uploadTemplate(template); // Upload and get URL
+      if (imageURL) {
+        setImageLinks((prevLinks) => {
+          const updatedLinks = [...prevLinks, imageURL]; // Use callback for most recent state
+          setDoc(doc(db, 'TEMPLATES', `${state.email}`), {
+            // Update Firestore
+            links: updatedLinks,
+          }).catch((error) => console.log('Error upload link', error));
+          return updatedLinks; // Return updated state
         });
-      } catch (error) {
-        console.log('Error upload link', error);
-      } finally {
-        setLoading(false);
       }
+    } catch (error) {
+      console.error('Error uploading template: ', error);
+    } finally {
+      setLoading(false);
     }
   };
 

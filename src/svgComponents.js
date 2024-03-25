@@ -23,6 +23,24 @@ import { ReactComponent as Svg21 } from '../src/svg/champagne.svg';
 import { ReactComponent as Svg22 } from '../src/svg/hearts.svg';
 import { ReactComponent as Svg23 } from '../src/svg/vecteezy_sposi-insieme-vettoriale-cartoon-clipart_4717187.svg';
 import { ReactComponent as Svg24 } from '../src/svg/wedding-bouquet.svg';
+import { ReactComponent as Svg25 } from '../src/svg/Sri Lanka kandian dancer - Lal Perera.svg';
+
+import { ReactComponent as Svg26 } from '../src/svg/2a30204e-2a18-460c-8956-faa92cdcf540.svg';
+import { ReactComponent as Svg27 } from '../src/svg/03d135d0-f2a7-4327-8106-3a58882627d1.jpeg';
+import { ReactComponent as Svg28 } from '../src/svg/4f594f5e-b154-447e-a123-ba0f360efc8a.svg';
+import { ReactComponent as Svg29 } from '../src/svg/07c29d2a-ee6d-43a0-9f61-581f1db30beb.svg';
+import { ReactComponent as Svg30 } from '../src/svg/8bd41f7a-f4b7-4c80-b2b4-6867345226b4.svg';
+import { ReactComponent as Svg31 } from '../src/svg/16ec3933-8fe2-4ab1-982f-853052b9b8c6.svg';
+import { ReactComponent as Svg32 } from '../src/svg/66704921-7bec-44cd-8271-19ff7c73c8cd.svg';
+import { ReactComponent as Svg33 } from '../src/svg/elephants – Indigo Xix.svg';
+import { ReactComponent as Svg34 } from '../src/svg/Images – Browse 302 Stock Photos, Vectors, and Video.svg';
+import { ReactComponent as Svg35 } from '../src/svg/Secret moonstone puzzle jewelry box.svg';
+import { ReactComponent as Svg36 } from '../src/svg/Sri Lanka’s Ancient Temple Paintings Kandyan Era Temple Frescoes.svg';
+import { ReactComponent as Svg37 } from '../src/svg/Sri Lankan Demonology The Goddess Pattinnee (Pattinnee Deviya).svg';
+import { ReactComponent as Svg38 } from '../src/svg/Srilankan traditional wedding.svg';
+import { ReactComponent as Svg39 } from '../src/svg/Sun Sri Lankan Deco.svg';
+import { ReactComponent as Svg40 } from '../src/svg/Traditional sri lankan decorative item Sesatha, mandala design, vector art, used in Kand.svg';
+import { ReactComponent as Svg41 } from '../src/svg/Wedding couple Painting.svg';
 
 export default {
   Svg1,
@@ -49,4 +67,21 @@ export default {
   Svg22,
   Svg23,
   Svg24,
+  Svg25,
+  Svg26,
+  // Svg27,
+  Svg28,
+  Svg29,
+  Svg30,
+  Svg31,
+  Svg32,
+  Svg33,
+  Svg34,
+  Svg35,
+  Svg36,
+  Svg37,
+  Svg38,
+  Svg39,
+  Svg40,
+  Svg41,
 };
