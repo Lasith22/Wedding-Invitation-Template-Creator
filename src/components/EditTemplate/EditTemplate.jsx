@@ -108,6 +108,24 @@ const EditTemplate = () => {
     { id: 'svg18', component: SVGs.Svg18 },
     { id: 'svg19', component: SVGs.Svg19 },
     { id: 'svg20', component: SVGs.Svg20 },
+    { id: 'svg25', component: SVGs.Svg25 },
+
+    { id: 'svg26', component: SVGs.Svg26 },
+    // { id: 'svg27', component: SVGs.Svg27 },
+    { id: 'svg28', component: SVGs.Svg28 },
+    { id: 'svg29', component: SVGs.Svg29 },
+    { id: 'svg30', component: SVGs.Svg30 },
+    { id: 'svg31', component: SVGs.Svg31 },
+    { id: 'svg32', component: SVGs.Svg32 },
+    { id: 'svg33', component: SVGs.Svg33 },
+    { id: 'svg34', component: SVGs.Svg34 },
+    { id: 'svg35', component: SVGs.Svg35 },
+    { id: 'svg36', component: SVGs.Svg36 },
+    { id: 'svg37', component: SVGs.Svg37 },
+    { id: 'svg38', component: SVGs.Svg38 },
+    { id: 'svg39', component: SVGs.Svg39 },
+    { id: 'svg40', component: SVGs.Svg40 },
+    { id: 'svg41', component: SVGs.Svg41 },
   ];
 
   const svgs = [
