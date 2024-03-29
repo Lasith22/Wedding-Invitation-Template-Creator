@@ -81,12 +81,7 @@ const NavBar = () => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((data) => {
         console.log('authData', data);
-        navigate('/account/coupleDetails', {
-          state: {
-            email: values.email,
-            password: values.password,
-          },
-        });
+        navigate('/account/coupleDetails');
       })
       .catch((error) => {
         const errorCode = error.code;
