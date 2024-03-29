@@ -6,12 +6,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
 import { BiSolidSticker } from 'react-icons/bi';
-import {
-  ShareAltOutlined,
-  FilePdfOutlined,
-  PlusOutlined,
-  MinusOutlined,
-} from '@ant-design/icons';
+import { ShareAltOutlined, FilePdfOutlined } from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
 import Template2 from './Template2';
 import MainLogo from '../../assets/MainLogo.svg';
@@ -24,12 +19,11 @@ import {
   Modal,
   Drawer,
   Select,
-  ColorPicker,
   Spin,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import SVGs from '../../svgComponents';
-
+import CustomDrawer from './CustomDrawer';
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
@@ -46,14 +40,41 @@ const EditTemplate = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openStickerDrawer, setOpenStickerDrawer] = useState(false);
   const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala1');
-  const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala');
-  const [color, setColor] = useState('#000000');
-  const [fontSize, setFontSize] = useState(30);
-  const [isIconDrawerVisible, setIsIconDrawerVisible] = useState(false);
+  const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala2');
+  const [coupleNameColor, setCoupleNameColor] = useState('#000000');
+  const [customMessageColor, setCustomMessageColor] = useState('#000000');
+  const [coupleNameFontSize, setCoupleNameFontSize] = useState(30);
+  const [customMessageFontSize, setCustomMessageFontSize] = useState(30);
   const [selectedSvgs, setSelectedSvgs] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('svg');
   const [loading, setLoading] = useState(false);
-  console.log('fonts', coupleNameFonts);
+  const [editingElement, setEditingElement] = useState(null);
+  const showDrawerFor = (element) => {
+    setEditingElement(element);
+    showDrawer();
+  };
+
+  const handleSelectFonts = (value) => {
+    if (editingElement === 'coupleName') {
+      setCoupleNameFont(value);
+    } else if (editingElement === 'customMessage') {
+      setCustomeMessageFont(value);
+    }
+  };
+  const handleColorPick = (color, hex) => {
+    if (editingElement === 'coupleName') {
+      setCoupleNameColor(hex);
+    } else if (editingElement === 'customMessage') {
+      setCustomMessageColor(hex);
+    }
+  };
+  const handleFontSizeChange = (sizeChange) => {
+    if (editingElement === 'coupleName') {
+      setCoupleNameFontSize(sizeChange);
+    } else if (editingElement === 'customMessage') {
+      setCustomMessageFontSize(sizeChange);
+    }
+  };
+
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
     setCoupleName(e.target.value);
@@ -90,30 +111,17 @@ const EditTemplate = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const handleSelectFonts = (value) => {
-    setCoupleNameFont(value);
-  };
-
-  const handleColorPick = (value, hex) => {
-    setColor(hex);
-  };
 
   // Function to handle SVG selection
   const handleSelectSvg = (SvgComponent) => {
     setSelectedSvgs([...selectedSvgs, SvgComponent]);
   };
 
-  const handleSelectSVGcatogory = (value) => {
-    setSelectedCategory(value);
-  };
-  const sendTemplateViaEmail = () => {
-    const sendEmail = httpsCallable(functions, 'sendEmail');
+  const sendTemplateViaEmail = (value) => {
+    const sendEmail = httpsCallable(functions, 'sendEmailWithSendGrid');
     sendEmail({
-      to: 'dilankatharindi28@gmail.com',
-      from: 'lasithherath00@gmail.com',
-      subject: 'Hello from lasith',
-      text: 'Hello How are you',
-      html: 'kal',
+      to: value.guestEmail,
+      subject: 'Hello from lasiths template',
     })
       .then((result) => {
         if (result.data.success) {
@@ -172,7 +180,7 @@ const EditTemplate = () => {
 
   const items = [
     {
-      label: <h1 onClick={sendTemplateViaEmail}> Download PDF</h1>,
+      label: <h1 onClick={handleDownloadPDF}> Download PDF</h1>,
       key: '1',
       icon: <FilePdfOutlined />,
     },
@@ -219,7 +227,30 @@ const EditTemplate = () => {
       </div>
       <Spin spinning={loading} tip="Generating PDF...">
         <div className=" bg-[#f1f1f5] h-screen flex justify-evenly items-center relative overflow-hidden">
-          <Drawer
+          <CustomDrawer
+            onClose={onClose}
+            fontSize={
+              editingElement === 'coupleName'
+                ? coupleNameFontSize
+                : customMessageFontSize
+            }
+            setFontSize={handleFontSizeChange}
+            open={openDrawer}
+            handleColorChange={handleColorPick}
+            color={
+              editingElement === 'coupleName'
+                ? coupleNameColor
+                : customMessageColor
+            }
+            selectFonts={
+              editingElement === 'coupleName'
+                ? coupleNameFonts
+                : customMessageFont
+            }
+            handleSelectFonts={handleSelectFonts}
+            editingElement={editingElement}
+          />
+          {/* <Drawer
             width={100}
             height={80}
             placement="top"
@@ -227,9 +258,6 @@ const EditTemplate = () => {
             onClose={onClose}
             open={openDrawer}
             getContainer={false}
-            // style={{
-            //   position: 'absolute',
-            // }}
           >
             <div className="flex justify-center items-center gap-10">
               <Select
@@ -419,7 +447,7 @@ const EditTemplate = () => {
                 onChange={handleColorPick}
                 defaultValue={'#000000'}
               />
-              {/* font size change */}
+
               <div className="flex justify-center items-center">
                 <button
                   onClick={() => {
@@ -444,7 +472,7 @@ const EditTemplate = () => {
                 </button>
               </div>
             </div>
-          </Drawer>
+          </Drawer> */}
           <Drawer
             title="Choose a Cultural Icon"
             placement="left"
@@ -642,13 +670,17 @@ const EditTemplate = () => {
             <Template1
               customMessage={customMessage}
               coupleName={coupleName}
+              coupleNameColor={coupleNameColor}
+              customMessageColor={customMessageColor}
               date={date}
               venue={venue}
               onClickCoupleName={showDrawer}
               selectFonts={coupleNameFonts}
-              color={color}
-              fontSize={fontSize}
+              selectFontsForMessage={customMessageFont}
+              fontSize={coupleNameFontSize}
+              fontsizeCustomMessage={customMessageFontSize}
               selectedSvg={selectedSvgs}
+              onEdit={showDrawerFor}
             />
           </div>
           <Modal
@@ -674,17 +706,13 @@ const EditTemplate = () => {
                 />
               </div>
               <div className=" flex flex-1 items-center justify-center ">
-                <Form layout="vertical">
+                <Form onFinish={sendTemplateViaEmail} layout="vertical">
                   {/* input */}
                   <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
-                    <Form.Item label="Your Name" name="name">
-                      <Input size="large" placeholder="Enter Your Name" />
-                    </Form.Item>
-
-                    <Form.Item label="To" name="email">
+                    <Form.Item label="To" name="guestEmail">
                       <Input.TextArea
                         size="large"
-                        placeholder="Enter  Your Email"
+                        placeholder="Enter  Guest Email"
                       />
                     </Form.Item>
                   </div>
