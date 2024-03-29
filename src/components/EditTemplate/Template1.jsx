@@ -12,7 +12,6 @@ const Template1 = (props) => {
       props.onClickCoupleName();
     }
   };
-  console.log('helo', singlishToUnicode('pakaya'));
 
   return (
     <>
@@ -27,7 +26,7 @@ const Template1 = (props) => {
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
           <Draggable bounds="parent">
             <div
-              className={` text-center font-sinhala9 border-2 p-3 ${
+              className={`text-center ${props.selectFonts} border-2 p-3 ${
                 isHoveredCoupleName
                   ? ' border-dashed border-black bg-gray-50'
                   : 'border-none'
@@ -41,7 +40,7 @@ const Template1 = (props) => {
               onMouseEnter={() => setIsHoveredCoupleName(true)}
               onMouseLeave={() => setIsHoveredCoupleName(false)}
             >
-              {singlishToUnicode(props.coupleName)}
+              {props.coupleName}
             </div>
           </Draggable>
           <Draggable bounds="parent">

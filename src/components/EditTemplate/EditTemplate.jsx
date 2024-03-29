@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { singlishToUnicode } from 'sinhala-unicode-coverter';
+import { httpsCallable } from 'firebase/functions';
+import { functions } from '../../firebase';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
@@ -42,6 +44,7 @@ const EditTemplate = () => {
   const [venue, setvnue] = useState('Colmbo');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [openStickerDrawer, setOpenStickerDrawer] = useState(false);
   const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala1');
   const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala');
   const [color, setColor] = useState('#000000');
@@ -50,7 +53,7 @@ const EditTemplate = () => {
   const [selectedSvgs, setSelectedSvgs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('svg');
   const [loading, setLoading] = useState(false);
-
+  console.log('fonts', coupleNameFonts);
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
     setCoupleName(e.target.value);
@@ -61,6 +64,12 @@ const EditTemplate = () => {
   };
   const onClose = () => {
     setOpenDrawer(false);
+  };
+  const showStickerDrawer = () => {
+    setOpenStickerDrawer(true);
+  };
+  const closeStickerDrawer = () => {
+    setOpenStickerDrawer(false);
   };
   const onCustomeMessage = (e, date) => {
     setCustomeMessage(e.target.value);
@@ -88,9 +97,7 @@ const EditTemplate = () => {
   const handleColorPick = (value, hex) => {
     setColor(hex);
   };
-  const toggleIconDrawer = () => {
-    setIsIconDrawerVisible(!isIconDrawerVisible);
-  };
+
   // Function to handle SVG selection
   const handleSelectSvg = (SvgComponent) => {
     setSelectedSvgs([...selectedSvgs, SvgComponent]);
@@ -99,54 +106,37 @@ const EditTemplate = () => {
   const handleSelectSVGcatogory = (value) => {
     setSelectedCategory(value);
   };
-
-  const culturalSvg = [
-    { id: 'svg2', component: SVGs.Svg2 },
-    { id: 'svg3', component: SVGs.Svg3 },
-    { id: 'svg4', component: SVGs.Svg4 },
-    { id: 'svg17', component: SVGs.Svg17 },
-    { id: 'svg18', component: SVGs.Svg18 },
-    { id: 'svg19', component: SVGs.Svg19 },
-    { id: 'svg20', component: SVGs.Svg20 },
-    { id: 'svg25', component: SVGs.Svg25 },
-
-    { id: 'svg26', component: SVGs.Svg26 },
-    // { id: 'svg27', component: SVGs.Svg27 },
-    { id: 'svg28', component: SVGs.Svg28 },
-    { id: 'svg29', component: SVGs.Svg29 },
-    { id: 'svg30', component: SVGs.Svg30 },
-    { id: 'svg31', component: SVGs.Svg31 },
-    { id: 'svg32', component: SVGs.Svg32 },
-    { id: 'svg33', component: SVGs.Svg33 },
-    { id: 'svg34', component: SVGs.Svg34 },
-    { id: 'svg35', component: SVGs.Svg35 },
-    { id: 'svg36', component: SVGs.Svg36 },
-    { id: 'svg37', component: SVGs.Svg37 },
-    { id: 'svg38', component: SVGs.Svg38 },
-    { id: 'svg39', component: SVGs.Svg39 },
-    { id: 'svg40', component: SVGs.Svg40 },
-    { id: 'svg41', component: SVGs.Svg41 },
-  ];
+  const sendTemplateViaEmail = () => {
+    const sendEmail = httpsCallable(functions, 'sendEmail');
+    sendEmail({
+      to: 'dilankatharindi28@gmail.com',
+      from: 'lasithherath00@gmail.com',
+      subject: 'Hello from lasith',
+      text: 'Hello How are you',
+      html: 'kal',
+    })
+      .then((result) => {
+        if (result.data.success) {
+          console.log('Email sent successfully');
+        } else {
+          console.error('Error sending email:', result.data.error);
+        }
+      })
+      .catch((error) => {
+        console.error('Error calling sendEmail function:', error);
+      });
+  };
 
   const svgs = [
     { id: 'svg1', component: SVGs.Svg1 },
-    { id: 'svg5', component: SVGs.Svg5 },
     { id: 'svg13', component: SVGs.Svg13 },
-    { id: 'svg6', component: SVGs.Svg6 },
-    { id: 'svg7', component: SVGs.Svg7 },
     { id: 'svg8', component: SVGs.Svg8 },
     { id: 'svg9', component: SVGs.Svg9 },
     { id: 'svg10', component: SVGs.Svg10 },
     { id: 'svg14', component: SVGs.Svg14 },
     { id: 'svg11', component: SVGs.Svg11 },
     { id: 'svg12', component: SVGs.Svg12 },
-
     { id: 'svg15', component: SVGs.Svg15 },
-    { id: 'svg16', component: SVGs.Svg16 },
-    { id: 'svg21', component: SVGs.Svg21 },
-    { id: 'svg22', component: SVGs.Svg22 },
-    { id: 'svg23', component: SVGs.Svg23 },
-    { id: 'svg24', component: SVGs.Svg24 },
   ];
   const handleDownloadPDF = () => {
     setLoading(true); // Start loading
@@ -182,7 +172,7 @@ const EditTemplate = () => {
 
   const items = [
     {
-      label: <h1 onClick={handleDownloadPDF}> Download PDF</h1>,
+      label: <h1 onClick={sendTemplateViaEmail}> Download PDF</h1>,
       key: '1',
       icon: <FilePdfOutlined />,
     },
@@ -203,7 +193,7 @@ const EditTemplate = () => {
               <img src={MainLogo} alt="" className="h-8" />
             </div>
             <div
-              onClick={toggleIconDrawer}
+              onClick={showStickerDrawer}
               className="flex justify-center   items-center gap-1 cursor-pointer hover:bg-slate-100 hover:p-2 hover:rounded-lg"
             >
               <BiSolidSticker size={30} color="pink" />
@@ -458,35 +448,14 @@ const EditTemplate = () => {
           <Drawer
             title="Choose a Cultural Icon"
             placement="left"
-            onClose={toggleIconDrawer} // Use the same function to close the drawer
-            open={isIconDrawerVisible}
+            onClose={closeStickerDrawer}
+            open={openStickerDrawer}
             maskClosable={true}
             mask={true}
             maskClassName=" bg-black"
           >
-            <Select
-              className="my-5"
-              style={{ width: 300 }}
-              onChange={handleSelectSVGcatogory}
-              defaultValue="svg"
-              options={[
-                {
-                  value: 'culturalSvg',
-                  label: 'Cultural',
-                },
-                {
-                  value: 'svg',
-                  label: 'wedding',
-                },
-              ]}
-            />
             <div className=" flex flex-wrap justify-around items-center gap-4  ">
-              {(selectedCategory === 'svg'
-                ? svgs
-                : selectedCategory === 'culturalSvg'
-                ? culturalSvg
-                : []
-              ).map((svg) => (
+              {svgs.map((svg) => (
                 <button
                   key={svg.id}
                   onClick={() => handleSelectSvg(svg.component)}
@@ -684,8 +653,8 @@ const EditTemplate = () => {
           </div>
           <Modal
             footer={null}
-            width={700} // Adjust the width of the modal as needed
-            style={{ maxHeight: '80vh' }} // Adjust the max height of the modal as needed
+            width={700}
+            style={{ maxHeight: '80vh' }}
             title={
               <div className="custom-modal-title border-b-2 border-gray-200 p-4">
                 Share
