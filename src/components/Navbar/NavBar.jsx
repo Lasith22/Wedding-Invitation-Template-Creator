@@ -81,7 +81,11 @@ const NavBar = () => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((data) => {
         console.log('authData', data);
-        navigate('/account/coupleDetails');
+        navigate('/account/coupleDetails', {
+          state: {
+            email: values.email,
+          },
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -154,7 +158,7 @@ const NavBar = () => {
                     {/* input */}
                     <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
                       <Form.Item
-                        label={t('PASSWORD')}
+                        label={t('EMAIL')}
                         name="email"
                         rules={[
                           {

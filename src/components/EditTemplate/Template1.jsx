@@ -32,11 +32,11 @@ const Template1 = (props) => {
                   : 'border-none'
               }   `}
               style={{
-                color: `${props.color}`,
+                color: `${props.coupleNameColor}`,
                 fontSize: props.fontSize,
                 cursor: 'move',
               }}
-              onClick={handleClick}
+              onClick={() => props.onEdit('coupleName')}
               onMouseEnter={() => setIsHoveredCoupleName(true)}
               onMouseLeave={() => setIsHoveredCoupleName(false)}
             >
@@ -47,12 +47,14 @@ const Template1 = (props) => {
             <p
               style={{
                 cursor: 'move',
+                fontSize: props.fontsizeCustomMessage,
+                color: `${props.customMessageColor}`,
               }}
-              onClick={handleClick}
+              onClick={() => props.onEdit('customMessage')}
               onMouseEnter={() => setIsHoveredCustomMessage(true)}
               onMouseLeave={() => setIsHoveredCustomMessage(false)}
               className={`text-md text-center  ${
-                props.selectFonts
+                props.selectFontsForMessage
               } border-2 p-3 ${
                 isHoveredCustomMessage
                   ? ' border-dashed bg-gray-100'
