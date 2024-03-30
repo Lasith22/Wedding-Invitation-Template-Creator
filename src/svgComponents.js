@@ -9,6 +9,12 @@ import { ReactComponent as Svg13 } from '../src/svg/wedding-rings-svgrepo-com.sv
 import { ReactComponent as Svg14 } from '../src/svg/wedding-rings-wedding-svgrepo-com (1).svg';
 import { ReactComponent as Svg15 } from '../src/svg/wedding-rings-wedding-svgrepo-com.svg';
 
+import { ReactComponent as Svg16 } from '../src/svg/jack-plug-svgrepo-com.svg';
+import { ReactComponent as Svg17 } from '../src/svg/jasmine-svgrepo-com.svg';
+import { ReactComponent as Svg18 } from '../src/svg/jewel-crown-svgrepo-com.svg';
+import { ReactComponent as Svg19 } from '../src/svg/jug-svgrepo-com.svg';
+import { ReactComponent as Svg20 } from '../src/svg/sri-lanka-svgrepo-com.svg';
+
 export default {
   Svg1,
   Svg2,
@@ -21,4 +27,10 @@ export default {
   Svg13,
   Svg14,
   Svg15,
+  Svg16,
+  Svg17,
+
+  Svg18,
+  Svg19,
+  Svg20,
 };

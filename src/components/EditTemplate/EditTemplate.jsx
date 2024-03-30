@@ -1,5 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { singlishToUnicode } from 'sinhala-unicode-coverter';
+import {
+  singlishToUnicode,
+  singlishPhoneticToUnicode,
+  unicodeToDlManel,
+  dlManelToUnicode,
+  unicodeToKaputa,
+  baminiToUnicode,
+} from 'sinhala-unicode-coverter';
 import { httpsCallable } from 'firebase/functions';
 import { functions } from '../../firebase';
 import html2canvas from 'html2canvas';
@@ -48,6 +55,8 @@ const EditTemplate = () => {
   const [selectedSvgs, setSelectedSvgs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editingElement, setEditingElement] = useState(null);
+  const [inputText, setInputText] = useState('');
+  const [convertedText, setConvertedText] = useState('');
   const showDrawerFor = (element) => {
     setEditingElement(element);
     showDrawer();
@@ -145,6 +154,12 @@ const EditTemplate = () => {
     { id: 'svg11', component: SVGs.Svg11 },
     { id: 'svg12', component: SVGs.Svg12 },
     { id: 'svg15', component: SVGs.Svg15 },
+
+    { id: 'svg16', component: SVGs.Svg16 },
+    { id: 'svg17', component: SVGs.Svg17 },
+    { id: 'svg18', component: SVGs.Svg18 },
+    { id: 'svg19', component: SVGs.Svg19 },
+    { id: 'svg20', component: SVGs.Svg20 },
   ];
   const handleDownloadPDF = () => {
     setLoading(true); // Start loading
@@ -225,6 +240,7 @@ const EditTemplate = () => {
           </div>
         </div>
       </div>
+
       <Spin spinning={loading} tip="Generating PDF...">
         <div className=" bg-[#f1f1f5] h-screen flex justify-evenly items-center relative overflow-hidden">
           <CustomDrawer
