@@ -2,7 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import invitationImage from '../../assets/weddingCard1.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
-import { singlishToUnicode } from 'sinhala-unicode-coverter';
+import {
+  singlishToUnicode,
+  singlishPhoneticToUnicode,
+  unicodeToDlManel,
+  dlManelToUnicode,
+  unicodeToKaputa,
+} from 'sinhala-unicode-coverter';
 const Template1 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);

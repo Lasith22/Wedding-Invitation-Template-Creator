@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import invitationImage from '../assets/16695637_5771538.jpg';
-import { signOut } from 'firebase/auth';
-import { auth, db } from '../firebase';
+import invitationImage1 from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
 import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
+import { signOut } from 'firebase/auth';
+import { auth, db } from '../firebase';
 import { useTranslation } from 'react-i18next';
 import { IoIosColorPalette } from 'react-icons/io';
 import { MdPictureAsPdf } from 'react-icons/md';
@@ -17,7 +17,7 @@ const PreviewInvitation = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { t } = useTranslation();
-  console.log('state', state);
+
   const logOut = () => {
     signOut(auth).then((value) => {
       navigate('/');
@@ -40,6 +40,27 @@ const PreviewInvitation = () => {
       key: '3',
     },
   ];
+
+  // Conditional rendering logic based on `ref`
+  let invitationImage;
+  switch (state.ref) {
+    case 'template1':
+      invitationImage = invitationImage1;
+      break;
+    case 'template2':
+      invitationImage = invitationImage2;
+      break;
+    case 'template3':
+      invitationImage = invitationImage3;
+      break;
+    case 'template4':
+      invitationImage = invitationImage4;
+      break;
+
+    default:
+      invitationImage = '/path/to/default/image.jpg';
+  }
+
   return (
     <div>
       <div className="flex justify-between items-stretch p-5">
@@ -80,7 +101,7 @@ for template and coustomize button */}
               onClick={() => {
                 navigate('/dashboard/editTemplate', {
                   state: {
-                    ref: 'template1',
+                    ref: state.ref,
                     coupleNames: state.coupleNames,
                   },
                 });
