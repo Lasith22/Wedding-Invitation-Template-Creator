@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import invitationImage from '../../assets/template5.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
 import {
@@ -8,9 +9,8 @@ import {
   dlManelToUnicode,
   unicodeToKaputa,
 } from 'sinhala-unicode-coverter';
-import invitationImage from '../../assets/weddingCard1.jpeg';
-
-const Template2 = (props) => {
+import { ResizableBox } from 'react-resizable';
+const Template5 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
 
@@ -85,14 +85,10 @@ const Template2 = (props) => {
                 </div>
               </Draggable>
             ))}
-
-          <p className="text-xl text-center  text-black my-2">{props.date}</p>
-
-          <p className="text-md text-center  text-black my-2">{props.venue}</p>
         </div>
       </div>
     </>
   );
 };
 
-export default Template2;
+export default Template5;

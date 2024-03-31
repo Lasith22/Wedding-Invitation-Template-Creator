@@ -8,9 +8,8 @@ import {
   dlManelToUnicode,
   unicodeToKaputa,
 } from 'sinhala-unicode-coverter';
-import invitationImage from '../../assets/weddingCard1.jpeg';
-
-const Template2 = (props) => {
+import invitationImage from '../../assets/template1.jpeg';
+const Template4 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
 
@@ -95,4 +94,4 @@ const Template2 = (props) => {
   );
 };
 
-export default Template2;
+export default Template4;

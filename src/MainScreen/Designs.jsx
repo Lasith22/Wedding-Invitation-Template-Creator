@@ -11,7 +11,12 @@ import { useTranslation } from 'react-i18next';
 import invitationImage from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
-import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
+import invitationImage4 from '../assets/template1.jpeg';
+import invitationImage5 from '../assets/template5.jpeg';
+import invitationImage6 from '../assets/template2.jpeg';
+import invitationImage7 from '../assets/template3.jpeg';
+import invitationImage8 from '../assets/template4.jpeg';
+
 import { FaHeart } from 'react-icons/fa6';
 
 const Dashboard = () => {
@@ -198,99 +203,198 @@ const Dashboard = () => {
       </div>
       <Spin spinning={loading} tip="Loading...">
         {/* actual templates section */}
-        <div className="flex justify-center items-center gap-20 ">
-          <div>
+        <div className="flex flex-col gap-10 my-20">
+          {/* 1st section */}
+          <div className="flex justify-center items-center gap-20 ">
+            <div>
+              <div className=" relative group">
+                <img
+                  onClick={() => {
+                    navigate('preview', {
+                      state: {
+                        coupleNames: coupleNames,
+                        ref: 'template1',
+                      },
+                    });
+                  }}
+                  src={invitationImage}
+                  class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+                />
+
+                <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h1>Template Name</h1>
+                  <FaHeart
+                    onClick={() => {
+                      uploadLinksToFirestore(invitationImage);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className=" relative group">
               <img
                 onClick={() => {
                   navigate('preview', {
                     state: {
                       coupleNames: coupleNames,
-                      ref: 'template1',
+                      ref: 'template2',
                     },
                   });
                 }}
-                src={invitationImage}
+                src={invitationImage2}
                 class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
-
               <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h1>Template Name</h1>
                 <FaHeart
                   onClick={() => {
-                    uploadLinksToFirestore(invitationImage);
+                    uploadLinksToFirestore(invitationImage2);
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className=" relative group">
+              <img
+                onClick={() => {
+                  navigate('preview', {
+                    state: {
+                      coupleNames: coupleNames,
+                      ref: 'template3',
+                    },
+                  });
+                }}
+                src={invitationImage3}
+                class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+              />
+              <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1>Template Name</h1>
+                <FaHeart
+                  onClick={() => {
+                    uploadLinksToFirestore(invitationImage3);
+                  }}
+                />
+              </div>
+            </div>
+            <div className=" relative group">
+              <img
+                onClick={() => {
+                  navigate('preview', {
+                    state: {
+                      coupleNames: coupleNames,
+                      ref: 'template4',
+                    },
+                  });
+                }}
+                src={invitationImage4}
+                class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+              />
+              <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1>Template Name</h1>
+
+                <FaHeart
+                  onClick={() => {
+                    uploadLinksToFirestore(invitationImage4);
                   }}
                 />
               </div>
             </div>
           </div>
+          <div className="flex justify-center items-center gap-20 ">
+            <div>
+              <div className=" relative group">
+                <img
+                  onClick={() => {
+                    navigate('preview', {
+                      state: {
+                        coupleNames: coupleNames,
+                        ref: 'template5',
+                      },
+                    });
+                  }}
+                  src={invitationImage5}
+                  class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+                />
 
-          <div className=" relative group">
-            <img
-              onClick={() => {
-                navigate('preview', {
-                  state: {
-                    coupleNames: coupleNames,
-                    ref: 'template2',
-                  },
-                });
-              }}
-              src={invitationImage2}
-              class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
-            />
-            <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h1>Template Name</h1>
-              <FaHeart
-                onClick={() => {
-                  uploadLinksToFirestore(invitationImage2);
-                }}
-              />
+                <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h1>Template Name</h1>
+                  <FaHeart
+                    onClick={() => {
+                      uploadLinksToFirestore(invitationImage);
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div className=" relative group">
-            <img
-              onClick={() => {
-                navigate('preview', {
-                  state: {
-                    coupleNames: coupleNames,
-                    ref: 'template3',
-                  },
-                });
-              }}
-              src={invitationImage3}
-              class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
-            />
-            <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h1>Template Name</h1>
-              <FaHeart
+            <div className=" relative group">
+              <img
                 onClick={() => {
-                  uploadLinksToFirestore(invitationImage3);
+                  navigate('preview', {
+                    state: {
+                      coupleNames: coupleNames,
+                      ref: 'template6',
+                    },
+                  });
                 }}
+                src={invitationImage6}
+                class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
+              <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1>Template Name</h1>
+                <FaHeart
+                  onClick={() => {
+                    uploadLinksToFirestore(invitationImage2);
+                  }}
+                />
+              </div>
             </div>
-          </div>
-          <div className=" relative group">
-            <img
-              onClick={() => {
-                navigate('preview', {
-                  state: {
-                    coupleNames: coupleNames,
-                    ref: 'template4',
-                  },
-                });
-              }}
-              src={invitationImage4}
-              class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
-            />
-            <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h1>Template Name</h1>
 
-              <FaHeart
+            <div className=" relative group">
+              <img
                 onClick={() => {
-                  uploadLinksToFirestore(invitationImage4);
+                  navigate('preview', {
+                    state: {
+                      coupleNames: coupleNames,
+                      ref: 'template7',
+                    },
+                  });
                 }}
+                src={invitationImage7}
+                class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
+              <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1>Template Name</h1>
+                <FaHeart
+                  onClick={() => {
+                    uploadLinksToFirestore(invitationImage3);
+                  }}
+                />
+              </div>
+            </div>
+            <div className=" relative group">
+              <img
+                onClick={() => {
+                  navigate('preview', {
+                    state: {
+                      coupleNames: coupleNames,
+                      ref: 'template8',
+                    },
+                  });
+                }}
+                src={invitationImage8}
+                class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
+              />
+              <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h1>Template Name</h1>
+
+                <FaHeart
+                  onClick={() => {
+                    uploadLinksToFirestore(invitationImage4);
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

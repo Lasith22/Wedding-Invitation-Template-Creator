@@ -3,7 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import invitationImage1 from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
-import invitationImage4 from '../assets/African Canopy - Wedding Invitation Template.jpeg';
+import invitationImage4 from '../assets/template1.jpeg';
+import invitationImage5 from '../assets/template5.jpeg';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useTranslation } from 'react-i18next';
@@ -55,6 +56,9 @@ const PreviewInvitation = () => {
       break;
     case 'template4':
       invitationImage = invitationImage4;
+      break;
+    case 'template5':
+      invitationImage = invitationImage5;
       break;
 
     default:
@@ -130,6 +134,7 @@ for template and coustomize button */}
                   navigate('/dashboard/editTemplate', {
                     state: {
                       coupleNames: state.coupleNames,
+                      ref: state.ref,
                     },
                   });
                 }}

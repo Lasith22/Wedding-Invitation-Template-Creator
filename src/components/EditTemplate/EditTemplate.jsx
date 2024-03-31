@@ -16,6 +16,7 @@ import { BiSolidSticker } from 'react-icons/bi';
 import { ShareAltOutlined, FilePdfOutlined } from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
 import Template2 from './Template2';
+import Template3 from './Template3';
 import MainLogo from '../../assets/MainLogo.svg';
 import dayjs from 'dayjs';
 import {
@@ -31,6 +32,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import SVGs from '../../svgComponents';
 import CustomDrawer from './CustomDrawer';
+import Template4 from './Template4';
+import Template5 from './Template5';
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
@@ -206,7 +209,106 @@ const EditTemplate = () => {
       icon: <ShareAltOutlined />,
     },
   ];
+  const renderTemplate = () => {
+    switch (state.ref) {
+      case 'template1':
+        return (
+          <Template1
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
 
+      case 'template2':
+        return (
+          <Template2
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+
+      case 'template3':
+        return (
+          <Template3
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+
+      case 'template4':
+        return (
+          <Template4
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+      case 'template5':
+        return (
+          <Template5
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+
+      default:
+        return <div>No template selected</div>;
+    }
+  };
   return (
     <>
       <div className="bg-white border-b-2 border-gray-300">
@@ -683,23 +785,7 @@ const EditTemplate = () => {
               </div>
             </Form>
           </div>
-          <div ref={pdfRef}>
-            <Template1
-              customMessage={customMessage}
-              coupleName={coupleName}
-              coupleNameColor={coupleNameColor}
-              customMessageColor={customMessageColor}
-              date={date}
-              venue={venue}
-              onClickCoupleName={showDrawer}
-              selectFonts={coupleNameFonts}
-              selectFontsForMessage={customMessageFont}
-              fontSize={coupleNameFontSize}
-              fontsizeCustomMessage={customMessageFontSize}
-              selectedSvg={selectedSvgs}
-              onEdit={showDrawerFor}
-            />
-          </div>
+          <div ref={pdfRef}>{renderTemplate()}</div>
           <Modal
             footer={null}
             width={700}
