@@ -51,7 +51,7 @@ const Dashboard = () => {
       const blob = await response.blob();
       const upload = await uploadBytes(storageRef, blob);
       const imageURL = await getDownloadURL(upload.ref);
-      console.log('url', imageURL);
+
       setImageLinks((prevLinks) => [...prevLinks, imageURL]);
       return imageURL;
     } catch (error) {
@@ -115,7 +115,7 @@ const Dashboard = () => {
       key: '3',
     },
   ];
-  console.log('useState aray', imageLinks);
+
   return (
     <div>
       {/* top nav bar section with log out part */}

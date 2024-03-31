@@ -34,6 +34,7 @@ import CustomDrawer from './CustomDrawer';
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
+  console.log('final state', state);
   const [coupleName, setCoupleName] = useState(
     `${state.coupleNames.partnerFirstName} & ${state.coupleNames.yourFirstName}`,
   );
