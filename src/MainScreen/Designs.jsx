@@ -19,6 +19,7 @@ import invitationImage8 from '../assets/template4.jpeg';
 import i18next from 'i18next';
 import { MdLanguage } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa6';
+import { mainPhoto } from '../assets/hello.avif';
 
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
@@ -197,21 +198,18 @@ const Dashboard = () => {
 
       {/* second layer */}
       <div className="bg-[#f5f1e6] h-80 mx-20 mb-10  ">
-        <div className="flex justify-between items-center">
+        <div className="grid grid-cols-4 gap-[20px]   items-center">
           {/* text */}
-          <div className="flex flex-col mx-10">
+          <div className="flex flex-col mx-10 col-span-3">
             <h1 className="mt-0   text-[40px]  lg:text-[50px] text-[#BC8C05] font-bold font-manrope">
               {' '}
               {t('WEDDING_WEBSITE!!')}
             </h1>
             <p className="text-18 font-inter text-darkdray mt-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              asperiores modi beatae
-              <br /> facere eum! Deleniti, consectetur, molestias reprehenderit
-              laudantium, a rerum ad aut velit sit?
+              {t('WE_UNDERSTAND')}
             </p>
           </div>
-          <div className=" mr-10  ">
+          <div className=" mr-10 col-span-1  ">
             <img
               src={Card2}
               width="250"
@@ -243,7 +241,7 @@ const Dashboard = () => {
                 />
 
                 <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h1>Template Name</h1>
+                  <h1>{t('BLOOM_EMRACE')} </h1>
                   <FaHeart
                     onClick={() => {
                       uploadLinksToFirestore(invitationImage);
@@ -267,7 +265,7 @@ const Dashboard = () => {
                 class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
               <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h1>Template Name</h1>
+                <h1>{t('FESTIVE_MELODY')} </h1>
                 <FaHeart
                   onClick={() => {
                     uploadLinksToFirestore(invitationImage2);
@@ -290,7 +288,7 @@ const Dashboard = () => {
                 class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
               <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h1>Template Name</h1>
+                <h1>{t('SIHALA_UTHSAWA')} </h1>
                 <FaHeart
                   onClick={() => {
                     uploadLinksToFirestore(invitationImage3);
@@ -312,7 +310,7 @@ const Dashboard = () => {
                 class="object-contain h-80 w-160 shadow-gray-700 shadow-sm"
               />
               <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h1>Template Name</h1>
+                <h1> {t('ROYAL_INVITATION')}</h1>
 
                 <FaHeart
                   onClick={() => {
@@ -339,7 +337,7 @@ const Dashboard = () => {
                 />
 
                 <div className="flex justify-between items-center absolute bottom-0 w-full p-3 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h1>Template Name</h1>
+                  <h1>{t('MANGALA_ALI')} </h1>
                   <FaHeart
                     onClick={() => {
                       uploadLinksToFirestore(invitationImage);

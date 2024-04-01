@@ -37,6 +37,9 @@ import Template5 from './Template5';
 import Template6 from './Template6';
 import Template7 from './Template7';
 import Template8 from './Template8';
+import { MdLanguage } from 'react-icons/md';
+import i18next from 'i18next';
+
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
@@ -64,6 +67,7 @@ const EditTemplate = () => {
   const [editingElement, setEditingElement] = useState(null);
   const [inputText, setInputText] = useState('');
   const [convertedText, setConvertedText] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState('si');
   const showDrawerFor = (element) => {
     setEditingElement(element);
     showDrawer();
@@ -93,7 +97,7 @@ const EditTemplate = () => {
 
   const pdfRef = useRef();
   const onCoupleNameChange = (e) => {
-    setCoupleName(e.target.value);
+    setCoupleName(singlishPhoneticToUnicode(e.target.value));
   };
 
   const showDrawer = () => {
@@ -127,7 +131,9 @@ const EditTemplate = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(i18next.changeLanguage(value));
+  };
   // Function to handle SVG selection
   const handleSelectSvg = (SvgComponent) => {
     setSelectedSvgs([...selectedSvgs, SvgComponent]);
@@ -167,6 +173,8 @@ const EditTemplate = () => {
     { id: 'svg18', component: SVGs.Svg18 },
     { id: 'svg19', component: SVGs.Svg19 },
     { id: 'svg20', component: SVGs.Svg20 },
+    { id: 'svg21', component: SVGs.Svg21 },
+    { id: 'svg22', component: SVGs.Svg22 },
   ];
   const handleDownloadPDF = () => {
     setLoading(true); // Start loading
@@ -370,7 +378,7 @@ const EditTemplate = () => {
     <>
       <div className="bg-white border-b-2 border-gray-300">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="flex   h-20 items-center justify-between">
+          <div className="flex h-20 items-center justify-between">
             {/* MainLogo */}
             <div className="flex items-start   ">
               <img src={MainLogo} alt="" className="h-8" />
@@ -382,21 +390,40 @@ const EditTemplate = () => {
               <BiSolidSticker size={30} color="pink" />
               <h1>{t('ADD_STICKERS')}</h1>
             </div>
-
-            <Dropdown
-              menu={{
-                items,
-              }}
-              trigger={['hover']}
-            >
-              <button
-                type="button"
-                className="border text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2   "
-                // class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            <div className="flex justify-between items-center gap-5">
+              <div className="flex justify-between items-center gap-1">
+                <MdLanguage size={30} color="pink" />
+                <Select
+                  defaultValue={selectedLanguage}
+                  onChange={handleLanguageChange}
+                  options={[
+                    {
+                      value: 'si',
+                      label: 'සිංහල',
+                    },
+                    {
+                      value: 'en',
+                      label: 'ENGLISH',
+                    },
+                  ]}
+                  style={{ width: 100 }}
+                />
+              </div>
+              <Dropdown
+                menu={{
+                  items,
+                }}
+                trigger={['hover']}
               >
-                {t('NEXT')}
-              </button>
-            </Dropdown>
+                <button
+                  type="button"
+                  className="border text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2   "
+                  // class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                >
+                  {t('NEXT')}
+                </button>
+              </Dropdown>
+            </div>
           </div>
         </div>
       </div>
@@ -681,127 +708,6 @@ const EditTemplate = () => {
                       style={{ width: 400 }}
                     />
                   </Form.Item>
-
-                  <Select
-                    id="coupleNameFonts"
-                    style={{ width: 200 }}
-                    onChange={handleSelectFonts}
-                    defaultValue={'font-sinhala1'}
-                    options={[
-                      {
-                        value: 'font-sinhala1',
-                        label: (
-                          <span className=" font-sinhala1">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala2',
-                        label: (
-                          <span className=" font-sinhala2">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala3',
-                        label: (
-                          <span className=" font-sinhala3">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala4',
-                        label: (
-                          <span className=" font-sinhala4">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala5',
-                        label: (
-                          <span className=" font-sinhala5">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala6',
-                        label: (
-                          <span className=" font-sinhala6">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala7',
-                        label: (
-                          <span className=" font-sinhala7">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala8',
-                        label: (
-                          <span className=" font-sinhala8">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala9',
-                        label: (
-                          <span className=" font-sinhala9">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala10',
-                        label: (
-                          <span className=" font-sinhala10">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala11',
-                        label: (
-                          <span className=" font-sinhala11">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala12',
-                        label: (
-                          <span className=" font-sinhala12">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala13',
-                        label: (
-                          <span className=" font-sinhala13">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                      {
-                        value: 'font-sinhala14',
-                        label: (
-                          <span className=" font-sinhala14">
-                            Sachini & Lasith
-                          </span>
-                        ),
-                      },
-                    ]}
-                  />
                 </div>
 
                 <div className=" flex justify-between items-center gap-3">
@@ -813,7 +719,6 @@ const EditTemplate = () => {
                       style={{ width: 400 }}
                     />
                   </Form.Item>
-                  <Select style={{ width: 200 }} />
                 </div>
 
                 <div className=" flex justify-between items-center gap-3">
@@ -825,7 +730,6 @@ const EditTemplate = () => {
                       onChange={onDateChange}
                     />
                   </Form.Item>
-                  <Select style={{ width: 200 }} />
                 </div>
 
                 <div className=" flex justify-between items-center gap-3">
@@ -837,7 +741,6 @@ const EditTemplate = () => {
                       style={{ width: 400 }}
                     />
                   </Form.Item>
-                  <Select style={{ width: 200 }} />
                 </div>
               </div>
             </Form>

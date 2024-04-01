@@ -19,7 +19,7 @@ const Template1 = (props) => {
       props.onClickCoupleName();
     }
   };
-
+  let finalaCoupleName = unicodeToDlManel(props.coupleName);
   return (
     <>
       <div className="relative max-w-lg mx-auto">
@@ -47,7 +47,7 @@ const Template1 = (props) => {
               onMouseEnter={() => setIsHoveredCoupleName(true)}
               onMouseLeave={() => setIsHoveredCoupleName(false)}
             >
-              {props.coupleName}
+              {unicodeToDlManel(props.coupleName)}
             </div>
           </Draggable>
           <Draggable bounds="parent">
