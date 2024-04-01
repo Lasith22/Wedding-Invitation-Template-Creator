@@ -15,6 +15,9 @@ import { ReactComponent as Svg18 } from '../src/svg/jewel-crown-svgrepo-com.svg'
 import { ReactComponent as Svg19 } from '../src/svg/jug-svgrepo-com.svg';
 import { ReactComponent as Svg20 } from '../src/svg/sri-lanka-svgrepo-com.svg';
 
+import { ReactComponent as Svg21 } from '../src/svg/svgTest1.svg';
+import { ReactComponent as Svg22 } from '../src/svg/svgTest2.svg';
+
 export default {
   Svg1,
   Svg2,
@@ -33,4 +36,7 @@ export default {
   Svg18,
   Svg19,
   Svg20,
+
+  Svg21,
+  Svg22,
 };

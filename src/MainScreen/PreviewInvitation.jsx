@@ -59,8 +59,8 @@ const PreviewInvitation = () => {
   switch (state.ref) {
     case 'template1':
       invitationImage = invitationImage1;
-      aboutTemplate = t('THIS_FESTIVELY');
-      templateName = t('MANGALA_ALI');
+      aboutTemplate = t('BLOOM_EMRACE_EXPLENATION');
+      templateName = t('BLOOM_EMRACE');
       break;
     case 'template2':
       invitationImage = invitationImage2;
@@ -74,8 +74,8 @@ const PreviewInvitation = () => {
       break;
     case 'template4':
       invitationImage = invitationImage4;
-      aboutTemplate = t('THIS_FESTIVELY');
-      templateName = t('MANGALA_ALI');
+      aboutTemplate = t('ROYAL_INVITATION_EXPLENATION');
+      templateName = t('ROYAL_INVITATION');
       break;
     case 'template5':
       invitationImage = invitationImage5;
