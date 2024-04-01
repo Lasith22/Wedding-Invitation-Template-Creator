@@ -5,7 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MainLogo from '../../src/assets/MainLogo.svg';
 import { doc, getDoc, addDoc, collection, setDoc } from 'firebase/firestore';
-import { Dropdown, Spin } from 'antd';
+import { Dropdown, Spin, Select } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
 import { useTranslation } from 'react-i18next';
 import invitationImage from '../assets/weddingCard3.jpeg';
@@ -16,14 +16,15 @@ import invitationImage5 from '../assets/template5.jpeg';
 import invitationImage6 from '../assets/template2.jpeg';
 import invitationImage7 from '../assets/template3.jpeg';
 import invitationImage8 from '../assets/template4.jpeg';
-
+import i18next from 'i18next';
+import { MdLanguage } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa6';
 
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
   const [imageLinks, setImageLinks] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [selectedLanguage, setSelectedLanguage] = useState('si');
   const { state } = useLocation();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -33,7 +34,9 @@ const Dashboard = () => {
       navigate('/');
     });
   };
-
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(i18next.changeLanguage(value));
+  };
   // get names of couples from firestore
   useEffect(() => {
     const getCoupleNames = async () => {
@@ -140,6 +143,24 @@ const Dashboard = () => {
         {/* log out Part */}
         <div className="mr-6">
           <div className="flex justify-between  gap-6">
+            <div className="flex justify-between items-center gap-1">
+              <MdLanguage size={30} color="pink" />
+              <Select
+                defaultValue={selectedLanguage}
+                onChange={handleLanguageChange}
+                options={[
+                  {
+                    value: 'si',
+                    label: 'සිංහල',
+                  },
+                  {
+                    value: 'en',
+                    label: 'ENGLISH',
+                  },
+                ]}
+                style={{ width: 100 }}
+              />
+            </div>
             <Dropdown
               menu={{
                 items,

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import invitationImage1 from '../assets/weddingCard3.jpeg';
 import invitationImage2 from '../assets/weddingCard1.jpeg';
 import invitationImage3 from '../assets/weddingCard2.jpeg';
 import invitationImage4 from '../assets/template1.jpeg';
 import invitationImage5 from '../assets/template5.jpeg';
+import invitationImage6 from '../assets/template2.jpeg';
+import invitationImage7 from '../assets/template3.jpeg';
+import invitationImage8 from '../assets/template4.jpeg';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useTranslation } from 'react-i18next';
@@ -13,8 +16,11 @@ import { MdPictureAsPdf } from 'react-icons/md';
 import { FaPencilAlt } from 'react-icons/fa';
 import { LuSticker } from 'react-icons/lu';
 import MainLogo from '../../src/assets/MainLogo.svg';
-import { Dropdown, Image } from 'antd';
+import { Dropdown, Image, Select } from 'antd';
+import i18next from 'i18next';
+import { MdLanguage } from 'react-icons/md';
 const PreviewInvitation = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState('si');
   const navigate = useNavigate();
   const { state } = useLocation();
   const { t } = useTranslation();
@@ -24,14 +30,18 @@ const PreviewInvitation = () => {
       navigate('/');
     });
   };
+  const handleLanguageChange = (value) => {
+    setSelectedLanguage(i18next.changeLanguage(value));
+  };
   const items = [
     {
       label: <h1 onClick={logOut}>{t('LOG_OUT')} </h1>,
       key: '0',
     },
+
     {
       label: <a href="https://www.aliyun.com">{t('ACCOUNT_DETAILS')} </a>,
-      key: '1',
+      key: '2',
     },
     {
       type: 'divider',
@@ -44,21 +54,48 @@ const PreviewInvitation = () => {
 
   // Conditional rendering logic based on `ref`
   let invitationImage;
+  let aboutTemplate;
+  let templateName;
   switch (state.ref) {
     case 'template1':
       invitationImage = invitationImage1;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
       break;
     case 'template2':
       invitationImage = invitationImage2;
+      aboutTemplate = t('FESTIVE_MELODY_EXPLENATION');
+      templateName = t('FESTIVE_MELODY');
       break;
     case 'template3':
       invitationImage = invitationImage3;
+      aboutTemplate = t('SIHALA_UTHSAWA_EXPLENATION');
+      templateName = t('SIHALA_UTHSAWA');
       break;
     case 'template4':
       invitationImage = invitationImage4;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
       break;
     case 'template5':
       invitationImage = invitationImage5;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
+      break;
+    case 'template6':
+      invitationImage = invitationImage6;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
+      break;
+    case 'template7':
+      invitationImage = invitationImage7;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
+      break;
+    case 'template8':
+      invitationImage = invitationImage8;
+      aboutTemplate = t('THIS_FESTIVELY');
+      templateName = t('MANGALA_ALI');
       break;
 
     default:
@@ -81,7 +118,25 @@ const PreviewInvitation = () => {
 
         {/* log out Part */}
         <div className="mr-6">
-          <div className="flex justify-between  gap-6">
+          <div className="flex justify-between gap-6">
+            <div className="flex justify-between items-center gap-1">
+              <MdLanguage size={30} color="pink" />
+              <Select
+                defaultValue={selectedLanguage}
+                onChange={handleLanguageChange}
+                options={[
+                  {
+                    value: 'si',
+                    label: 'සිංහල',
+                  },
+                  {
+                    value: 'en',
+                    label: 'ENGLISH',
+                  },
+                ]}
+                style={{ width: 100 }}
+              />
+            </div>
             <Dropdown
               menu={{
                 items,
@@ -121,10 +176,13 @@ for template and coustomize button */}
         <div className="col-span-1 justify-start  items-start shadow-black shadow-md">
           <div className="flex justify-start items-start flex-col ml-8">
             <h1 className="font-semibold text-xl font-custom mt-10 ">
-              Watercolor Floral Garland
+              {templateName}
             </h1>
 
-            <h1 className="font-semibold text-md font-custom my-3  ">Free</h1>
+            <h1 className="font-semibold text-md font-custom my-3  ">
+              {' '}
+              {t('FREE')}{' '}
+            </h1>
 
             <div class="h-0.5 bg-slate-100 w-full my-3"></div>
 
@@ -140,21 +198,14 @@ for template and coustomize button */}
                 }}
                 class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[400px]"
               >
-                Customize
+                {t('CUSTOMIZE')}
               </button>
             </div>
             <div class="h-0.5 bg-slate-100 w-full my-3"></div>
 
             {/* template content */}
             <div>
-              <h1 className="text-gray-400 text-sm">
-                Get ready to host and toast to the happy couple with this
-                greenery-inspired online wedding invitation. A watercolor
-                garland border gives a nod to nature and can be customized in
-                either green or blue with an option also for colorful florals.
-                Simple, classic, elegant, and perfect for any style wedding
-                celebration.
-              </h1>
+              <h1 className="text-gray-400 text-sm">{aboutTemplate}</h1>
 
               <div className="grid grid-cols-12 gap-4 my-8 items-center">
                 <div className="col-span-1">
@@ -162,8 +213,7 @@ for template and coustomize button */}
                 </div>
                 <div className="col-span-11">
                   <h1 className="text-gray-400 text-sm">
-                    Change your Card’s text, style, envelope, stamp, backdrop,
-                    and more. Add additional text boxes where you want them.
+                    {t('CHANGE_YOUR_CARDS')}
                   </h1>
                 </div>
               </div>
@@ -173,11 +223,7 @@ for template and coustomize button */}
                   <FaPencilAlt size={30} />
                 </div>
                 <div className="col-span-11">
-                  <h1 className="text-gray-400 text-sm">
-                    Customize to your heart's content: Drag and edit text, add
-                    new text fields, and adjust the size to make your invitation
-                    uniquely yours.
-                  </h1>
+                  <h1 className="text-gray-400 text-sm">{t('CUSTOMIZE_TO')}</h1>
                 </div>
               </div>
 
@@ -186,11 +232,7 @@ for template and coustomize button */}
                   <MdPictureAsPdf size={30} />
                 </div>
                 <div className="col-span-11">
-                  <h1 className="text-gray-400 text-sm">
-                    Seal your memories in style: Easily convert your
-                    personalized invitation into a PDF format, allowing for
-                    effortless printing or sharing with loved ones.
-                  </h1>
+                  <h1 className="text-gray-400 text-sm">{t('SEAL_YOUR')}</h1>
                 </div>
               </div>
 
@@ -199,11 +241,7 @@ for template and coustomize button */}
                   <LuSticker size={30} />
                 </div>
                 <div className="col-span-11">
-                  <h1 className="text-gray-400 text-sm">
-                    Enrich your invitation with cultural elegance: Add
-                    traditional stickers to showcase the unique beauty and
-                    traditions of Sri Lanka.
-                  </h1>
+                  <h1 className="text-gray-400 text-sm">{t('ENRICH_YOUR')}</h1>
                 </div>
               </div>
             </div>

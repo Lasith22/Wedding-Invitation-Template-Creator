@@ -34,6 +34,9 @@ import SVGs from '../../svgComponents';
 import CustomDrawer from './CustomDrawer';
 import Template4 from './Template4';
 import Template5 from './Template5';
+import Template6 from './Template6';
+import Template7 from './Template7';
+import Template8 from './Template8';
 const EditTemplate = () => {
   const { t } = useTranslation();
   const { state } = useLocation();
@@ -304,6 +307,60 @@ const EditTemplate = () => {
             onEdit={showDrawerFor}
           />
         );
+      case 'template6':
+        return (
+          <Template6
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+      case 'template7':
+        return (
+          <Template7
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
+      case 'template8':
+        return (
+          <Template8
+            customMessage={customMessage}
+            coupleName={coupleName}
+            coupleNameColor={coupleNameColor}
+            customMessageColor={customMessageColor}
+            date={date}
+            venue={venue}
+            onClickCoupleName={showDrawer}
+            selectFonts={coupleNameFonts}
+            selectFontsForMessage={customMessageFont}
+            fontSize={coupleNameFontSize}
+            fontsizeCustomMessage={customMessageFontSize}
+            selectedSvg={selectedSvgs}
+            onEdit={showDrawerFor}
+          />
+        );
 
       default:
         return <div>No template selected</div>;
@@ -323,7 +380,7 @@ const EditTemplate = () => {
               className="flex justify-center   items-center gap-1 cursor-pointer hover:bg-slate-100 hover:p-2 hover:rounded-lg"
             >
               <BiSolidSticker size={30} color="pink" />
-              <h1>Add stickers</h1>
+              <h1>{t('ADD_STICKERS')}</h1>
             </div>
 
             <Dropdown
