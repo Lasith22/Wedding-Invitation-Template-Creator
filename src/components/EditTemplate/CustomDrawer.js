@@ -208,7 +208,7 @@ const CustomDrawer = ({
             },
           ]}
         />
-        <ColorPicker onChange={handleColorChange} />
+        <ColorPicker onChange={handleColorChange} defaultValue="#000000" />
 
         <div className="flex justify-center items-center">
           <button

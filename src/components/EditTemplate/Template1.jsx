@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import invitationImage from '../../assets/weddingCard1.jpeg';
+import invitationImage from '../../assets/weddingCard3.jpeg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
 import {
@@ -9,6 +9,7 @@ import {
   dlManelToUnicode,
   unicodeToKaputa,
 } from 'sinhala-unicode-coverter';
+import { ResizableBox } from 'react-resizable';
 const Template1 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);

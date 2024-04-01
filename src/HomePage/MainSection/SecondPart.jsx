@@ -14,7 +14,7 @@ const SecondPart = () => {
         <div className="w-[screen]    bg-[#F7E2A7]     p-2 ">
           <div className="flex flex-col lg:flex-row    m-20 gap-10  justify-between   ">
             {/* background svg image */}
-            <div className="       relative        ">
+            <div className="relative">
               <BigIcon className="  absolute -bottom-14 left-0" />
             </div>
             <div className="flex flex-col       ">
@@ -46,7 +46,7 @@ const SecondPart = () => {
                 />
               </div>
 
-              <div className="       relative        ">
+              <div className="relative">
                 <SecondStar
                   style={{ transform: 'rotate(8deg)' }}
                   className="     absolute right-2 top-5"
