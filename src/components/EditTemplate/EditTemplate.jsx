@@ -60,8 +60,6 @@ const EditTemplate = () => {
   const [loading, setLoading] = useState(false);
   const [savingLoading, setSavingLoading] = useState(false);
   const [editingElement, setEditingElement] = useState(null);
-  const [inputText, setInputText] = useState('');
-  const [convertedText, setConvertedText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('si');
   const [imageData, setImageData] = useState(null);
   const [templateImage, setTemplateImage] = useState(null);
@@ -197,7 +195,7 @@ const EditTemplate = () => {
     { id: 'svg35', component: SVGs.Svg35 },
   ];
   const handleDownloadPDF = () => {
-    setLoading(true); // Start loading
+    setLoading(true);
     const input = pdfRef.current;
     html2canvas(input, { scale: 2 })
       .then((canvas) => {
@@ -540,6 +538,7 @@ const EditTemplate = () => {
                   <div className=" flex justify-between items-center gap-3">
                     <Form.Item label="Enter Custom Message">
                       <Input.TextArea
+                        className="font-sinhala1"
                         defaultValue={customMessage}
                         onChange={onCustomeMessage}
                         rows={4}
