@@ -22,6 +22,7 @@ import {
   Select,
   Spin,
   Button,
+  Alert,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import SVGs from '../../svgComponents';
@@ -33,6 +34,7 @@ import Template7 from './Template7';
 import Template8 from './Template8';
 import { MdLanguage } from 'react-icons/md';
 import i18next from 'i18next';
+import Marquee from 'react-fast-marquee';
 
 const EditTemplate = () => {
   const { t } = useTranslation();
@@ -522,6 +524,17 @@ const EditTemplate = () => {
               </div>
             </Drawer>
             <div className="  ">
+              <Alert
+                style={{
+                  width: 400,
+                }}
+                banner
+                message={
+                  <Marquee pauseOnHover gradient={false}>
+                    {t('PLEASE_TYPE')}
+                  </Marquee>
+                }
+              />
               <Form layout="vertical">
                 <div className=" mt-3 flex items-center justify-center flex-col gap-1">
                   <div className=" flex justify-between items-center gap-3">

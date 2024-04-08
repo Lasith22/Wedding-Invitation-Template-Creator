@@ -4,7 +4,7 @@ import { ReactComponent as Star2 } from '../../assets/Star.svg';
 import { ReactComponent as SecondStar } from '../../assets/SecondStar.svg';
 import { ReactComponent as Hat } from '../../assets/Hat.svg';
 import { ReactComponent as HalfMoon } from '../../assets/HalfMoon.svg';
-import Card2 from '../../assets/Card 23.jpeg';
+import Card2 from '../../assets/il_fullxfull.4956220819_7tfm.avif';
 import { useTranslation } from 'react-i18next';
 const SecondPart = () => {
   const { t } = useTranslation();
