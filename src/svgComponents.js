@@ -1,4 +1,4 @@
-import { ReactComponent as Svg1 } from '../src/svg/wedding-photography-svgrepo-com.svg';
+import { ReactComponent as Svg1 } from '../src/svg/72 reso.svg';
 import { ReactComponent as Svg2 } from '../src/svg/wedding1.svg';
 import { ReactComponent as Svg8 } from '../src/svg/wedding-car-svgrepo-com.svg';
 import { ReactComponent as Svg9 } from '../src/svg/wedding-couple-svgrepo-com (1).svg';

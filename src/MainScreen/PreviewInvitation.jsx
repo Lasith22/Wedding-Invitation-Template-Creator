@@ -24,7 +24,7 @@ const PreviewInvitation = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { t } = useTranslation();
-
+  console.log('email', state);
   const logOut = () => {
     signOut(auth).then((value) => {
       navigate('/');
@@ -162,6 +162,7 @@ for template and coustomize button */}
                   state: {
                     ref: state.ref,
                     coupleNames: state.coupleNames,
+                    email: state.email,
                   },
                 });
               }}
@@ -193,6 +194,7 @@ for template and coustomize button */}
                     state: {
                       coupleNames: state.coupleNames,
                       ref: state.ref,
+                      email: state.email,
                     },
                   });
                 }}

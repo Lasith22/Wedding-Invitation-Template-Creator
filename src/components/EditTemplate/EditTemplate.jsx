@@ -22,6 +22,7 @@ import {
   Select,
   Spin,
   Button,
+  Alert,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import SVGs from '../../svgComponents';
@@ -33,6 +34,7 @@ import Template7 from './Template7';
 import Template8 from './Template8';
 import { MdLanguage } from 'react-icons/md';
 import i18next from 'i18next';
+import Marquee from 'react-fast-marquee';
 
 const EditTemplate = () => {
   const { t } = useTranslation();
@@ -60,8 +62,6 @@ const EditTemplate = () => {
   const [loading, setLoading] = useState(false);
   const [savingLoading, setSavingLoading] = useState(false);
   const [editingElement, setEditingElement] = useState(null);
-  const [inputText, setInputText] = useState('');
-  const [convertedText, setConvertedText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('si');
   const [imageData, setImageData] = useState(null);
   const [templateImage, setTemplateImage] = useState(null);
@@ -197,7 +197,7 @@ const EditTemplate = () => {
     { id: 'svg35', component: SVGs.Svg35 },
   ];
   const handleDownloadPDF = () => {
-    setLoading(true); // Start loading
+    setLoading(true);
     const input = pdfRef.current;
     html2canvas(input, { scale: 2 })
       .then((canvas) => {
@@ -524,6 +524,17 @@ const EditTemplate = () => {
               </div>
             </Drawer>
             <div className="  ">
+              <Alert
+                style={{
+                  width: 400,
+                }}
+                banner
+                message={
+                  <Marquee pauseOnHover gradient={false}>
+                    {t('PLEASE_TYPE')}
+                  </Marquee>
+                }
+              />
               <Form layout="vertical">
                 <div className=" mt-3 flex items-center justify-center flex-col gap-1">
                   <div className=" flex justify-between items-center gap-3">
@@ -540,6 +551,7 @@ const EditTemplate = () => {
                   <div className=" flex justify-between items-center gap-3">
                     <Form.Item label="Enter Custom Message">
                       <Input.TextArea
+                        className="font-sinhala1"
                         defaultValue={customMessage}
                         onChange={onCustomeMessage}
                         rows={4}

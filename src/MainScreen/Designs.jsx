@@ -233,6 +233,7 @@ const Dashboard = () => {
                       state: {
                         coupleNames: coupleNames,
                         ref: 'template1',
+                        email: state.email,
                       },
                     });
                   }}
@@ -258,6 +259,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template2',
+                      email: state.email,
                     },
                   });
                 }}
@@ -281,6 +283,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template3',
+                      email: state.email,
                     },
                   });
                 }}
@@ -303,6 +306,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template4',
+                      email: state.email,
                     },
                   });
                 }}
@@ -329,6 +333,7 @@ const Dashboard = () => {
                       state: {
                         coupleNames: coupleNames,
                         ref: 'template5',
+                        email: state.email,
                       },
                     });
                   }}
@@ -354,6 +359,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template6',
+                      email: state.email,
                     },
                   });
                 }}
@@ -377,6 +383,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template7',
+                      email: state.email,
                     },
                   });
                 }}
@@ -399,6 +406,7 @@ const Dashboard = () => {
                     state: {
                       coupleNames: coupleNames,
                       ref: 'template8',
+                      email: state.email,
                     },
                   });
                 }}

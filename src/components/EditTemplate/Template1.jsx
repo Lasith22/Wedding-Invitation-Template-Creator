@@ -47,7 +47,7 @@ const Template1 = (props) => {
               onMouseEnter={() => setIsHoveredCoupleName(true)}
               onMouseLeave={() => setIsHoveredCoupleName(false)}
             >
-              {unicodeToDlManel(props.coupleName)}
+              {props.coupleName}
             </div>
           </Draggable>
           <Draggable bounds="parent">
