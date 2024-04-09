@@ -60,6 +60,8 @@ const EditTemplate = () => {
   const [customMessageFontSize, setCustomMessageFontSize] = useState(30);
   const [selectedSvgs, setSelectedSvgs] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingEmail, setLoadingEmail] = useState(false);
+
   const [savingLoading, setSavingLoading] = useState(false);
   const [editingElement, setEditingElement] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState('si');
@@ -157,7 +159,7 @@ const EditTemplate = () => {
   };
 
   const sendTemplateViaEmail = (value) => {
-    setLoading(true);
+    setLoadingEmail(true);
     const sendEmailWithSendGrid = httpsCallable(
       functions,
       'sendEmailWithSendGrid',
@@ -166,13 +168,14 @@ const EditTemplate = () => {
     sendEmailWithSendGrid({
       to: value.guestEmail,
       from: 'lasithherath00@gmail.com',
-      subject: 'Hello from Firebase!',
+      subject: `An Invitation From ${value.userName}`,
       text: 'This is a test email.',
       html: `<html><body><img src="${imageLink}" alt="Captured Content"/></body></html>`,
     })
       .then((result) => {
         if (result.data.success) {
           alert('Email sent successfully!');
+          setLoadingEmail(false);
         } else {
           console.log('Failed to send email.', result);
         }
@@ -248,14 +251,14 @@ const EditTemplate = () => {
 
   const items = [
     {
-      label: <h1 onClick={handleDownloadPDF}> {t('DOWNLOAD_PDF')}</h1>,
-      key: '1',
-      icon: <FilePdfOutlined />,
-    },
-    {
       label: <h1 onClick={showModal}>{t('SHARE')} </h1>,
       key: '2',
       icon: <ShareAltOutlined />,
+    },
+    {
+      label: <h1 onClick={handleDownloadPDF}> {t('DOWNLOAD_PDF')}</h1>,
+      key: '1',
+      icon: <FilePdfOutlined />,
     },
   ];
   const renderTemplate = () => {
@@ -299,6 +302,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -318,6 +327,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -337,6 +352,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -355,6 +376,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -373,6 +400,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -391,6 +424,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -409,6 +448,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -621,49 +666,51 @@ const EditTemplate = () => {
               </Form>
             </div>
             <div ref={pdfRef}>{renderTemplate()}</div>
-            <Modal
-              footer={null}
-              width={700}
-              style={{ maxHeight: '80vh' }}
-              title={
-                <div className="custom-modal-title border-b-2 border-gray-200 p-4">
-                  {t('SHARE')}
-                </div>
-              }
-              open={isModalOpen}
-              onCancel={handleCancel}
-            >
-              <div className="flex justify-between items-center gap-5 ">
-                <div className=" flex flex-1 bg-slate-100 p-5">
-                  {templateImage && (
-                    <img
-                      src={templateImage}
-                      alt="Customized Template"
-                      style={{ maxWidth: '100%', maxHeight: '100%' }}
-                    />
-                  )}
-                </div>
-                <div className=" flex flex-1 items-center justify-center ">
-                  <Form onFinish={sendTemplateViaEmail} layout="vertical">
-                    {/* input */}
-                    <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
-                      <Form.Item label="To" name="guestEmail">
-                        <Input.TextArea
-                          size="large"
-                          placeholder={t('ENTER_GUEST_EMAIL')}
-                        />
-                      </Form.Item>
-                    </div>
+            <Spin spinning={loadingEmail} tip="Email Sending...">
+              <Modal
+                footer={null}
+                width={700}
+                style={{ maxHeight: '80vh' }}
+                title={
+                  <div className="custom-modal-title border-b-2 border-gray-200 p-4">
+                    {t('SHARE')}
+                  </div>
+                }
+                open={isModalOpen}
+                onCancel={handleCancel}
+              >
+                <div className="flex justify-between items-center gap-5 ">
+                  <div className=" flex flex-1 bg-slate-100 p-5">
+                    {templateImage && (
+                      <img
+                        src={templateImage}
+                        alt="Customized Template"
+                        style={{ maxWidth: '100%', maxHeight: '100%' }}
+                      />
+                    )}
+                  </div>
+                  <div className=" flex flex-1 items-center justify-center ">
+                    <Form onFinish={sendTemplateViaEmail} layout="vertical">
+                      {/* input */}
+                      <div className=" mt-3 flex items-center justify-center flex-col gap-1 ">
+                        <Form.Item label="Your Name" name="userName">
+                          <Input.TextArea size="large" />
+                        </Form.Item>
+                        <Form.Item label="To" name="guestEmail">
+                          <Input.TextArea size="large" />
+                        </Form.Item>
+                      </div>
 
-                    <div className="mt-10 mb-10 items-center justify-center flex">
-                      <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[200px]  ">
-                        {t('SEND')}
-                      </button>
-                    </div>
-                  </Form>
+                      <div className="mt-10 mb-10 items-center justify-center flex">
+                        <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[200px]  ">
+                          {t('SEND')}
+                        </button>
+                      </div>
+                    </Form>
+                  </div>
                 </div>
-              </div>
-            </Modal>
+              </Modal>
+            </Spin>
           </div>
         </Spin>
       </Spin>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Form, Image, Typography } from 'antd';
-import Invitation from '../assets/be9139e4-0427-4ffc-953a-4b6b05a468cb.jpg';
+import Invitation from '../assets/wc-5-500x500.jpg';
 import { doc, setDoc } from 'firebase/firestore';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
@@ -85,7 +85,7 @@ const CoupleDetailsPage = () => {
                   >
                     <Input
                       size="large"
-                      placeholder="Alexandar"
+                      placeholder="ලසිත්"
                       style={{ width: 400 }}
                     />
                   </Form.Item>
@@ -102,7 +102,7 @@ const CoupleDetailsPage = () => {
                   >
                     <Input
                       size="large"
-                      placeholder="Jessica"
+                      placeholder="කසුනි"
                       style={{ width: 400 }}
                     />
                   </Form.Item>

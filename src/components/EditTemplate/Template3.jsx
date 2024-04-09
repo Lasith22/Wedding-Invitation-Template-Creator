@@ -13,7 +13,8 @@ import invitationImage from '../../assets/weddingCard2.jpeg';
 const Template3 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
-
+  const [isHoveredDate, setIsHoveredDate] = useState(false);
+  const [isHoveredVenue, setIsHoveredVenue] = useState(false);
   const handleClick = () => {
     if (props.onClickCoupleName) {
       props.onClickCoupleName();
@@ -86,9 +87,42 @@ const Template3 = (props) => {
               </Draggable>
             ))}
 
-          <p className="text-xl text-center  text-black my-2">{props.date}</p>
-
-          <p className="text-md text-center  text-black my-2">{props.venue}</p>
+          <Draggable bounds="parent">
+            <p
+              onMouseEnter={() => setIsHoveredDate(true)}
+              onMouseLeave={() => setIsHoveredDate(false)}
+              onClick={() => props.onEdit('date')}
+              className={`text-md text-center  ${props.dateFont} border-2 p-3 ${
+                isHoveredDate ? ' border-dashed bg-gray-100' : 'border-none'
+              }  text-black my-4`}
+              style={{
+                fontSize: props.dateFontSize,
+                color: `${props.dateColor}`,
+                cursor: 'move',
+              }}
+            >
+              {props.date}
+            </p>
+          </Draggable>
+          <Draggable>
+            <p
+              onMouseEnter={() => setIsHoveredVenue(true)}
+              onMouseLeave={() => setIsHoveredVenue(false)}
+              onClick={() => props.onEdit('venue')}
+              className={`text-md text-center  ${
+                props.venueFont
+              } border-2 p-3 ${
+                isHoveredVenue ? ' border-dashed bg-gray-100' : 'border-none'
+              }  text-black my-4`}
+              style={{
+                fontSize: props.venueFontSize,
+                color: `${props.venueColor}`,
+                cursor: 'move',
+              }}
+            >
+              {props.venue}
+            </p>
+          </Draggable>
         </div>
       </div>
     </>

@@ -4,7 +4,9 @@ import PurplePhone from '../../assets/Group purplePhone.svg';
 import GreenPhone from '../../assets/Group  greenWhatapp.svg';
 import MainLogo from '../../assets/MainLogo.svg';
 import { Avatar } from 'antd';
+import { useTranslation } from 'react-i18next';
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex flex-col justify-center items-center mt-40   ">
@@ -13,10 +15,9 @@ const Footer = () => {
 
           <div className=" absolute  bottom-0 right-0 h-[179px] w-[179px] rounded-tl-full   bg-[#F5DA8F] hidden lg:block"></div>
           <div className="absolute bottom-0 left-0 h-[155px] w-[155px] rounded-tr-full    bg-[#F5DA8F] hidden lg:block"></div>
-          <div className="  absolute top-10  left-60  h-[46px] w-[46px] rounded-full     bg-[#F5DA8F] hidden lg:block"></div>
+
           <h1 className="text-[30px] lg:text-40 font-manrope font-bold mx-20 ">
-            Access this right service <br />{' '}
-            <span className="ml-20">for you today!</span>
+            {t('ACCESS')} <br /> <span className="ml-20"> </span>
           </h1>
 
           {/* 2  whats app icons */}

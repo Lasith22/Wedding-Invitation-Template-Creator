@@ -32,12 +32,7 @@ const CustomerStories = () => {
                   <Avatar src={smallMan1} size={40} />
                   <img className="mt-2" src={comma} alt="" />
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Dolorem laborum eum illum molestiae labore cumque atque
-                      obcaecati assumenda, hic nisi reiciendis consectetur cum
-                      cupiditate.
-                    </p>
+                    <p>{t('FEEDBACK_ONE')}</p>
                     <h1 className="  font-semibold mt-2">Floyd Miles</h1>
                     <h1 className="text-darkText text-14">
                       Vise President GoPro
@@ -55,12 +50,7 @@ const CustomerStories = () => {
                   <Avatar src={smallMan2} size={40} />
                   <img className="mt-2" src={comma} alt="" />
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Dolorem laborum eum illum molestiae labore cumque atque
-                      obcaecati assumenda, hic nisi reiciendis consectetur cum
-                      cupiditate.
-                    </p>
+                    <p>{t('FEEDBACK_TWO')}</p>
                     <h1 className="  font-semibold mt-2">Floyd Miles</h1>
                     <h1 className="text-darkText text-14">
                       Vise President GoPro
@@ -78,12 +68,7 @@ const CustomerStories = () => {
                   </div>
 
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Dolorem laborum eum illum molestiae labore cumque atque
-                      obcaecati assumenda, hic nisi reiciendis consectetur cum
-                      cupiditate.
-                    </p>
+                    <p>{t('FEEDBACK_THREE')}</p>
                     <h1 className="  font-semibold mt-2">Floyd Miles</h1>
                     <h1 className="text-darkText text-14">
                       Vise President GoPro
