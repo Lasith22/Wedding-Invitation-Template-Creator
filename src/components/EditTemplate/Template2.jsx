@@ -1,13 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
-import {
-  singlishToUnicode,
-  singlishPhoneticToUnicode,
-  unicodeToDlManel,
-  dlManelToUnicode,
-  unicodeToKaputa,
-} from 'sinhala-unicode-coverter';
+
 import invitationImage from '../../assets/weddingCard1.jpeg';
 
 const Template2 = (props) => {
@@ -15,11 +9,6 @@ const Template2 = (props) => {
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
   const [isHoveredDate, setIsHoveredDate] = useState(false);
   const [isHoveredVenue, setIsHoveredVenue] = useState(false);
-  const handleClick = () => {
-    if (props.onClickCoupleName) {
-      props.onClickCoupleName();
-    }
-  };
 
   return (
     <>

@@ -1,24 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
-import {
-  singlishToUnicode,
-  singlishPhoneticToUnicode,
-  unicodeToDlManel,
-  dlManelToUnicode,
-  unicodeToKaputa,
-} from 'sinhala-unicode-coverter';
+
 import invitationImage from '../../assets/template1.jpeg';
 const Template4 = (props) => {
   const [isHoveredCoupleName, setIsHoveredCoupleName] = useState(false);
   const [isHoveredCustomMessage, setIsHoveredCustomMessage] = useState(false);
   const [isHoveredDate, setIsHoveredDate] = useState(false);
   const [isHoveredVenue, setIsHoveredVenue] = useState(false);
-  const handleClick = () => {
-    if (props.onClickCoupleName) {
-      props.onClickCoupleName();
-    }
-  };
 
   return (
     <>

@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Input, Form, message, Select, Spin, Image } from 'antd';
+import { Modal, Input, Form, message, Select, Spin } from 'antd';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { MdLanguage } from 'react-icons/md';

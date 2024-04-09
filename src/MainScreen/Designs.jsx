@@ -4,7 +4,7 @@ import { auth, db, storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useNavigate, useLocation } from 'react-router-dom';
 import MainLogo from '../../src/assets/hela.png';
-import { doc, getDoc, addDoc, collection, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { Dropdown, Spin, Select } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +19,6 @@ import invitationImage8 from '../assets/Template.jpg';
 import i18next from 'i18next';
 import { MdLanguage } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa6';
-import { mainPhoto } from '../assets/hello.avif';
 
 const Dashboard = () => {
   const [coupleNames, setCoupleNames] = useState([]);
