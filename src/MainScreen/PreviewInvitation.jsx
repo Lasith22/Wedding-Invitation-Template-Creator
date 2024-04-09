@@ -7,7 +7,7 @@ import invitationImage4 from '../assets/template1.jpeg';
 import invitationImage5 from '../assets/template5.jpeg';
 import invitationImage6 from '../assets/template2.jpeg';
 import invitationImage7 from '../assets/template3.jpeg';
-import invitationImage8 from '../assets/template4.jpeg';
+import invitationImage8 from '../assets/Template.jpg';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +15,7 @@ import { IoIosColorPalette } from 'react-icons/io';
 import { MdPictureAsPdf } from 'react-icons/md';
 import { FaPencilAlt } from 'react-icons/fa';
 import { LuSticker } from 'react-icons/lu';
-import MainLogo from '../../src/assets/MainLogo.svg';
+import MainLogo from '../../src/assets/hela.png';
 import { Dropdown, Image, Select } from 'antd';
 import i18next from 'i18next';
 import { MdLanguage } from 'react-icons/md';
@@ -105,15 +105,14 @@ const PreviewInvitation = () => {
   return (
     <div>
       <div className="flex justify-between items-stretch p-5">
+        <div className="flex items-center   ">
+          <img src={MainLogo} alt="" className="h-20" />
+        </div>
         {/* couple names */}
         <div className="flex justify-between font-serif text-[40px] gap-5 text-slate-500 ">
           <h1>{state.coupleNames.partnerFirstName}</h1>
           <h1>&</h1>
           <h1>{state.coupleNames.yourFirstName}</h1>
-        </div>
-
-        <div className="flex items-center   ">
-          <img src={MainLogo} alt="" className="h-8" />
         </div>
 
         {/* log out Part */}

@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useNavigate, useLocation } from 'react-router-dom';
-import MainLogo from '../../src/assets/MainLogo.svg';
+import MainLogo from '../../src/assets/hela.png';
 import { doc, getDoc, addDoc, collection, setDoc } from 'firebase/firestore';
 import { Dropdown, Spin, Select } from 'antd';
 import Card2 from '../assets/Card 23.jpeg';
@@ -15,7 +15,7 @@ import invitationImage4 from '../assets/template1.jpeg';
 import invitationImage5 from '../assets/template5.jpeg';
 import invitationImage6 from '../assets/template2.jpeg';
 import invitationImage7 from '../assets/template3.jpeg';
-import invitationImage8 from '../assets/template4.jpeg';
+import invitationImage8 from '../assets/Template.jpg';
 import i18next from 'i18next';
 import { MdLanguage } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa6';
@@ -138,7 +138,7 @@ const Dashboard = () => {
         </div>
 
         <div className="flex items-center   ">
-          <img src={MainLogo} alt="" className="h-8" />
+          <img src={MainLogo} alt="" className="h-20" />
         </div>
 
         {/* log out Part */}

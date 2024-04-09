@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import invitationImage from '../../assets/template4.jpeg';
+import invitationImage from '../../assets/Template.jpg';
 import Draggable from 'react-draggable';
 import { Image } from 'antd';
 import {

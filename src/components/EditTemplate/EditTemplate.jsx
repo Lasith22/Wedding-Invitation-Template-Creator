@@ -10,7 +10,7 @@ import { ShareAltOutlined, FilePdfOutlined } from '@ant-design/icons';
 import Template1 from '../../components/EditTemplate/Template1';
 import Template2 from './Template2';
 import Template3 from './Template3';
-import MainLogo from '../../assets/MainLogo.svg';
+import MainLogo from '../../assets/hela.png';
 import dayjs from 'dayjs';
 import {
   Form,
@@ -507,7 +507,7 @@ const EditTemplate = () => {
           <div className="flex h-20 items-center justify-between">
             {/* MainLogo */}
             <div className="flex items-start   ">
-              <img src={MainLogo} alt="" className="h-8" />
+              <img src={MainLogo} alt="" className="h-20" />
             </div>
             <div
               onClick={showStickerDrawer}

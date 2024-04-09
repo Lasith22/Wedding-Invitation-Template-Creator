@@ -2,7 +2,7 @@ import React from 'react';
 
 import PurplePhone from '../../assets/Group purplePhone.svg';
 import GreenPhone from '../../assets/Group  greenWhatapp.svg';
-import MainLogo from '../../assets/MainLogo.svg';
+import MainLogo from '../../assets/hela.png';
 import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
 const Footer = () => {
@@ -52,7 +52,7 @@ const Footer = () => {
         {/* green rec */}
         <div className="bg-[#597B65] p-10 flex flex-col w-full  max-w-[1388.5px]  justify-center items-center           gap-5      ">
           <div className=" mt-6    ">
-            <img src={MainLogo} className=" " alt="" />
+            <img src={MainLogo} className="h-40 " alt="" />
           </div>
 
           <p className="text-white font-normal font-inter text-[14]">

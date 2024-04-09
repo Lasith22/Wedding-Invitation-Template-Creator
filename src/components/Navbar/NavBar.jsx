@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-import MainLogo from '../../assets/MainLogo.svg';
+import MainLogo from '../../assets/hela.png';
 import { auth } from '../../firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Input, Form, message, Select, Spin } from 'antd';
+import { Modal, Input, Form, message, Select, Spin, Image } from 'antd';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { MdLanguage } from 'react-icons/md';
@@ -117,10 +117,10 @@ const NavBar = () => {
       <Spin spinning={loading} tip="Loading...">
         <div className="  bg-white border-b-2 border-gray-300 ">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="flex   h-20 items-center justify-between">
+            <div className="flex   h-30 items-center justify-between">
               {/* MainLogo */}
-              <div className="flex items-start   ">
-                <img src={MainLogo} alt="" className="h-8" />
+              <div className="flex items-start     ">
+                <img src={MainLogo} alt="" className="h-40" />
               </div>
 
               {/* sections */}
