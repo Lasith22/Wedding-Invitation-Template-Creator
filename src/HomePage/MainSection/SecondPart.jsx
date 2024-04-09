@@ -23,11 +23,8 @@ const SecondPart = () => {
               </h1>
               {/* <img src={BigIcon} /> */}
 
-              <p className="text-18 font-inter text-darkdray mt-10">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                asperiores modi beatae
-                <br /> facere eum! Deleniti, consectetur, molestias
-                reprehenderit laudantium, a rerum ad aut velit sit?
+              <p className="text-18 font-inter text-darkdray mt-5  ">
+                {t('WELCOME_TO')}
               </p>
               <div className="mt-10  ">
                 <button class=" bg-pink-500 cursor-pointer hover:bg-pink-300 text-white font-bold py-3 px-8 rounded-full">

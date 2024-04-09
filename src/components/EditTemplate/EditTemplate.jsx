@@ -52,10 +52,10 @@ const EditTemplate = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openStickerDrawer, setOpenStickerDrawer] = useState(false);
-  const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala1');
+  const [coupleNameFonts, setCoupleNameFont] = useState('font-sinhala5');
   const [customMessageFont, setCustomeMessageFont] = useState('font-sinhala2');
   const [coupleNameColor, setCoupleNameColor] = useState('#000000');
-  const [customMessageColor, setCustomMessageColor] = useState('#000000');
+  const [customMessageColor, setCustomMessageColor] = useState('#FF3F34');
   const [coupleNameFontSize, setCoupleNameFontSize] = useState(30);
   const [customMessageFontSize, setCustomMessageFontSize] = useState(30);
   const [selectedSvgs, setSelectedSvgs] = useState([]);
@@ -66,6 +66,12 @@ const EditTemplate = () => {
   const [imageData, setImageData] = useState(null);
   const [templateImage, setTemplateImage] = useState(null);
   const [imageLink, setImageLink] = useState(null);
+  const [dateFont, setDateFont] = useState('font-sinhala10');
+  const [venueFont, setVenueFont] = useState('font-sinhala5');
+  const [dateFontSize, setDateFontSize] = useState(20);
+  const [venueFontSize, setVenueFontSize] = useState(20);
+  const [dateColor, setDateColor] = useState('#89CFF0');
+  const [venueColor, setVenueColor] = useState('#000000');
   const showDrawerFor = (element) => {
     setEditingElement(element);
     showDrawer();
@@ -76,6 +82,10 @@ const EditTemplate = () => {
       setCoupleNameFont(value);
     } else if (editingElement === 'customMessage') {
       setCustomeMessageFont(value);
+    } else if (editingElement === 'date') {
+      setDateFont(value);
+    } else if (editingElement === 'venue') {
+      setVenueFont(value);
     }
   };
   const handleColorPick = (color, hex) => {
@@ -83,6 +93,10 @@ const EditTemplate = () => {
       setCoupleNameColor(hex);
     } else if (editingElement === 'customMessage') {
       setCustomMessageColor(hex);
+    } else if (editingElement === 'date') {
+      setDateColor(hex);
+    } else if (editingElement === 'venue') {
+      setVenueColor(hex);
     }
   };
   const handleFontSizeChange = (sizeChange) => {
@@ -90,6 +104,10 @@ const EditTemplate = () => {
       setCoupleNameFontSize(sizeChange);
     } else if (editingElement === 'customMessage') {
       setCustomMessageFontSize(sizeChange);
+    } else if (editingElement === 'date') {
+      setDateFontSize(sizeChange);
+    } else if (editingElement === 'venue') {
+      setVenueFontSize(sizeChange);
     }
   };
 
@@ -230,12 +248,12 @@ const EditTemplate = () => {
 
   const items = [
     {
-      label: <h1 onClick={handleDownloadPDF}> Download PDF</h1>,
+      label: <h1 onClick={handleDownloadPDF}> {t('DOWNLOAD_PDF')}</h1>,
       key: '1',
       icon: <FilePdfOutlined />,
     },
     {
-      label: <h1 onClick={showModal}>Share</h1>,
+      label: <h1 onClick={showModal}>{t('SHARE')} </h1>,
       key: '2',
       icon: <ShareAltOutlined />,
     },
@@ -256,6 +274,12 @@ const EditTemplate = () => {
             selectFontsForMessage={customMessageFont}
             fontSize={coupleNameFontSize}
             fontsizeCustomMessage={customMessageFontSize}
+            dateFontSize={dateFontSize}
+            dateColor={dateColor}
+            dateFont={dateFont}
+            venueFontSize={venueFontSize}
+            venueColor={venueColor}
+            venueFont={venueFont}
             selectedSvg={selectedSvgs}
             onEdit={showDrawerFor}
           />
@@ -417,7 +441,20 @@ const EditTemplate = () => {
       }
     }
   };
-  console.log('check link', imageLink === null ? null : imageLink);
+  const getFontSize = () => {
+    switch (editingElement) {
+      case 'coupleName':
+        return coupleNameFontSize;
+      case 'customMessage':
+        return customMessageFontSize;
+      case 'date':
+        return dateFontSize; // Assuming you have a state variable for this
+      case 'venue':
+        return venueFontSize; // Assuming you have a state variable for this
+      default:
+        return 16; // A default font size if none of the conditions match
+    }
+  };
   return (
     <>
       <div className="bg-white border-b-2 border-gray-300">
@@ -455,7 +492,7 @@ const EditTemplate = () => {
                 />
               </div>
 
-              <Button onClick={captureTemplate}>Save</Button>
+              <Button onClick={captureTemplate}>{t('SAVE')}</Button>
               <Dropdown
                 menu={{
                   items,
@@ -480,11 +517,7 @@ const EditTemplate = () => {
           <div className=" bg-[#f1f1f5] h-screen flex justify-evenly items-center relative overflow-hidden">
             <CustomDrawer
               onClose={onClose}
-              fontSize={
-                editingElement === 'coupleName'
-                  ? coupleNameFontSize
-                  : customMessageFontSize
-              }
+              fontSize={getFontSize()}
               setFontSize={handleFontSizeChange}
               open={openDrawer}
               handleColorChange={handleColorPick}
@@ -538,7 +571,10 @@ const EditTemplate = () => {
               <Form layout="vertical">
                 <div className=" mt-3 flex items-center justify-center flex-col gap-1">
                   <div className=" flex justify-between items-center gap-3">
-                    <Form.Item label="Enter Couple Names" name="coupleNames">
+                    <Form.Item
+                      label={t('ENTER_COUPLE_NAME')}
+                      name="coupleNames"
+                    >
                       <Input.TextArea
                         className="font-sinhala1"
                         defaultValue={coupleName}
@@ -549,7 +585,7 @@ const EditTemplate = () => {
                   </div>
 
                   <div className=" flex justify-between items-center gap-3">
-                    <Form.Item label="Enter Custom Message">
+                    <Form.Item label={t('ENTER_CUSTOM')}>
                       <Input.TextArea
                         className="font-sinhala1"
                         defaultValue={customMessage}
@@ -561,7 +597,7 @@ const EditTemplate = () => {
                   </div>
 
                   <div className=" flex justify-between items-center gap-3">
-                    <Form.Item label="Enter Date">
+                    <Form.Item label={t('ENTER_DATE')}>
                       <DatePicker
                         id="weddingDate"
                         style={{ width: 400 }}
@@ -572,7 +608,7 @@ const EditTemplate = () => {
                   </div>
 
                   <div className=" flex justify-between items-center gap-3">
-                    <Form.Item label="Enter Venue">
+                    <Form.Item label={t('ENTER_VENUE')}>
                       <Input.TextArea
                         defaultValue={venue}
                         onChange={onvenueChange}
@@ -591,7 +627,7 @@ const EditTemplate = () => {
               style={{ maxHeight: '80vh' }}
               title={
                 <div className="custom-modal-title border-b-2 border-gray-200 p-4">
-                  Share
+                  {t('SHARE')}
                 </div>
               }
               open={isModalOpen}
@@ -614,14 +650,14 @@ const EditTemplate = () => {
                       <Form.Item label="To" name="guestEmail">
                         <Input.TextArea
                           size="large"
-                          placeholder="Enter  Guest Email"
+                          placeholder={t('ENTER_GUEST_EMAIL')}
                         />
                       </Form.Item>
                     </div>
 
                     <div className="mt-10 mb-10 items-center justify-center flex">
                       <button class=" bg-pink-500 hover:bg-pink-300 text-white font-bold py-2 px-4 rounded-full w-[200px]  ">
-                        Send
+                        {t('SEND')}
                       </button>
                     </div>
                   </Form>
