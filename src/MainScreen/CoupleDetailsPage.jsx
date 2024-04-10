@@ -55,7 +55,7 @@ const CoupleDetailsPage = () => {
           <div className="flex flex-col justify-center items-center  ">
             <div className=" pt-20 text-3xl text-pink-700  ">
               <Title style={{ color: 'pink' }} italic level={2}>
-                Mad Labs
+                හෙල වෙඩිම
               </Title>
             </div>
 

@@ -188,13 +188,6 @@ const EditTemplate = () => {
 
   const svgs = [
     { id: 'svg1', component: SVGs.Svg1 },
-    { id: 'svg13', component: SVGs.Svg13 },
-    { id: 'svg8', component: SVGs.Svg8 },
-    { id: 'svg9', component: SVGs.Svg9 },
-    { id: 'svg10', component: SVGs.Svg10 },
-    { id: 'svg14', component: SVGs.Svg14 },
-    { id: 'svg11', component: SVGs.Svg11 },
-    { id: 'svg12', component: SVGs.Svg12 },
     { id: 'svg15', component: SVGs.Svg15 },
     { id: 'svg16', component: SVGs.Svg16 },
     { id: 'svg17', component: SVGs.Svg17 },
@@ -202,12 +195,9 @@ const EditTemplate = () => {
     { id: 'svg19', component: SVGs.Svg19 },
     { id: 'svg20', component: SVGs.Svg20 },
     { id: 'svg21', component: SVGs.Svg21 },
-    { id: 'svg22', component: SVGs.Svg22 },
-    { id: 'svg23', component: SVGs.Svg23 },
     { id: 'svg24', component: SVGs.Svg24 },
     { id: 'svg25', component: SVGs.Svg25 },
     { id: 'svg26', component: SVGs.Svg26 },
-    { id: 'svg27', component: SVGs.Svg27 },
     { id: 'svg28', component: SVGs.Svg28 },
     { id: 'svg29', component: SVGs.Svg29 },
     { id: 'svg30', component: SVGs.Svg30 },
@@ -215,7 +205,6 @@ const EditTemplate = () => {
     { id: 'svg32', component: SVGs.Svg32 },
     { id: 'svg33', component: SVGs.Svg33 },
     { id: 'svg34', component: SVGs.Svg34 },
-    { id: 'svg35', component: SVGs.Svg35 },
   ];
   const handleDownloadPDF = () => {
     setLoading(true);
@@ -652,9 +641,10 @@ const EditTemplate = () => {
                     </Form.Item>
                   </div>
 
-                  <div className=" flex justify-between items-center gap-3">
+                  <div className="font-sinhala1 flex justify-between items-center gap-3">
                     <Form.Item label={t('ENTER_VENUE')}>
                       <Input.TextArea
+                        className="font-sinhala9"
                         defaultValue={venue}
                         onChange={onvenueChange}
                         rows={2}
