@@ -593,7 +593,7 @@ const EditTemplate = () => {
             <div className="  ">
               <Alert
                 style={{
-                  width: 400,
+                  width: 500,
                 }}
                 banner
                 message={
