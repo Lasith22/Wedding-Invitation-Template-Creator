@@ -68,8 +68,8 @@ const EditTemplate = () => {
   const [imageData, setImageData] = useState(null);
   const [templateImage, setTemplateImage] = useState(null);
   const [imageLink, setImageLink] = useState(null);
-  const [dateFont, setDateFont] = useState('font-sinhala10');
-  const [venueFont, setVenueFont] = useState('font-sinhala5');
+  const [dateFont, setDateFont] = useState('font-sinhala4');
+  const [venueFont, setVenueFont] = useState('font-sinhala6');
   const [dateFontSize, setDateFontSize] = useState(20);
   const [venueFontSize, setVenueFontSize] = useState(20);
   const [dateColor, setDateColor] = useState('#89CFF0');
