@@ -45,7 +45,7 @@ const EditTemplate = () => {
   );
 
   const [customMessage, setCustomeMessage] = useState(
-    'REQUEST YOUR PRESENCE AT THE CEREMONY & CELEBRATION OF THEIR MARRIAGE',
+    'REQUEST YOUR PRESENCE AT THE CEREMONY',
   );
   const [date, setDate] = useState(dayjs().format('YYYY MM-DD '));
   const [venue, setvnue] = useState('Colmbo');
