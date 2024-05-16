@@ -32,7 +32,7 @@ const CustomerStories = () => {
                   <img className="mt-2" src={comma} alt="" />
                   <div className="flex flex-col   ml-9 text-smallText font-inter text-18 font-normal">
                     <p>{t('FEEDBACK_ONE')}</p>
-                    <h1 className="  font-semibold mt-2">Floyd Miles</h1>
+                    <h1 className="  font-semibold mt-2"> Lasith Herath</h1>
                     <h1 className="text-darkText text-14">
                       Vise President GoPro
                     </h1>
