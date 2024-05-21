@@ -66,7 +66,7 @@ const DesignView = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             <Image src={Invitation1} width={400} />
 
             <div className="flex flex-col   gap-3 ">
