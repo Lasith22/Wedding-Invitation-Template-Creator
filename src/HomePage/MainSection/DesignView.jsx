@@ -76,7 +76,7 @@ const DesignView = () => {
                 </h1>
               </div>
 
-              <h1 className="text-2xl font-bold font-inter  ">
+              <h1 className="text-2xl font-semibold font-inter  ">
                 {t('A_TOUCH')} <br />
                 {t('OF_ELEGANCE')}
               </h1>
