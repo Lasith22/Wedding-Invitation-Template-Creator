@@ -49,7 +49,7 @@ const Quations = () => {
             {/* border bottom */}
             <div className="flex border-b my-10"></div>
 
-            <div className="flex items-stretch justify-between  gap-20  ">
+            <div className="flex items-stretch justify-between  gap-18  ">
               <h1 className="text-[20px] font-semibold font-manrope">
                 {t('HOW_CAN_I')}
               </h1>
