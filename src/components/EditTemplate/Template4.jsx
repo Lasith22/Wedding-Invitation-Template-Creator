@@ -14,7 +14,7 @@ const Template4 = (props) => {
       <div className="relative max-w-lg mx-auto">
         <Image
           src={invitationImage}
-          alt="Wedding Invitation Background"
+          alt="Wedding Invitation bg image"
           width={450}
           height={700}
         />
