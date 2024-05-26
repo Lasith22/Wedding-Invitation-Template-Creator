@@ -22,7 +22,7 @@ const Template4 = (props) => {
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
           <Draggable bounds="parent">
             <div
-              className={`text-center ${props.selectFonts} border-2 p-3 ${
+              className={`text-center ${props.selectFonts} border-2 p-4 ${
                 isHoveredCoupleName
                   ? ' border-dashed border-black bg-gray-50'
                   : 'border-none'
