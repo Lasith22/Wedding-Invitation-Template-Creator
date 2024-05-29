@@ -82,7 +82,7 @@ const Template4 = (props) => {
               onClick={() => props.onEdit('date')}
               className={`text-md text-center  ${props.dateFont} border-2 p-3 ${
                 isHoveredDate ? ' border-dashed bg-gray-100' : 'border-none'
-              }  text-black my-4`}
+              }  text-black my-5`}
               style={{
                 fontSize: props.dateFontSize,
                 color: `${props.dateColor}`,
