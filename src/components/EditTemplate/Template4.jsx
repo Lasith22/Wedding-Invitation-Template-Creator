@@ -101,7 +101,7 @@ const Template4 = (props) => {
                 props.venueFont
               } border-2 p-3 ${
                 isHoveredVenue ? ' border-dashed bg-gray-100' : 'border-none'
-              }  text-black my-4`}
+              }  text-black my-5`}
               style={{
                 fontSize: props.venueFontSize,
                 color: `${props.venueColor}`,
