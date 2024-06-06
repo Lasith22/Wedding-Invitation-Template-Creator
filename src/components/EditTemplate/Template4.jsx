@@ -100,7 +100,7 @@ const Template4 = (props) => {
               className={`text-md text-center  ${
                 props.venueFont
               } border-2 p-3 ${
-                isHoveredVenue ? ' border-dashed bg-gray-100' : 'border-none'
+                isHoveredVenue ? ' border-dashed bg-gray-200' : 'border-none'
               }  text-black my-5`}
               style={{
                 fontSize: props.venueFontSize,
