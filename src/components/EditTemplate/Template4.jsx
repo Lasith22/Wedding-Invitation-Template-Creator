@@ -53,7 +53,7 @@ const Template4 = (props) => {
                 props.selectFontsForMessage
               } border-2 p-3 ${
                 isHoveredCustomMessage
-                  ? ' border-dashed bg-gray-200'
+                  ? ' border-dashed bg-gray-100'
                   : 'border-none'
               }  text-black my-4`}
             >
