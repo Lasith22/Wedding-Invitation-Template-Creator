@@ -55,7 +55,7 @@ const Template4 = (props) => {
                 isHoveredCustomMessage
                   ? ' border-dashed bg-gray-100'
                   : 'border-none'
-              }  text-black my-4`}
+              }  text-black my-2`}
             >
               {props.customMessage}
             </p>
