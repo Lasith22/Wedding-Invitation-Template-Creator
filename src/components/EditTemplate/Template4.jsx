@@ -51,7 +51,7 @@ const Template4 = (props) => {
               onMouseLeave={() => setIsHoveredCustomMessage(false)}
               className={`text-md text-center  ${
                 props.selectFontsForMessage
-              } border-2 p-3 ${
+              } border-2 p-4 ${
                 isHoveredCustomMessage
                   ? ' border-dashed bg-gray-100'
                   : 'border-none'
