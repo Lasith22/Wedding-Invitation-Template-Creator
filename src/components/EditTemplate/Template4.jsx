@@ -70,7 +70,7 @@ const Template4 = (props) => {
                     position: 'absolute',
                   }}
                 >
-                  <SvgComponent style={{ width: '100px', height: '100px' }} />
+                  <SvgComponent style={{ width: '100px', height: '10px' }} />
                 </div>
               </Draggable>
             ))}
