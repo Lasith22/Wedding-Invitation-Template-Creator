@@ -78,7 +78,7 @@ const Template1 = (props) => {
               onMouseEnter={() => setIsHoveredDate(true)}
               onMouseLeave={() => setIsHoveredDate(false)}
               onClick={() => props.onEdit('date')}
-              className={`text-md text-center  ${props.dateFont} border-2 p-3 ${
+              className={`text-lg text-center  ${props.dateFont} border-2 p-3 ${
                 isHoveredDate ? ' border-dashed bg-gray-100' : 'border-none'
               }  text-black my-4`}
               style={{
