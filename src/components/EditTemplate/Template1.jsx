@@ -15,7 +15,7 @@ const Template1 = (props) => {
           src={invitationImage}
           alt="Wedding Invitation Background"
           width={450}
-          height={700}
+          height={600}
         />
 
         <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center p-4">
